@@ -114,6 +114,10 @@ namespace ApplicationManagement.GUI
                     Trace.WriteLine("invalid Username or password");
                 }
             }*/
+
+            MainWindow mainPage = new MainWindow();
+            this.Close();
+            mainPage.Show();
         }
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
