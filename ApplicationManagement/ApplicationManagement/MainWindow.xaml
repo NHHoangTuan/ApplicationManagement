@@ -3,10 +3,124 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:ApplicationManagement"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+         Title="MainWindow" Height="780" Width="1280" 
+ Background="Transparent" Loaded="Window_Loaded">
 
-    </Grid>
+
+    <Border  Padding="30" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="161*"/>
+                <RowDefinition Height="573*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Menu-->
+            <Border Grid.RowSpan="2" CornerRadius="15">
+                <Border.Background>
+                    <LinearGradientBrush Opacity="0.4">
+                        <GradientStop Color="#2986cc" Offset="0.5" />
+
+                        
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <!--Logo-->
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10 30 10 40">
+                        <Grid>
+                            <Border Background="#ffffff" Width="35" Height="35" CornerRadius="50"/>
+                            <Border Width="35" Height="35" BorderBrush="#ffffff" BorderThickness="3" CornerRadius="50">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                                </Border.Effect>
+
+                                <!--Icon-->
+                                <Icon:PackIconMaterial Kind="ShoppingOutline" Width="15" Height="15" Foreground="#fb7154" VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center" Margin="0 0 0 0">
+
+                                </Icon:PackIconMaterial>
+                            </Border>
+                        </Grid>
+
+                        <!--Tilte Text-->
+                        <TextBlock Text="ABC Company" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!--Menu Items-->
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="dashboardButton_Click" x:Name="dashboardButton">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Trang chủ" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag1Button_Click" x:Name="tag1Button" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Danh mục 1" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag2Button_Click" x:Name="tag2Button" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Danh mục 2" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Receipt" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Danh mục 3" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag4Button_Click" x:Name="tag4Button">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Danh mục 4" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag5Button_Click" x:Name="tag5Button">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="TicketPercentOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Danh mục 5" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="configurationButton_Click" x:Name="configurationButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Cài đặt" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+                </StackPanel>
+            </Border>
+
+
+            <Frame x:Name="pageNavigation" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10 0 0 0" Grid.RowSpan="2">
+
+            </Frame>
+
+
+
+
+
+        </Grid>
+    </Border>
+
 </Window>
