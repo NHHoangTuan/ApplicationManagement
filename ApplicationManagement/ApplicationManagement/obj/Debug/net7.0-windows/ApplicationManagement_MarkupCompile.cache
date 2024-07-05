@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
-8-1970689899
+10505911442
 9-1035562976
-11-1333685667
+131667677463
 200861358541
-GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+CandidateWindow.xaml;EnterpriseWindow.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
 False
 

@@ -76,7 +76,7 @@
                     </Grid>
                 </Border>
 
-                <CheckBox x:Name="rememberCheckBox" Content="Remember" Margin="74 10 0 0" Click="rememberCheckBox_Click"/>
+                <CheckBox x:Name="rememberCheckBox" Content="Remember Password" Margin="74 10 0 0" Click="rememberCheckBox_Click"/>
 
                 <StackPanel Orientation="Vertical" Margin="0 20 0 0" HorizontalAlignment="Center">
                     <Button Name ="SignInButton" Content="Đăng nhập" Click="SignInButton_Click" Style="{StaticResource SignInButton}"

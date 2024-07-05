@@ -1,4 +1,4 @@
-﻿<Window x:Class="ApplicationManagement.MainWindow"
+﻿<Window x:Class="ApplicationManagement.EnterpriseWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,11 +7,11 @@
         xmlns:local="clr-namespace:ApplicationManagement"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-         Title="MainWindow" Height="780" Width="1280" ResizeMode="CanMinimize" WindowState="Maximized"
+         Title="EnterpriseWindow" Height="780" Width="1280" ResizeMode="CanMinimize" WindowState="Maximized"
  Background="Transparent" Loaded="Window_Loaded">
 
 
-    <Border  Padding="20" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border  Padding="30" Background="#fce5cd" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -24,12 +24,12 @@
             </Grid.ColumnDefinitions>
 
             <!--Menu-->
-            <Border Grid.RowSpan="2" CornerRadius="15"  Margin="10">
+            <Border Grid.RowSpan="2" CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush Opacity="0.4">
-                        <GradientStop Color="#2986cc" Offset="0.5" />
+                        <GradientStop Color="#f6b26b" Offset="0.5" />
 
-                        
+
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -52,7 +52,7 @@
                         </Grid>
 
                         <!--Tilte Text-->
-                        <TextBlock Text="Công Ty ABC" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
+                        <TextBlock Text="Doanh Nghiệp" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
                             </TextBlock.Effect>
@@ -67,24 +67,24 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag1Button_Click" x:Name="tag1Button" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh Sách Doanh Nghiệp" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Đăng Ký Tuyển Dụng" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag2Button_Click" x:Name="tag2Button" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh Sách Ứng Viên" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Thanh Toán" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
                     <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
                         <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Lập DS Doanh Nghiệp Tiềm Năng" Style="{StaticResource menuButtonText}"/>
+                            <Icon:PackIconMaterial Kind="Receipt" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Duyệt Hồ Sơ Ứng Tuyển" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
@@ -101,10 +101,6 @@
             <Frame x:Name="pageNavigation" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10 0 0 0" Grid.RowSpan="2">
 
             </Frame>
-
-
-
-
 
         </Grid>
     </Border>

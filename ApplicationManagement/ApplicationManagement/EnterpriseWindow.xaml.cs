@@ -1,30 +1,22 @@
-﻿using ApplicationManagement.GUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace ApplicationManagement {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EnterpriseWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
+    public partial class EnterpriseWindow : Window {
 
         ToggleButton[] buttons;
-        Enterprise enterprise;
 
-        public MainWindow() {
+        public EnterpriseWindow() {
             InitializeComponent();
-            enterprise = new Enterprise(); 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, enterpriseButton, tag2Button,
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, tag1Button, tag2Button,
                 tag3Button, logOutButton};
             buttons = new_buttons;
 
@@ -64,14 +56,14 @@ namespace ApplicationManagement {
             pageNavigation.NavigationService.Navigate(dashboard);*/
         }
 
-        private void enterpriseButton_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(enterpriseButton);
-            if (pageNavigation.NavigationService.Content != null)
+        private void tag1Button_Click(object sender, RoutedEventArgs e) {
+            changeButtonColor(tag1Button);
+            /*if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(enterprise);
+            pageNavigation.NavigationService.Navigate(tag1);*/
         }
 
         private void tag2Button_Click(object sender, RoutedEventArgs e) {
