@@ -72,6 +72,11 @@ namespace ApplicationManagement.GUI {
                     this.Close();
                     enterprisePage.Show();
                 }
+                else if (inputUsername == "candidate") {
+                    CandidateWindow candidatePage = new CandidateWindow();
+                    this.Close();
+                    candidatePage.Show();
+                }
             }
 
         }

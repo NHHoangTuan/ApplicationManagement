@@ -90,3 +90,5 @@ D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\Applicati
 D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\ref\ApplicationManagement.dll
 D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\EnterpriseWindow.g.cs
 D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\EnterpriseWindow.baml
+D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\CandidateWindow.g.cs
+D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\CandidateWindow.baml
