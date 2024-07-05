@@ -72,16 +72,16 @@
                             <DataTemplate>
                                 <Grid 
 Name="EnterpriseItem" HorizontalAlignment="Center" VerticalAlignment="Center"
-Width="370"
-Margin="0"
-Height="300">
+Width="360"
+Margin="0 10 0 10"
+Height="290">
 
                                     <Button Name="ItemButton"
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
-    Width="360"
-    Margin="0"
-    Height="290"
+    Width="350"
+    Margin="0 10 0 10"
+    Height="280"
     BorderThickness="0.1"
     BorderBrush="Orange"
     Padding="8, 8,8,8"
@@ -90,7 +90,7 @@ Height="300">
                     
     >
 
-                                        <Grid Width="340" Height="260" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Grid Width="330" Height="250" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
@@ -101,7 +101,7 @@ Height="300">
                >
 
 
-                                                <Image Width="80" Grid.Column="0"
+                                                <Image Width="70" Grid.Column="0"
 
 Cursor="Hand"                      
 Margin="0, 0, 0, 0"

@@ -54,3 +54,6 @@ D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\o
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\ApplicationManagement.pdb
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\ApplicationManagement.genruntimeconfig.cache
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\ref\ApplicationManagement.dll
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\EnterpriseDetail.g.cs
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\EnterpriseDetail.baml
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\1_1.jpg

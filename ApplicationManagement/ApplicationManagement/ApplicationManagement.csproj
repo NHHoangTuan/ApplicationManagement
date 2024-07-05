@@ -51,7 +51,6 @@
 
   <ItemGroup>
     <Folder Include="DAO\" />
-    <Folder Include="DTO\" />
     <Folder Include="BUS\" />
   </ItemGroup>
 
@@ -60,6 +59,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\Images\Design\1_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Images\Design\2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
