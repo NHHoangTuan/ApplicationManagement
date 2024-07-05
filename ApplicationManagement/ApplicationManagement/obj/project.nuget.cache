@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "pEGP7GYDo4vZG5hbvGF7pisT01ukuQHJzIYj3N/UG4UKldXW+mZHq5G8969QHbDXga7AHYlii6ZdzOY5HC/wzg==",
+  "dgSpecHash": "fACuflA0YFGzISKjiWL1FZmnpPX67Ml2qPcV4p7vTQDo3dVNyo/bpvrHcUgSpavHXen6RUXGtyVp0PqdhbWUyw==",
   "success": true,
-  "projectFilePath": "D:\\HCMUS\\Information Systems Analysis and Design\\Group Project\\Project\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+  "projectFilePath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ADMIN\\.nuget\\packages\\mahapps.metro.iconpacks.core\\5.0.0\\mahapps.metro.iconpacks.core.5.0.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\mahapps.metro.iconpacks.material\\5.0.0\\mahapps.metro.iconpacks.material.5.0.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.json\\6.0.9\\system.text.json.6.0.9.nupkg.sha512"
+    "C:\\Users\\Hoang Tuan\\.nuget\\packages\\mahapps.metro.iconpacks.core\\5.0.0\\mahapps.metro.iconpacks.core.5.0.0.nupkg.sha512",
+    "C:\\Users\\Hoang Tuan\\.nuget\\packages\\mahapps.metro.iconpacks.material\\5.0.0\\mahapps.metro.iconpacks.material.5.0.0.nupkg.sha512",
+    "C:\\Users\\Hoang Tuan\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Hoang Tuan\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\Hoang Tuan\\.nuget\\packages\\system.text.json\\6.0.9\\system.text.json.6.0.9.nupkg.sha512"
   ],
   "logs": []
 }

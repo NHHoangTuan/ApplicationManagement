@@ -1,4 +1,10 @@
-﻿using System.Windows;
+﻿using ApplicationManagement.GUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -10,13 +16,15 @@ namespace ApplicationManagement {
     public partial class MainWindow : Window {
 
         ToggleButton[] buttons;
+        Enterprise enterprise;
 
         public MainWindow() {
             InitializeComponent();
+            enterprise = new Enterprise(); 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, tag1Button, tag2Button,
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, enterpriseButton, tag2Button,
                 tag3Button, logOutButton};
             buttons = new_buttons;
 
@@ -56,14 +64,14 @@ namespace ApplicationManagement {
             pageNavigation.NavigationService.Navigate(dashboard);*/
         }
 
-        private void tag1Button_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(tag1Button);
-            /*if (pageNavigation.NavigationService.Content != null)
+        private void enterpriseButton_Click(object sender, RoutedEventArgs e) {
+            changeButtonColor(enterpriseButton);
+            if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(tag1);*/
+            pageNavigation.NavigationService.Navigate(enterprise);
         }
 
         private void tag2Button_Click(object sender, RoutedEventArgs e) {

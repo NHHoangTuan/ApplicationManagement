@@ -16,6 +16,12 @@
     <Compile Update="GUI\ChooseTypeSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\Enterprise.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\EnterpriseDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\EnterpriseSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +40,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\ChooseTypeSignUp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\Enterprise.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\EnterpriseDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\EnterpriseSignUp.xaml">

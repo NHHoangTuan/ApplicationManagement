@@ -7,11 +7,11 @@
         xmlns:local="clr-namespace:ApplicationManagement"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-         Title="EnterpriseWindow" Height="780" Width="1280" 
+         Title="EnterpriseWindow" Height="780" Width="1280"  ResizeMode="CanMinimize" WindowState="Maximized"
  Background="Transparent" Loaded="Window_Loaded">
 
 
-    <Border  Padding="30" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border  Padding="30" Background="#d9ead3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -27,7 +27,7 @@
             <Border Grid.RowSpan="2" CornerRadius="15">
                 <Border.Background>
                     <LinearGradientBrush Opacity="0.4">
-                        <GradientStop Color="Green" Offset="0.5" />
+                        <GradientStop Color="#6aa84f" Offset="0.5" />
 
 
                     </LinearGradientBrush>
