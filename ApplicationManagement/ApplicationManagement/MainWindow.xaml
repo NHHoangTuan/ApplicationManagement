@@ -7,11 +7,11 @@
         xmlns:local="clr-namespace:ApplicationManagement"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-         Title="MainWindow" Height="780" Width="1280" 
+         Title="MainWindow" Height="780" Width="1280" ResizeMode="CanMinimize" WindowState="Maximized"
  Background="Transparent" Loaded="Window_Loaded">
 
 
-    <Border  Padding="30" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+    <Border  Padding="20" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -24,7 +24,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Menu-->
-            <Border Grid.RowSpan="2" CornerRadius="15">
+            <Border Grid.RowSpan="2" CornerRadius="15"  Margin="10">
                 <Border.Background>
                     <LinearGradientBrush Opacity="0.4">
                         <GradientStop Color="#2986cc" Offset="0.5" />
@@ -67,10 +67,10 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag1Button_Click" x:Name="tag1Button" >
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh mục 1" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Doanh nghiệp" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 

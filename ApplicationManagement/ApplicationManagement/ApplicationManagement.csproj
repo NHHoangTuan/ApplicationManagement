@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Assets\Images\Data\user_icon.png" />
+    <None Remove="Assets\Images\Design\1.jpg" />
     <None Remove="Assets\Images\Design\close.png" />
     <None Remove="Assets\Images\Design\first_icon.png" />
     <None Remove="Assets\Images\Design\last_icon.png" />
@@ -20,6 +21,9 @@
 
   <ItemGroup>
     <Content Include="Assets\Images\Data\user_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\Design\1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\Design\close.png">
@@ -53,6 +57,21 @@
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\Images\Design\2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Design\3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Design\4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Design\5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

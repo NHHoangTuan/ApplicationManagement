@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,15 +24,18 @@ namespace ApplicationManagement
     {
 
         ToggleButton[] buttons;
+        Enterprise enterprise;
+        
 
         public MainWindow()
         {
             InitializeComponent();
+            enterprise = new Enterprise();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, tag1Button, tag2Button,
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, enterpriseButton, tag2Button,
                 tag3Button, tag4Button, configurationButton, tag5Button};
             buttons = new_buttons;
 
@@ -78,15 +82,15 @@ namespace ApplicationManagement
             pageNavigation.NavigationService.Navigate(dashboard);*/
         }
 
-        private void tag1Button_Click(object sender, RoutedEventArgs e)
+        private void enterpriseButton_Click(object sender, RoutedEventArgs e)
         {
-            changeButtonColor(tag1Button);
-            /*if (pageNavigation.NavigationService.Content != null)
+            changeButtonColor(enterpriseButton);
+            if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(tag1);*/
+            pageNavigation.NavigationService.Navigate(enterprise);
         }
 
         private void tag2Button_Click(object sender, RoutedEventArgs e)
@@ -156,5 +160,7 @@ namespace ApplicationManagement
 
             b.IsChecked = true;
         }
+
+        
     }
 }

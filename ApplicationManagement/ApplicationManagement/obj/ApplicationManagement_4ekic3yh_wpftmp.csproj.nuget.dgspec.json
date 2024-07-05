@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {}
+  },
+  "projects": {
+    "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+        "projectName": "ApplicationManagement",
+        "projectPath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+        "packagesPath": "C:\\Users\\Hoang Tuan\\.nuget\\packages\\",
+        "outputPath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Hoang Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0-windows7.0": {
+            "targetAlias": "net7.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
+          "dependencies": {
+            "MahApps.Metro.IconPacks.Material": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

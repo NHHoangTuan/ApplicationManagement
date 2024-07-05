@@ -43,3 +43,10 @@ D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\o
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\CandidateSignUp.baml
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\EnterpriseSignUp.g.cs
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\EnterpriseSignUp.baml
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\Enterprise.g.cs
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\1.jpg
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\Enterprise.baml
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\2.jpg
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\3.jpg
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\4.png
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\5.png
