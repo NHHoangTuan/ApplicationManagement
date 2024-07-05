@@ -122,8 +122,8 @@ namespace ApplicationManagement.GUI
 
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
-            /*var signUp = new SignUp();
-            signUp.ShowDialog();*/
+            var chooseWindow = new ChooseTypeSignUp();
+            chooseWindow.ShowDialog();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
