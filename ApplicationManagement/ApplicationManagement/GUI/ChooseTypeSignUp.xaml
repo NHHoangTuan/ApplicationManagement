@@ -1,0 +1,106 @@
+﻿<Window x:Class="ApplicationManagement.GUI.ChooseTypeSignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicationManagement.GUI"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="ChooseTypeSignUp" Height="180" Width="380" WindowStartupLocation="CenterScreen">
+
+    <Border Background="LightBlue">
+        <Grid Name="MainContainer">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <!--Hiển thị title-->
+            <TextBlock
+        Grid.Column="1"
+        Text="Chọn loại đăng ký"
+        Margin="10"
+        Foreground="MediumVioletRed"
+        VerticalAlignment="Center"
+        FontSize="20"
+        FontWeight="Bold"
+        FontFamily="Segoe UI"
+        >
+            </TextBlock>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Margin="20">
+
+                <Button
+                    
+                    Margin="0 0 10 0"
+
+    VerticalAlignment="Center" 
+    HorizontalAlignment="Center"
+    Name="enterpriseButton"
+    Width="140"
+    Height="35"
+    Style="{StaticResource MyButtonStyle}"
+    BorderThickness="0.5"
+    BorderBrush="Blue"
+    Click="enterpriseButton_Click"
+>
+                    <StackPanel
+    Orientation="Horizontal">
+                        <Icon:PackIconMaterial 
+            Name="Logout"
+            Width="16"
+            Height="16"
+            RenderOptions.BitmapScalingMode="HighQuality"
+            Kind="ArrowLeft"
+            Margin="5"
+            Foreground="#8B4000"
+            />
+                        <TextBlock
+            FontWeight="Bold"
+            Foreground="#8B4000"
+            VerticalAlignment="Center"
+        >Doanh nghiệp</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+                <Button
+
+                    Margin="10 0 0 0"
+    VerticalAlignment="Center" 
+    HorizontalAlignment="Center"
+    Name="candidateButton"
+    Width="140"
+    Height="35"
+    Style="{StaticResource MyButtonStyle}"
+    BorderThickness="0.5"
+    BorderBrush="Blue"
+    Click="candidateButton_Click"
+>
+                    <StackPanel
+    Orientation="Horizontal">
+                        <Icon:PackIconMaterial 
+            Name="Login"
+            Width="16"
+            Height="16"
+            RenderOptions.BitmapScalingMode="HighQuality"
+            Kind="ArrowRight"
+            Margin="5"
+            Foreground="#8B4000"
+            />
+                        <TextBlock
+            FontWeight="Bold"
+            Foreground="#8B4000"
+            VerticalAlignment="Center"
+        >Ứng viên</TextBlock>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+            <!--Hiển thị nút bấm-->
+            
+        </Grid>
+    </Border>
+</Window>

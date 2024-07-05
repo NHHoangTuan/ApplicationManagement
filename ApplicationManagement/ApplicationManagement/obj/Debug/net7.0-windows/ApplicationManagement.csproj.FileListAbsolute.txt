@@ -37,3 +37,9 @@ D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\b
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\prev_icon.png
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\bin\Debug\net7.0-windows\Assets\Images\Design\user_icon.png
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\ApplicationManagement_Content.g.cs
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\ChooseTypeSignUp.g.cs
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\ChooseTypeSignUp.baml
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\CandidateSignUp.g.cs
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\CandidateSignUp.baml
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\EnterpriseSignUp.g.cs
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\GUI\EnterpriseSignUp.baml

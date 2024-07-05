@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
-4-211006468
+7-886286332
 82052432783
-9-1969094990
+12-1238622223
 200861358541
-GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
-False
+True
 
