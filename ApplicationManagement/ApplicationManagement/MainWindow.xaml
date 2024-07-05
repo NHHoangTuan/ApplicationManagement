@@ -19,7 +19,7 @@
                 <RowDefinition Height="573*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -52,7 +52,7 @@
                         </Grid>
 
                         <!--Tilte Text-->
-                        <TextBlock Text="ABC Company" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
+                        <TextBlock Text="Công Ty ABC" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
                             </TextBlock.Effect>
@@ -70,42 +70,28 @@
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag1Button_Click" x:Name="tag1Button" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh mục 1" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Danh Sách Doanh Nghiệp" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag2Button_Click" x:Name="tag2Button" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh mục 2" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Danh Sách Ứng Viên" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
                     <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
                         <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Receipt" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh mục 3" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </ToggleButton>
-
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag4Button_Click" x:Name="tag4Button">
-                        <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh mục 4" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Lập DS Doanh Nghiệp Tiềm Năng" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag5Button_Click" x:Name="tag5Button">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="TicketPercentOutline" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh mục 5" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </ToggleButton>
-
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="configurationButton_Click" x:Name="configurationButton" >
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="logOutButton_Click" x:Name="logOutButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Cài đặt" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Đăng Xuất" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
                 </StackPanel>

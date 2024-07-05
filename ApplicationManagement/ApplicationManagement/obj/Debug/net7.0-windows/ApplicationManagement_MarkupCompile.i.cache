@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
+D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
 ApplicationManagement
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
-7-886286332
+D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
+91590315009
 82052432783
-12-1238622223
-200861358541
-GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+141762740907
+2002105954213
+CandidateWindow.xaml;EnterpriseWindow.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
 True
 

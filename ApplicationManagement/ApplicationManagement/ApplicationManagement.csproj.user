@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CandidateWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\CandidateSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,8 +22,14 @@
     <Compile Update="GUI\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EnterpriseWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CandidateWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="GUI\CandidateSignUp.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -40,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\StyleResource.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EnterpriseWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
