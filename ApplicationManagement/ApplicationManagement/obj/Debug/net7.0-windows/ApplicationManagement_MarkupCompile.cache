@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
-7-886286332
+8-1311849611
 82052432783
-10-1099045915
+111064146924
 2002105954213
-GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+EnterpriseWindow.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
 False
 
