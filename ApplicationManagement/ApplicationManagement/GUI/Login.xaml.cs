@@ -63,17 +63,17 @@ namespace ApplicationManagement.GUI {
                 string inputUsername = userTextBox.Text;
                 string inputPassword = passwordTextBox.Password;
 
-                if (inputUsername == "staff") {
+                if (inputUsername.Contains("staff")) {
                     MainWindow mainPage = new MainWindow();
                     this.Close();
                     mainPage.Show();
                 }
-                else if (inputUsername == "enterprise") {
+                else if (inputUsername.Contains("enterprise")) {
                     EnterpriseWindow enterprisePage = new EnterpriseWindow();
                     this.Close();
                     enterprisePage.Show();
                 }
-                else if (inputUsername == "candidate") {
+                else if (inputUsername.Contains("candidate") {
                     CandidateWindow candidatePage = new CandidateWindow();
                     this.Close();
                     candidatePage.Show();
