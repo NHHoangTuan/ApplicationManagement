@@ -67,7 +67,7 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag1Button_Click" x:Name="tag1Button" >
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="NomineeButton_Click" x:Name="NomineeButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
                             <TextBlock Text="Xem Vị Trí Ứng Tuyển" Style="{DynamicResource menuButtonText}"/>

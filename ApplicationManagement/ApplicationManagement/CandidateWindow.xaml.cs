@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ApplicationManagement.GUI;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -10,13 +11,16 @@ namespace ApplicationManagement {
     public partial class CandidateWindow : Window {
 
         ToggleButton[] buttons;
+        Nominee nominee;
 
         public CandidateWindow() {
             InitializeComponent();
+
+            nominee = new Nominee();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, tag1Button, logOutButton };
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, NomineeButton, logOutButton };
             buttons = new_buttons;
 
             dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -55,14 +59,14 @@ namespace ApplicationManagement {
             pageNavigation.NavigationService.Navigate(dashboard);*/
         }
 
-        private void tag1Button_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(tag1Button);
-            /*if (pageNavigation.NavigationService.Content != null)
+        private void NomineeButton_Click(object sender, RoutedEventArgs e) {
+            changeButtonColor(NomineeButton);
+            if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(tag1);*/
+            pageNavigation.NavigationService.Navigate(nominee);
         }
 
         private void logOutButton_Click(object sender, RoutedEventArgs e) {
