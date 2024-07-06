@@ -1,0 +1,20 @@
+﻿ApplicationManagement
+1.0.0.0
+
+winexe
+C#
+.cs
+D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
+ApplicationManagement
+none
+false
+TRACE;DEBUG;NET;NET7_0;NETCOREAPP
+D:\HCMUS\Information Systems Analysis and Design\Group Project\Project\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
+16-279444653
+9-1035562976
+25227260893
+2101971570692
+CandidateWindow.xaml;EnterpriseWindow.xaml;GUI\Candidate.xaml;GUI\CandidateDetail.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseDetail.xaml;GUI\EnterpriseSignUp.xaml;GUI\Login.xaml;GUI\Nominee.xaml;GUI\NomineeDetail.xaml;GUI\SubmitApplication.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+
+False
+

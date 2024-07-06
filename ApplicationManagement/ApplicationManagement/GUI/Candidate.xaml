@@ -110,7 +110,7 @@ Cursor="Hand"
 Margin="0, 0, 0, 0"
 HorizontalAlignment="Center"
 RenderOptions.BitmapScalingMode="HighQuality"
-Source="{Binding Avatar, Converter={StaticResource absoluteConverter}}"
+Source="..\Assets\Images\Design\user_icon.png"
 >
                                                 <Image.Effect>
                                                     <DropShadowEffect BlurRadius="35"
@@ -137,14 +137,6 @@ Source="{Binding Avatar, Converter={StaticResource absoluteConverter}}"
                            Margin="5 0 0 0">
                <Run Text="Vị trí ứng tuyển: " FontWeight="SemiBold"/>
         <Run Text="Mobile Developer"/>
-                                            </TextBlock>
-
-
-                                            <TextBlock Name="Address" Grid.Row="2" Grid.Column="1" FontSize="13"
-                   VerticalAlignment="Center" HorizontalAlignment="Left"
-                   Margin="5 0 0 0">
-       <Run Text="📍" FontWeight="SemiBold"/>
-<Run Text="{Binding Address}"/>
                                             </TextBlock>
 
 

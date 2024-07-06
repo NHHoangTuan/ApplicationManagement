@@ -16,6 +16,7 @@ namespace ApplicationManagement.GUI {
             else {
                 isChecked = false;
             }
+
         }
 
         private void userTextBlock_MouseDown(object sender, MouseButtonEventArgs e) {

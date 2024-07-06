@@ -1,9 +1,4 @@
 ﻿using ApplicationManagement.GUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -21,7 +16,7 @@ namespace ApplicationManagement {
 
         public MainWindow() {
             InitializeComponent();
-            enterprise = new Enterprise(); 
+            enterprise = new Enterprise();
             candidate = new Candidate();
         }
 
@@ -68,8 +63,7 @@ namespace ApplicationManagement {
 
         private void enterpriseButton_Click(object sender, RoutedEventArgs e) {
             changeButtonColor(enterpriseButton);
-            if (pageNavigation.NavigationService.Content != null)
-            {
+            if (pageNavigation.NavigationService.Content != null) {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
@@ -78,8 +72,7 @@ namespace ApplicationManagement {
 
         private void candidateButton_Click(object sender, RoutedEventArgs e) {
             changeButtonColor(candidateButton);
-            if (pageNavigation.NavigationService.Content != null)
-            {
+            if (pageNavigation.NavigationService.Content != null) {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
@@ -97,13 +90,9 @@ namespace ApplicationManagement {
         }
 
         private void logOutButton_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(logOutButton);
-            /*if (pageNavigation.NavigationService.Content != null)
-            {
-                pageNavigation.NavigationService.RemoveBackEntry();
-            }
-
-            pageNavigation.NavigationService.Navigate(configuration);*/
+            Login login = new Login();
+            this.Close();
+            login.Show();
         }
 
         private void changeButtonColor(ToggleButton b) {
