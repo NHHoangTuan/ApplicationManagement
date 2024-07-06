@@ -30,7 +30,7 @@ Cursor="Hand"
 Margin="0, 0, 0, 0"
 HorizontalAlignment="Center"
 RenderOptions.BitmapScalingMode="HighQuality"
-Source="{Binding Avatar, Converter={StaticResource absoluteConverter}}"
+Source="..\Assets\Images\Design\user_icon.png"
 />
 
         <TextBlock Text="{Binding CandidateName}" Grid.Row="1" FontWeight="Bold" FontSize="25"
@@ -65,9 +65,7 @@ Source="{Binding Avatar, Converter={StaticResource absoluteConverter}}"
     <Run Text="{Binding Gender}"/>
                     </TextBlock>
 
-                    <TextBlock Margin="10" TextWrapping="Wrap" Text="{Binding AboutMe}" FontSize="18">
-
-                    </TextBlock>
+                   
                 </StackPanel>
 
             </Border>
@@ -79,8 +77,7 @@ Source="{Binding Avatar, Converter={StaticResource absoluteConverter}}"
                         <TextBlock Text="Thông tin liên hệ" FontWeight="Bold" FontSize="22" Foreground="White"/>
                     </Border>
                     <StackPanel Margin="10">
-                        <TextBlock Text="📍 Địa chỉ"  FontSize="18" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Address}"  FontSize="15" Margin="0,10,0,0"/>
+                        
                         <TextBlock Text="🗺️ Số điện thoại"  FontSize="18" FontWeight="Bold" Margin="0,10,0,0"/>
                         <TextBlock Text="{Binding PhoneNumber}"  FontSize="15" Margin="0,10,0,0"/>
                         

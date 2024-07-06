@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ApplicationManagement.GUI;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -87,13 +88,9 @@ namespace ApplicationManagement {
         }
 
         private void logOutButton_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(logOutButton);
-            /*if (pageNavigation.NavigationService.Content != null)
-            {
-                pageNavigation.NavigationService.RemoveBackEntry();
-            }
-
-            pageNavigation.NavigationService.Navigate(configuration);*/
+            Login login = new Login();
+            this.Close();
+            login.Show();
         }
 
         private void changeButtonColor(ToggleButton b) {
