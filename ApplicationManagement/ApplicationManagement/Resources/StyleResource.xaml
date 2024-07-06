@@ -244,4 +244,26 @@
         </Style.Triggers>
     </Style>
 
+
+    <Style x:Key="RecruitButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="#96d491" />
+        <Setter Property="Foreground" Value="#faf7f4" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            Padding="{TemplateBinding Padding}"
+            CornerRadius="8">
+                        <ContentPresenter HorizontalAlignment="Center"
+                          VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

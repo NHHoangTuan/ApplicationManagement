@@ -23,7 +23,7 @@ namespace ApplicationManagement.GUI
     public partial class Candidate : Page
     {
 
-        BindingList<CandidateDTO> list = new BindingList<CandidateDTO>();
+        BindingList<CandidateDTO> list = null;
 
         public Candidate()
         {

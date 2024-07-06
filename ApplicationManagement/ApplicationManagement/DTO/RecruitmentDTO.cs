@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace ApplicationManagement.DTO
 {
-    public class EnterpriseDTO : INotifyPropertyChanged, ICloneable
+    public class RecruitmentDTO : INotifyPropertyChanged, ICloneable
     {
 
-        public string Name { get; set; }
+        public string Vacancies { get; set; }
         public string Description { get; set; }
         public string Logo { get; set; }
+        public int MinSalary { get; set; }
+        public int MaxSalary { get; set; }
+        public string ExperienceRequirement { get; set; }
+        public EnterpriseDTO Enterprise { get; set; }
         public string Background { get; set; }
-        public string Address { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -22,5 +25,6 @@ namespace ApplicationManagement.DTO
         {
             return MemberwiseClone();
         }
+
     }
 }
