@@ -74,7 +74,7 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="tag2Button_Click" x:Name="tag2Button" >
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="candidateButton_Click" x:Name="candidateButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
                             <TextBlock Text="Danh Sách Ứng Viên" Style="{DynamicResource menuButtonText}"/>
