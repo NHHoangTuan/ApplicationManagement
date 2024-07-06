@@ -43,6 +43,9 @@
     <Compile Update="GUI\NomineeDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\SubmitApplication.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CandidateWindow.xaml">
@@ -76,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\NomineeDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\SubmitApplication.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
