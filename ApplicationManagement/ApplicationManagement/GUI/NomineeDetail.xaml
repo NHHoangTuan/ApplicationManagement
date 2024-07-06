@@ -15,7 +15,7 @@
     </Window.Resources>
 
 
-    <Grid Background="#d9ead3">
+    <Grid Background="#d9ead3" >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -179,6 +179,7 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
         </Border>
 
+        <Rectangle x:Name="Overlay" Fill="Black" Opacity="0" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
     </Grid>
 
 </Window>
