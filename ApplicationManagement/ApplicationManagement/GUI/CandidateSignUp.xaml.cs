@@ -29,7 +29,6 @@ namespace ApplicationManagement.GUI {
 
             if (IsValid(candidate)) {
                 try {
-                    dbHelper.SaveCandidate(candidate);
                     dbHelper.AddCandidateAccount(candidate);
                     MessageBox.Show("Đăng ký thành công", "Thành Công!", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();

@@ -9,7 +9,8 @@ namespace ApplicationManagement.DAO {
     public class SqlConnectionData {
         // Tạo chuỗi kết nối cơ sở dữ liệu 
         public static SqlConnection Connect() {
-            string connectionString = "Data Source=MSI\\TENT;Initial Catalog=QLTuyenDung;Integrated Security=True";
+            //string connectionString = "Data Source=MSI\\TENT;Initial Catalog=QLTuyenDung;Integrated Security=True";
+            string connectionString = "Data Source=localhost;Initial Catalog=QLTuyenDung;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString); // khởi tạo connect
             return connection;
         }

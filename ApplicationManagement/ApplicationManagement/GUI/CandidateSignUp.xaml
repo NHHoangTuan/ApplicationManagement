@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ApplicationManagement.GUI"
         xmlns:local1="clr-namespace:ApplicationManagement.Converter"
         mc:Ignorable="d"
-        Title="CandidateSignUp" Height="640" Width="510"
+        Title="CandidateSignUp" Height="540" Width="510"
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
