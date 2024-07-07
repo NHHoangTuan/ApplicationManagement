@@ -19,7 +19,7 @@
                 <RowDefinition Height="573*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -69,8 +69,8 @@
 
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
                         <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh Sách Doanh Nghiệp" Style="{DynamicResource menuButtonText}"/>
+                            <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
+                            <TextBlock Text="Danh Sách Doanh Nghiệp" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
                         </StackPanel>
                     </ToggleButton>
 
@@ -83,8 +83,9 @@
 
                     <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
                         <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Lập DS Doanh Nghiệp Tiềm Năng" Style="{StaticResource menuButtonText}"/>
+                            <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Center"/>
+                            <TextBlock Text="Lập danh sách Doanh Nghiệp Tiềm Năng" Style="{StaticResource menuButtonText}" 
+                                       MaxWidth="200"/>
                         </StackPanel>
                     </ToggleButton>
 

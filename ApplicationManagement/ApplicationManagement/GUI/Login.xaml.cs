@@ -73,7 +73,7 @@ namespace ApplicationManagement.GUI {
                     this.Close();
                     enterprisePage.Show();
                 }
-                else if (inputUsername.Contains("candidate") {
+                else if (inputUsername.Contains("candidate")) {
                     CandidateWindow candidatePage = new CandidateWindow();
                     this.Close();
                     candidatePage.Show();
