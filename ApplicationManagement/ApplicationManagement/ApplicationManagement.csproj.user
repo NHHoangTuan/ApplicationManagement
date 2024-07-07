@@ -13,6 +13,9 @@
     <Compile Update="GUI\Candidate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\CandidateDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\CandidateDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\Candidate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\CandidateDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\CandidateDetail.xaml">

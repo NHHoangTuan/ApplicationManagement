@@ -12,11 +12,13 @@ namespace ApplicationManagement {
 
         ToggleButton[] buttons;
         Nominee nominee;
+        CandidateDashboard candidateDashboard;
 
         public CandidateWindow() {
             InitializeComponent();
 
             nominee = new Nominee();
+            candidateDashboard = new CandidateDashboard();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
@@ -51,12 +53,12 @@ namespace ApplicationManagement {
 
         private void dashboardButton_Click(object sender, RoutedEventArgs e) {
             changeButtonColor(dashboardButton);
-            /*if (pageNavigation.NavigationService.Content != null)
+            if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(dashboard);*/
+            pageNavigation.NavigationService.Navigate(candidateDashboard);
         }
 
         private void NomineeButton_Click(object sender, RoutedEventArgs e) {

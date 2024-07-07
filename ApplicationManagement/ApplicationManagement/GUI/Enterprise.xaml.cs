@@ -41,6 +41,7 @@ namespace ApplicationManagement.GUI
                     Description = "Shopee là nền tảng thương mại điện tử ở Đông Nam Á và Đài Loan. Ra mắt năm 2015, nền tảng thương mại Shopee được xây dựng nhằm cung cấp cho người sử dụng những trải nghiệm dễ dàng, an toàn và nhanh chóng khi mua sắm trực tuyến thông qua hệ thống hỗ trợ thanh toán và vận hành vững mạnh.",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg"
+
                 },
                 new EnterpriseDTO
                 {
