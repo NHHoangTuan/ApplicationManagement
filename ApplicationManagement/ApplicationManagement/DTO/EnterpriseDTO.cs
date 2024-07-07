@@ -1,26 +1,62 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ApplicationManagement.DTO
-{
-    public class EnterpriseDTO : INotifyPropertyChanged, ICloneable
-    {
+namespace ApplicationManagement.DTO {
+    public class EnterpriseDTO : INotifyPropertyChanged, ICloneable {
 
         public string Name { get; set; }
         public string Description { get; set; }
         public string Logo { get; set; }
         public string Background { get; set; }
         public string Address { get; set; }
+        public string TaxID { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public object Clone()
-        {
+        public object Clone() {
             return MemberwiseClone();
         }
+
+        public string Error => null;
+
+        public string this[string columnName] {
+            get {
+                string result = null;
+                switch (columnName) {
+                    case nameof(Name):
+                        if (string.IsNullOrWhiteSpace(Name)) {
+                            result = "Tên không được trống!";
+                        }
+                        break;
+                    case nameof(Description):
+                        if (string.IsNullOrWhiteSpace(Description)) {
+                            result = "Mô tả không được trống!";
+                        }
+                        break;
+                    case nameof(Logo):
+                        if (string.IsNullOrWhiteSpace(Logo)) {
+                            result = "Logo không được trống!";
+                        }
+                        break;
+                    case nameof(Background):
+                        if (string.IsNullOrWhiteSpace(Background)) {
+                            result = "Nền không được trống!";
+                        }
+                        break;
+                    case nameof(Address):
+                        if (string.IsNullOrWhiteSpace(Address)) {
+                            result = "Địa chỉ không được trống!";
+                        }
+                        break;
+                    case nameof(TaxID):
+                        if (string.IsNullOrWhiteSpace(TaxID)) {
+                            result = "Mã số thuế không được trống!";
+                        }
+                        break;
+                }
+                return result;
+            }
+        }
+
     }
 }
