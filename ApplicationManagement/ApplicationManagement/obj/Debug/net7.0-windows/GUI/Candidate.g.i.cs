@@ -128,7 +128,7 @@ namespace ApplicationManagement.GUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ApplicationManagement;V1.0.0.0;component/gui/candidate.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ApplicationManagement;component/gui/candidate.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\GUI\Candidate.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

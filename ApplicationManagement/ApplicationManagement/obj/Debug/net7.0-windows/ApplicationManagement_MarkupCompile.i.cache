@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\LAPTOP\OneDrive - VNU-HCMUS\Desktop\pttk\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
+E:\PullCode\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
 ApplicationManagement
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\LAPTOP\OneDrive - VNU-HCMUS\Desktop\pttk\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
+E:\PullCode\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
 19774551615
 9-1035562976
-3653074523
-20198946233
+39-905991625
+2011509098082
 CandidateWindow.xaml;ConfigDataBase.xaml;EnterpriseWindow.xaml;GUI\Candidate.xaml;GUI\CandidateDashboard.xaml;GUI\CandidateDetail.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseDetail.xaml;GUI\EnterpriseSignUp.xaml;GUI\JobPosting.xaml;GUI\Login.xaml;GUI\Nominee.xaml;GUI\NomineeDetail.xaml;GUI\SubmitApplication.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
-True
+False
 

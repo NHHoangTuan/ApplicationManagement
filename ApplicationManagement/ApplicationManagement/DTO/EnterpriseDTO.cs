@@ -10,6 +10,8 @@ namespace ApplicationManagement.DTO {
         public string Background { get; set; }
         public string Address { get; set; }
         public string TaxID { get; set; }
+        public string Leader { get; set; }
+        public string Email { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -51,6 +53,18 @@ namespace ApplicationManagement.DTO {
                     case nameof(TaxID):
                         if (string.IsNullOrWhiteSpace(TaxID)) {
                             result = "Mã số thuế không được trống!";
+                        }
+                        break;
+                    case nameof(Leader):
+                        if (string.IsNullOrWhiteSpace(Leader))
+                        {
+                            result = "Người đại diện không được trống!";
+                        }
+                        break;
+                    case nameof(Email):
+                        if (string.IsNullOrWhiteSpace(TaxID))
+                        {
+                            result = "Email không được trống!";
                         }
                         break;
                 }

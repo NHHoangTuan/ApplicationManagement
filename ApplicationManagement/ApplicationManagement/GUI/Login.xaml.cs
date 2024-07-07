@@ -1,5 +1,8 @@
 ﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DAO;
 using ApplicationManagement.DTO;
+using System;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -112,6 +115,35 @@ namespace ApplicationManagement.GUI {
                     mainPage.Show();
                     break;
                 case "2":
+
+                    //Get TaxID for GlobalEnterprise of Enterprise Account
+                    using (SqlConnection connection = SqlConnectionData.Connect())
+                    {
+                        try
+                        {
+                            connection.Open();
+                            string query = "SELECT MaTK FROM TAIKHOAN WHERE TenTaiKhoan = @Username AND MatKhau = @Password";
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@Username", account.Username);
+                                command.Parameters.AddWithValue("@Password", account.Passwords);
+
+                                using (SqlDataReader reader = command.ExecuteReader())
+                                {
+                                    if (reader.Read())
+                                    {
+                                        GlobalEnterprise.TaxID = reader["MaTK"].ToString();
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Lỗi không lấy được TaxID: {ex.Message}", "Lỗi:", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        connection.Close();
+                    }
+
                     EnterpriseWindow enterprisePage = new EnterpriseWindow();
                     this.Close();
                     enterprisePage.Show();

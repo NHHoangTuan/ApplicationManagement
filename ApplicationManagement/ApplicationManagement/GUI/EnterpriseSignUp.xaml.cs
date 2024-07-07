@@ -17,16 +17,22 @@ namespace ApplicationManagement.GUI {
         }
 
         private void enterpriseSignUp_Click(object sender, RoutedEventArgs e) {
+
+            string Username = accountTextBox.Text;
+            string Password = passwordTextBox.Text;
+
             enterprise.Name = enterpriseNameTextBox.Text;
             enterprise.Description = "Description";
             enterprise.Logo = "Assets/Images/Design/enterprise.jpg";
             enterprise.Background = "Assets/Images/Design/1_1.jpg";
             enterprise.Address = enterpriseAddressTextBox.Text;
             enterprise.TaxID = taxCodeTextBox.Text;
+            enterprise.Leader = representativeNameTextBox.Text;
+            enterprise.Email = emailTextBox.Text;
 
             if (IsValid(enterprise)) {
                 try {
-                    enterpriseDAO.AddEnterpriseAccount(enterprise);
+                    enterpriseDAO.AddEnterpriseAccount(enterprise, Username, Password);
                     MessageBox.Show("Đăng ký thành công", "Thành Công!", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
                 }
