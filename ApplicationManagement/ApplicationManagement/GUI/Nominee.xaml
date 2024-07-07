@@ -59,9 +59,9 @@
         
         Name="nomineeListView"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-        
+                        
         HorizontalAlignment="Center"
-                        VerticalAlignment="Center" Padding="0"
+                        VerticalAlignment="Top" Padding="0"
         HorizontalContentAlignment="Center"
         VerticalContentAlignment="Top"
         BorderThickness="0"
@@ -258,10 +258,11 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
                             </Style>
                         </ComboBox.ItemContainerStyle>
                         <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort</ComboBoxItem>
+
                         <ComboBoxItem>Sort by name (A-Z)</ComboBoxItem>
                         <ComboBoxItem>Sort by name (Z-A)</ComboBoxItem>
-
                         <ComboBoxItem >No Sort</ComboBoxItem>
+
                     </ComboBox>
                 </Border>
 
