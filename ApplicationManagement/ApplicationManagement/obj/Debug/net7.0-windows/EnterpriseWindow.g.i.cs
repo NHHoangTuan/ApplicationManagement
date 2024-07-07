@@ -103,7 +103,7 @@ namespace ApplicationManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ApplicationManagement;V1.0.0.0;component/enterprisewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ApplicationManagement;component/enterprisewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\EnterpriseWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
