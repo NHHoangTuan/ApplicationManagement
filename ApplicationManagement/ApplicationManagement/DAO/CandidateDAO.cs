@@ -1,5 +1,6 @@
 ﻿using ApplicationManagement.DTO;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace ApplicationManagement.DAO {
@@ -30,6 +31,36 @@ namespace ApplicationManagement.DAO {
             command.Parameters.AddWithValue("@PermissionLevel", 3);
             command.ExecuteNonQuery();
             connection.Close();
+        }
+
+        public List<CandidateDTO> GetCandidates()
+        {
+            List<CandidateDTO> candidates = new List<CandidateDTO>();
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            string query = "SELECT Ten, CCCD, GioiTinh, NgaySinh, SDT FROM HSUV";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                CandidateDTO candidate = new CandidateDTO
+                {
+                    CandidateName = reader["Ten"].ToString(),
+                    CCCD = reader["CCCD"].ToString(),
+                    Gender = reader["GioiTinh"].ToString(),
+                    DateOfBirth = reader["NgaySinh"].ToString(),
+                    PhoneNumber = reader["SDT"].ToString(),
+                };
+                candidates.Add(candidate);
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return candidates;
         }
     }
 }
