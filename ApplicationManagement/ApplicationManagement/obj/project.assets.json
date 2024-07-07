@@ -891,19 +891,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LAPTOP\\.nuget\\packages\\": {}
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LAPTOP\\OneDrive - VNU-HCMUS\\Desktop\\pttk\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+      "projectUniqueName": "D:\\HCMUS\\Information Systems Analysis and Design\\Group Project\\Project\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
       "projectName": "ApplicationManagement",
-      "projectPath": "C:\\Users\\LAPTOP\\OneDrive - VNU-HCMUS\\Desktop\\pttk\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
-      "packagesPath": "C:\\Users\\LAPTOP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LAPTOP\\OneDrive - VNU-HCMUS\\Desktop\\pttk\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\obj\\",
+      "projectPath": "D:\\HCMUS\\Information Systems Analysis and Design\\Group Project\\Project\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "D:\\HCMUS\\Information Systems Analysis and Design\\Group Project\\Project\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\LAPTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -953,24 +953,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.14, 7.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -979,7 +961,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
