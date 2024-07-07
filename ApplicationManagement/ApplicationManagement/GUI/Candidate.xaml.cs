@@ -12,11 +12,11 @@ namespace ApplicationManagement.GUI {
     /// </summary>
     public partial class Candidate : Page {
         BindingList<CandidateDTO> list = null;
-        DatabaseHelper dbHelper;
+        CandidateDAO _candidateDAO;
 
         public Candidate() {
             InitializeComponent();
-            dbHelper = new DatabaseHelper();
+            _candidateDAO = new CandidateDAO();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
@@ -24,7 +24,7 @@ namespace ApplicationManagement.GUI {
         }
 
         private void LoadCandidatesFromDatabase() {
-            List<CandidateDTO> candidates = dbHelper.GetCandidates();
+            List<CandidateDTO> candidates = _candidateDAO.GetCandidates();
             list = new BindingList<CandidateDTO>(candidates);
             candidateListView.ItemsSource = list;
         }
