@@ -24,6 +24,11 @@ namespace ApplicationManagement.GUI
     {
 
         BindingList<RecruitmentDTO> list = null;
+        BindingList<RecruitmentDTO> originalList = null; // Store the original list
+
+        // Page pagination
+        int currentPage = 1;
+        int itemsPerPage = 4;
 
         public Nominee()
         {
@@ -32,7 +37,11 @@ namespace ApplicationManagement.GUI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            list = new BindingList<RecruitmentDTO> { new RecruitmentDTO
+
+            // Initialize or reset currentPage
+            currentPage = 1;
+
+            originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
             {
                 Vacancies = "Kế Toán Trưởng",
                 Description = "Công ty TNHH MTV Kosei Quốc tế đang tuyển dụng Kế Toán Trưởng với mức lương 20-25 triệu/tháng.",
@@ -114,12 +123,25 @@ namespace ApplicationManagement.GUI
             }
             };
 
+            list = new BindingList<RecruitmentDTO>(originalList);
             nomineeListView.ItemsSource = list;
+
+            // Display the first page items
+            DisplayCurrentPageItems();
         }
 
         private void RecruitmentButton_Click(object sender, RoutedEventArgs e)
         {
+            var nominee = nomineeListView.SelectedItem as RecruitmentDTO;
+            if (nominee == null) return;
+            NomineeDetail nomineeDetail = new NomineeDetail(nominee);
+            nomineeDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            if (nomineeDetail.ShowDialog() == true)
+            {
+
+
+            }
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -138,32 +160,105 @@ namespace ApplicationManagement.GUI
 
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            string searchTerm = SearchTermTextBox.Text?.ToLower();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                list = new BindingList<RecruitmentDTO>(originalList.ToList());
+            }
+            else
+            {
+                var filteredList = originalList
+                    .Where(r => r.Vacancies?.ToLower().Contains(searchTerm) == true
+                    || r.Enterprise.Name?.ToLower().Contains(searchTerm) == true
+                    || r.Enterprise.Address?.ToLower().Contains(searchTerm) == true)
+                    .ToList();
+                list = new BindingList<RecruitmentDTO>(filteredList);
+            }
 
+            // Reset to the first page when searching
+            currentPage = 1;
+            DisplayCurrentPageItems();
         }
 
         private void SortCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (SortCombobox.SelectedItem == null || !(SortCombobox.SelectedItem is ComboBoxItem selectedItem))
+                return;
 
+            string selectedSortOption = selectedItem.Content?.ToString();
+
+            if (selectedSortOption == null)
+                return;
+
+            switch (selectedSortOption)
+            {
+                case "No Sort":
+                    list = new BindingList<RecruitmentDTO>(originalList.ToList());
+                    break;
+                case "Sort by name (A-Z)":
+                    list = new BindingList<RecruitmentDTO>(originalList.OrderBy(r => r.Vacancies).ToList());
+                    break;
+                case "Sort by name (Z-A)":
+                    list = new BindingList<RecruitmentDTO>(originalList.OrderByDescending(r => r.Vacancies).ToList());
+                    break;
+                default:
+                    break;
+            }
+
+            // Reset to the first page when sorting
+            currentPage = 1;
+            DisplayCurrentPageItems();
+        }
+
+        private void UpdatePageInfo()
+        {
+            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            pageInfoTextBlock.Text = $"{currentPage}/{totalPages}";
+
+        }
+
+        private void DisplayCurrentPageItems()
+        {
+            int startIndex = (currentPage - 1) * itemsPerPage;
+            int endIndex = Math.Min(startIndex + itemsPerPage - 1, list.Count - 1);
+
+            var currentPageItems = list.Skip(startIndex).Take(itemsPerPage).ToList();
+
+            nomineeListView.ItemsSource = currentPageItems;
+
+            UpdatePageInfo();
         }
 
         private void FirstButton_Click(object sender, RoutedEventArgs e)
         {
-
+            currentPage = 1;
+            DisplayCurrentPageItems();
         }
 
         private void PrevButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (currentPage > 1)
+            {
+                currentPage--;
+                DisplayCurrentPageItems();
+            }
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                DisplayCurrentPageItems();
+            }
         }
 
         private void LastButton_Click(object sender, RoutedEventArgs e)
         {
-
+            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            currentPage = totalPages;
+            DisplayCurrentPageItems();
         }
     }
 }
