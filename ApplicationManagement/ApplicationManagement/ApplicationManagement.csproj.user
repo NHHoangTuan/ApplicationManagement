@@ -34,6 +34,9 @@
     <Compile Update="GUI\EnterpriseSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\JobPosting.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\Login.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +82,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\EnterpriseSignUp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\JobPosting.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\Login.xaml">

@@ -11,13 +11,15 @@ namespace ApplicationManagement {
     public partial class EnterpriseWindow : Window {
 
         ToggleButton[] buttons;
+        JobPosting jobPosting;
 
         public EnterpriseWindow() {
             InitializeComponent();
+            jobPosting = new JobPosting();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, tag1Button, tag2Button,
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, JobPostingButton, tag2Button,
                 tag3Button, logOutButton};
             buttons = new_buttons;
 
@@ -57,14 +59,14 @@ namespace ApplicationManagement {
             pageNavigation.NavigationService.Navigate(dashboard);*/
         }
 
-        private void tag1Button_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(tag1Button);
-            /*if (pageNavigation.NavigationService.Content != null)
+        private void JobPostingButton_Click(object sender, RoutedEventArgs e) {
+            changeButtonColor(JobPostingButton);
+            if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(tag1);*/
+            pageNavigation.NavigationService.Navigate(jobPosting);
         }
 
         private void tag2Button_Click(object sender, RoutedEventArgs e) {
