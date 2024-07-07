@@ -11,12 +11,10 @@ namespace ApplicationManagement.GUI {
     public partial class CandidateSignUp : Window {
 
         CandidateDTO candidate = new CandidateDTO();
-        DatabaseHelper dbHelper;
+        CandidateDAO candidateDAO = new CandidateDAO();
 
         public CandidateSignUp() {
             InitializeComponent();
-            dbHelper = new DatabaseHelper();
-            candidate = new CandidateDTO();
         }
 
         private void candidateSignUp_Click(object sender, RoutedEventArgs e) {
@@ -29,7 +27,7 @@ namespace ApplicationManagement.GUI {
 
             if (IsValid(candidate)) {
                 try {
-                    dbHelper.AddCandidateAccount(candidate);
+                    candidateDAO.AddCandidateAccount(candidate);
                     MessageBox.Show("Đăng ký thành công", "Thành Công!", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
                 }

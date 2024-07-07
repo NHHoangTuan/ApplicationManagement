@@ -16,7 +16,7 @@ namespace ApplicationManagement.DTO {
             return MemberwiseClone();
         }
 
-        // IDataErrorInfo Members
+        // IDataErrorInfo 
         public string Error => null;
 
         public string this[string columnName] {
@@ -25,33 +25,33 @@ namespace ApplicationManagement.DTO {
                 switch (columnName) {
                     case nameof(CandidateName):
                         if (string.IsNullOrWhiteSpace(CandidateName)) {
-                            result = "Name cannot be empty.";
+                            result = "Tên không được trống!";
                         }
                         break;
                     case nameof(CCCD):
                         if (string.IsNullOrWhiteSpace(CCCD)) {
-                            result = "CCCD cannot be empty.";
+                            result = "Số CCCD không được trống!";
                         }
                         break;
                     case nameof(Gender):
                         if (string.IsNullOrWhiteSpace(Gender)) {
-                            result = "Gender must be selected.";
+                            result = "Phải chọn giới tính!";
                         }
                         break;
                     case nameof(PhoneNumber):
                         if (string.IsNullOrWhiteSpace(PhoneNumber)) {
-                            result = "Phone number cannot be empty.";
+                            result = "Số điện thoại không được trống!";
                         }
                         else if (!System.Text.RegularExpressions.Regex.IsMatch(PhoneNumber, @"^\d{10}$")) {
-                            result = "Phone number must be 10 digits.";
+                            result = "Số điện thoại phải dài chính xác 10 số!";
                         }
                         break;
                     case nameof(DateOfBirth):
                         if (string.IsNullOrWhiteSpace(DateOfBirth)) {
-                            result = "Date of birth cannot be empty.";
+                            result = "Ngày sinh không được trống!";
                         }
                         else if (!DateTime.TryParse(DateOfBirth, out _)) {
-                            result = "Invalid date format.";
+                            result = "Định dạng ngày sinh không hợp lệ!";
                         }
                         break;
                 }
