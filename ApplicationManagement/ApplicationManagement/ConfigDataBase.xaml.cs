@@ -53,6 +53,9 @@ namespace ApplicationManagement
                 Login loginWindow = new Login();
                 loginWindow.Show();
                 this.Close();
+                /*EnterpriseWindow loginWindow = new EnterpriseWindow();
+                loginWindow.Show();
+                this.Close();*/
             }
         }
 

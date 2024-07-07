@@ -1,0 +1,318 @@
+﻿<Page x:Class="ApplicationManagement.GUI.JobPosting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ApplicationManagement.GUI"
+              xmlns:local1="clr-namespace:ApplicationManagement.Converter"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d" 
+      d:DesignHeight="1050" d:DesignWidth="800"
+      Title="JobPosting">
+
+    <Page.Resources>
+        <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
+    </Page.Resources>
+
+    <Grid Background="#fce5cd">
+        <Border Background="#60ffffff" CornerRadius="15" Margin="20">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="ĐĂNG TUYỂN DỤNG" FontSize="22" VerticalAlignment="Center" Margin="20 0 0 0"
+                           FontWeight="Bold"/>
+
+                <StackPanel Grid.Row="1">
+                    <!-- Ten sp -->
+                    <StackPanel Margin="0, 10, 0, 0" Orientation="Vertical">
+                        <TextBlock Margin="20,0,0,0" 
+           Text="Vị trí ứng tuyển"
+           FontSize="18"
+           FontWeight="Medium"
+           Foreground="#353935"/>
+                        <Border HorizontalAlignment="Left"
+BorderThickness="1" BorderBrush="Orange" CornerRadius="5"
+ Background="White"
+Height="45"
+Width="670"
+Margin="20 10 10 10">
+                            <Grid
+        Width="650"
+        Margin="0"
+        HorizontalAlignment="Center">
+                                <TextBox Text="{Binding Vacancies}"
+            BorderThickness="0"
+            VerticalContentAlignment="Center"
+            FontSize="17"
+            Width="650"
+            x:Name="vacanciesTextBox">
+                                </TextBox>
+                                <TextBlock IsHitTestVisible="False" Text="Nhập vị trí ứng tuyển" 
+           VerticalAlignment="Center"
+           FontSize="17"
+           HorizontalAlignment="Left" Margin="5,0,0,0"
+           Foreground="DarkGray">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=vacanciesTextBox}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+
+
+                    <!--Hiển thị nhập giá tiền-->
+                    <StackPanel Margin="0, 0, 0, 0" Orientation="Vertical">
+                        <TextBlock Margin="20,0,0,0" 
+               Text="Số lượng tuyển dụng"
+               FontSize="18"
+               FontWeight="Medium"
+               Foreground="#353935"/>
+                        <Border HorizontalAlignment="Left"
+    BorderThickness="1" BorderBrush="Orange" CornerRadius="5"
+    Background="White"
+    Height="45"
+    Width="290"
+    Margin="20 10 10 10">
+                            <Grid
+            Width="270"
+            Margin="0"
+            HorizontalAlignment="Center">
+                                <TextBox Text="{Binding NumberRecruit}"
+                BorderThickness="0"
+                VerticalContentAlignment="Center"
+                FontSize="17"
+                Width="270"
+                x:Name="numberRecruitTextBox">
+                                </TextBox>
+                                <TextBlock IsHitTestVisible="False" Text="Nhập số lượng tuyển dụng" 
+               VerticalAlignment="Center"
+               FontSize="17"
+               HorizontalAlignment="Left" Margin="5,0,0,0"
+               Foreground="DarkGray">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=numberRecruitTextBox}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel 
+        
+        Margin="0, 0, 0, 0" Orientation="Vertical">
+                        <TextBlock Margin="20,0,0,0" 
+           Text="Khoảng thời gian đăng tuyển"
+           FontSize="18"
+           FontWeight="Medium"
+           Foreground="#353935"/>
+
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 10 10 10">
+
+                            <StackPanel Orientation="Horizontal" Margin="5 5 40 5">
+                                <TextBlock Text="Từ ngày" VerticalAlignment="Center" Margin="20 0 20 0"  FontSize="18"/>
+                                <DatePicker SelectedDateFormat="Short"   DisplayDateStart="1/04/23"
+                                x:Name="dateStartPicker" Width="150" 
+                                FirstDayOfWeek="Monday" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="40 5 5 5">
+                                <TextBlock Text="Tới ngày" VerticalAlignment="Center" Margin="20 0 20 0"  FontSize="18"/>
+                                <DatePicker SelectedDateFormat="Short" x:Name="dateEndPicker"
+                                DisplayDateStart="1/04/23" Width="150"
+                                FirstDayOfWeek="Monday" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            
+
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+                    <!--Hiển thị nhập số lượng sản phẩm-->
+                    <StackPanel 
+        
+        Margin="0, 0, 0, 0" Orientation="Vertical">
+                        <TextBlock Margin="20,0,0,0" 
+           Text="Thông tin yêu cầu ứng viên"
+           FontSize="18"
+           FontWeight="Medium"
+           Foreground="#353935"/>
+                        <Border HorizontalAlignment="Left"
+BorderThickness="1" BorderBrush="Orange" CornerRadius="5"
+ Background="White"
+Height="85"
+Width="670"
+Margin="20 10 10 10">
+                            <Grid
+        Width="650"
+        Margin="0"
+        HorizontalAlignment="Center">
+                                <TextBox Text="{Binding requireInfo}"
+            BorderThickness="0"
+            VerticalContentAlignment="Center" VerticalAlignment="Top"
+            FontSize="17" Margin="0 10 0 0"
+            Width="650"
+                                        
+            x:Name="requireInfoTextBox" TextWrapping="Wrap">
+                                </TextBox>
+                                <TextBlock IsHitTestVisible="False" Text="Nhập thông tin yêu cầu ứng viên" 
+           VerticalAlignment="Top"
+           FontSize="17"
+           HorizontalAlignment="Left" Margin="5,10,0,0"
+           Foreground="DarkGray">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=requireInfoTextBox}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+
+
+
+
+                    <StackPanel 
+
+Margin="0, 0, 0, 0" Orientation="Vertical">
+                        <TextBlock Margin="20,0,0,0" 
+   Text="Thời gian đăng tuyển"
+   FontSize="18"
+   FontWeight="Medium"
+   Foreground="#353935"/>
+
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 10 10 10">
+
+                            <StackPanel Orientation="Horizontal" Margin="5 5 40 5">
+                                <TextBlock Text="Ngày cụ thể" VerticalAlignment="Center" Margin="20 0 20 0" FontSize="18"/>
+                                <DatePicker SelectedDateFormat="Short"   DisplayDateStart="1/04/23"
+                        x:Name="specificDate" Width="120"
+                        FirstDayOfWeek="Monday" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            
+
+
+
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+
+
+
+                    <StackPanel 
+
+Margin="0, 0, 0, 0" Orientation="Vertical">
+                        <TextBlock Margin="20,0,0,0" 
+   Text="Hình thức đăng tuyển"
+   FontSize="18"
+   FontWeight="Medium"
+   Foreground="#353935"/>
+
+
+                        <Border
+Grid.Column="1"
+HorizontalAlignment="Left"
+Height="45"
+Width="350"
+Margin="20 10 10 10"
+BorderThickness="0.5" BorderBrush="Orange" CornerRadius="5"
+Background="WhiteSmoke">
+                            <ComboBox 
+    SelectionChanged="RecruitForm_SelectionChanged"
+    Name="RecruitForm"
+    BorderThickness="0" BorderBrush="Transparent" Width="340"
+    VerticalContentAlignment="Center" FontSize="17">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+
+                                <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" FontSize="17" >Chọn hình thức đăng tuyển</ComboBoxItem>
+                                <ComboBoxItem FontSize="17">Đăng tuyển trên báo giấy</ComboBoxItem>
+                                <ComboBoxItem FontSize="17">Đăng banner quảng cáo</ComboBoxItem>
+                                <ComboBoxItem FontSize="17">Đăng trên các trang mạng</ComboBoxItem>
+  
+
+                                
+                            </ComboBox>
+                        </Border>
+
+
+                    </StackPanel>
+
+
+
+
+
+                    <!--Hiển thị nút bấm lưu -->
+                    <Button
+Name="post"
+Grid.Row="3"
+Width="150"
+Height="40"
+Style="{StaticResource MyButtonStyle}"
+BorderThickness="0.5"
+BorderBrush="Red"
+HorizontalAlignment="Right"
+                        
+Margin="0,80,20,0"
+Click="post_Click"
+>
+                        <StackPanel
+    Orientation="Horizontal">
+                            <Icon:PackIconMaterial 
+        Width="20"
+        Height="20"
+        Margin="0, 0, 8, 0"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        Kind="ContentSave"
+        Foreground="DarkRed"
+            />
+                            <TextBlock FontSize="16"
+        FontWeight="Medium"
+        Foreground="DarkRed"
+        >Đăng tuyển</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
