@@ -74,6 +74,14 @@
                         </StackPanel>
                     </ToggleButton>
 
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="recruitListButton_Click" x:Name="recruitListButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ListBox" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
+                            <TextBlock Text="Danh Sách Tuyển Dụng" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="candidateButton_Click" x:Name="candidateButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
