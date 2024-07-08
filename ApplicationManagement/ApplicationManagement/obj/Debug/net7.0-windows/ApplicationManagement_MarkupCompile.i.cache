@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\PullCode\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\obj\Debug\net7.0-windows\
 ApplicationManagement
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-E:\PullCode\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
-19774551615
+D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
+20-1838566437
 9-1035562976
-39-905991625
-2011509098082
-CandidateWindow.xaml;ConfigDataBase.xaml;EnterpriseWindow.xaml;GUI\Candidate.xaml;GUI\CandidateDashboard.xaml;GUI\CandidateDetail.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseDetail.xaml;GUI\EnterpriseSignUp.xaml;GUI\JobPosting.xaml;GUI\Login.xaml;GUI\Nominee.xaml;GUI\NomineeDetail.xaml;GUI\SubmitApplication.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+40-1262038160
+201-498454524
+CandidateWindow.xaml;ConfigDataBase.xaml;EnterpriseWindow.xaml;GUI\Candidate.xaml;GUI\CandidateDashboard.xaml;GUI\CandidateDetail.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseDetail.xaml;GUI\EnterpriseSignUp.xaml;GUI\JobPosting.xaml;GUI\Login.xaml;GUI\Nominee.xaml;GUI\NomineeDetail.xaml;GUI\RecruitList.xaml;GUI\SubmitApplication.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
-False
+True
 

@@ -105,5 +105,10 @@ namespace ApplicationManagement {
 
             b.IsChecked = true;
         }
+
+        private void recruitListButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

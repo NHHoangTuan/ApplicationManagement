@@ -50,8 +50,7 @@
                             </StackPanel>
                         </GroupBox>
 
-                        <TextBlock Text="Vui lòng nhập đầy đủ thông tin chi tiết:" 
-                       Margin="0,20,0,10" FontWeight="Bold"/>
+                        
 
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -63,126 +62,13 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <StackPanel Grid.Column="0" Grid.Row="0">
-                                <TextBlock Text="Họ và tên *" Margin="0,0,0,5" FontSize="15" FontWeight="Bold"/>
-                                <Border HorizontalAlignment="Left"
-BorderThickness="1" BorderBrush="#01a001" CornerRadius="5"
- Background="White"
-Height="35"
-Width="270"
-Margin="10 10 10 10">
-                                    <Grid
-        Width="250"
-        Margin="0"
-        HorizontalAlignment="Center">
-                                        <TextBox Text=""
-            BorderThickness="0"
-            VerticalContentAlignment="Center"
-            FontSize="13"
-            Width="270"
-            x:Name="enterNameTextBox">
-                                        </TextBox>
-                                        <TextBlock IsHitTestVisible="False" Text="Nhập họ tên hiển thị với NTD" 
-           VerticalAlignment="Center"
-           FontSize="13"
-           HorizontalAlignment="Left" Margin="5,0,0,0"
-           Foreground="DarkGray">
-                                            <TextBlock.Style>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Text, ElementName=enterNameTextBox}" Value="">
-                                                            <Setter Property="Visibility" Value="Visible"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </Grid>
-                                </Border>
-                            </StackPanel>
+                            
 
-                            <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,10,0,0">
-                                <TextBlock Text="Email *" Margin="0,0,0,5" FontSize="15" FontWeight="Bold"/>
-                                <Border HorizontalAlignment="Left"
-BorderThickness="1" BorderBrush="#01a001" CornerRadius="5"
- Background="White"
-Height="35"
-Width="270"
-Margin="10 10 10 10">
-                                    <Grid
-        Width="250"
-        Margin="0"
-        HorizontalAlignment="Center">
-                                        <TextBox Text=""
-            BorderThickness="0"
-            VerticalContentAlignment="Center"
-            FontSize="13"
-            Width="270"
-            x:Name="enterEmailTextBox">
-                                        </TextBox>
-                                        <TextBlock IsHitTestVisible="False" Text="Nhập email hiển thị với NTD" 
-           VerticalAlignment="Center"
-           FontSize="13"
-           HorizontalAlignment="Left" Margin="5,0,0,0"
-           Foreground="DarkGray">
-                                            <TextBlock.Style>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Text, ElementName=enterEmailTextBox}" Value="">
-                                                            <Setter Property="Visibility" Value="Visible"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </Grid>
-                                </Border>
-                            </StackPanel>
-
-                            <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,10,0,0">
-                                <TextBlock Text="Số điện thoại *" Margin="0,0,0,5" FontSize="15" FontWeight="Bold"/>
-                                <Border HorizontalAlignment="Left"
-BorderThickness="1" BorderBrush="#01a001" CornerRadius="5"
- Background="White"
-Height="35"
-Width="270"
-Margin="10 10 10 10">
-                                    <Grid
-        Width="250"
-        Margin="0"
-        HorizontalAlignment="Center">
-                                        <TextBox Text=""
-            BorderThickness="0"
-            VerticalContentAlignment="Center"
-            FontSize="13"
-            Width="270"
-            x:Name="enterPhoneNumberTextBox">
-                                        </TextBox>
-                                        <TextBlock IsHitTestVisible="False" Text="Nhập số điện thoại hiển thị với NTD" 
-           VerticalAlignment="Center"
-           FontSize="13"
-           HorizontalAlignment="Left" Margin="5,0,0,0"
-           Foreground="DarkGray">
-                                            <TextBlock.Style>
-                                                <Style TargetType="{x:Type TextBlock}">
-                                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding Text, ElementName=enterPhoneNumberTextBox}" Value="">
-                                                            <Setter Property="Visibility" Value="Visible"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </Grid>
-                                </Border>
-                            </StackPanel>
+                            
                         </Grid>
 
                         <GroupBox Header="Thư giới thiệu:" Margin="0,20,0,0" FontSize="15" FontWeight="Bold">
-                            
+
                             <Grid HorizontalAlignment="Left" Margin="0 10 0 0">
                                 <TextBox Name="textBox" Background="Transparent" BorderThickness="0" 
                                          VerticalAlignment="Center" FontSize="14" FontWeight="Normal"/>
@@ -206,7 +92,7 @@ Margin="10 10 10 10">
 
                         </GroupBox>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,50,0,0">
                             <Button Content="Nộp hồ sơ ứng tuyển" Width="250" Height="60" Background="Green" Foreground="White"
                                 Style="{StaticResource RecruitButtonStyle}"/>
                         </StackPanel>
