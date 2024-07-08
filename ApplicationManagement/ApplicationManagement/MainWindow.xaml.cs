@@ -13,15 +13,20 @@ namespace ApplicationManagement {
         ToggleButton[] buttons;
         Enterprise enterprise;
         Candidate candidate;
+        RecruitList recruitList;
+        ApplicationList applicationList;
 
         public MainWindow() {
             InitializeComponent();
             enterprise = new Enterprise();
             candidate = new Candidate();
+            recruitList = new RecruitList();
+            applicationList = new ApplicationList();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, enterpriseButton, candidateButton,
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, enterpriseButton, recruitListButton, candidateButton,
+                applicationListButton,
                 tag3Button, logOutButton};
             buttons = new_buttons;
 
@@ -108,7 +113,24 @@ namespace ApplicationManagement {
 
         private void recruitListButton_Click(object sender, RoutedEventArgs e)
         {
+            changeButtonColor(recruitListButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
 
+            pageNavigation.NavigationService.Navigate(recruitList);
+        }
+
+        private void applicationListButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(applicationListButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+
+            pageNavigation.NavigationService.Navigate(applicationList);
         }
     }
 }

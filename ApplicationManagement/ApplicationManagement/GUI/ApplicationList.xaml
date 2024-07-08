@@ -1,4 +1,4 @@
-﻿<Page x:Class="ApplicationManagement.GUI.RecruitList"
+﻿<Page x:Class="ApplicationManagement.GUI.ApplicationList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="730" d:DesignWidth="990"
-      Title="RecruitList" Loaded="Page_Loaded">
+      Title="ApplicationList" Loaded="Page_Loaded">
 
     <Page.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -45,7 +45,7 @@
             VerticalAlignment="Center"
             x:Name="MessageText" 
             Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"
-            d:Text="Opps! Không tìm thấy bất kì bài tuyển dụng nào"/>
+            d:Text="Opps! Không tìm thấy bất kì đơn ứng tuyển nào"/>
 
 
             <!--Hien thi danh sach san pham-->
@@ -57,11 +57,11 @@
                     <!--Hiển thị những sản phẩm-->
                     <ListView 
         
-        Name="recruitListView"
+        Name="applicationListView"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        
+        
         HorizontalAlignment="Center"
-                        VerticalAlignment="Top" Padding="0"
+                        VerticalAlignment="Center" Padding="0"
         HorizontalContentAlignment="Center"
         VerticalContentAlignment="Top"
         BorderThickness="0"
@@ -71,7 +71,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid 
-Name="RecruitItem" HorizontalAlignment="Center" VerticalAlignment="Center"
+Name="ApplicationListItem" HorizontalAlignment="Center" VerticalAlignment="Center"
 Width="1060"
 Margin="0 10 0 10"
 Height="150">
@@ -93,7 +93,7 @@ Height="150">
                                         <Grid Width="1030" Height="110" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="10*"/>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
@@ -106,13 +106,13 @@ Height="150">
                                                 <RowDefinition Height="*"/>
                                             </Grid.RowDefinitions>
 
-                                            <Image Width="90" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                            <Image Width="70" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
 
 Cursor="Hand"                      
 Margin="0, 0, 0, 0"
 HorizontalAlignment="Center"
 RenderOptions.BitmapScalingMode="HighQuality"
-Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
+Source="{Binding Avatar, Converter={StaticResource absoluteConverter}}"
 >
                                                 <Image.Effect>
                                                     <DropShadowEffect BlurRadius="35"
@@ -126,32 +126,20 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
 
                                             <!-- binding -->
-                                            <TextBlock Name="Vacancices" Grid.Row="0" Grid.Column="1"
-                   Text="{Binding Vacancies}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                            <TextBlock Name="CandidateName" Grid.Row="0" Grid.Column="1"
+                   Text="{Binding CandidateName}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left"
                    TextWrapping="Wrap"
                    Margin="5, 0, 0, 0"
                    Foreground="#353935"
                    FontWeight="Bold"
                    />
 
-                                            <TextBlock Name="EnterpriseName" Grid.Row="1" Grid.Column="1" FontSize="16"
+                                            <TextBlock Name="Nominee" Grid.Row="1" Grid.Column="1" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left"
                            Margin="5 0 0 0">
-               <Run Text="Doanh nghiệp: " FontWeight="SemiBold"/>
-        <Run Text="{Binding Enterprise.Name}"/>
+               <Run Text="Vị trí ứng tuyển: " FontWeight="SemiBold"/>
+        <Run Text="{Binding Position}"/>
                                             </TextBlock>
-
-
-                                            <Border Grid.Row="2" Grid.Column="1" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
-                                                <TextBlock Name="Address"  FontSize="16"
-                   
-                   Margin="5 0 0 0">
-       <Run Text="📍" FontWeight="SemiBold"/>
-<Run Text="{Binding Enterprise.Address}"/>
-                                                </TextBlock>
-                                            </Border>
-
-
 
 
 
@@ -286,11 +274,10 @@ ToolTip="Accept" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3"  VerticalAlignmen
                             </Style>
                         </ComboBox.ItemContainerStyle>
                         <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort</ComboBoxItem>
-
                         <ComboBoxItem>Sort by name (A-Z)</ComboBoxItem>
                         <ComboBoxItem>Sort by name (Z-A)</ComboBoxItem>
-                        <ComboBoxItem >No Sort</ComboBoxItem>
 
+                        <ComboBoxItem >No Sort</ComboBoxItem>
                     </ComboBox>
                 </Border>
 

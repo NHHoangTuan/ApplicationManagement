@@ -70,14 +70,14 @@
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Danh Sách Doanh Nghiệp" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                            <TextBlock Text="Danh sách doanh nghiệp" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
                         </StackPanel>
                     </ToggleButton>
 
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="recruitListButton_Click" x:Name="recruitListButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ListBox" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Danh Sách Tuyển Dụng" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                            <TextBlock Text="Duyệt hồ sơ tuyển dụng" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
                         </StackPanel>
                     </ToggleButton>
 
@@ -85,14 +85,22 @@
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="candidateButton_Click" x:Name="candidateButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh Sách Ứng Viên" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Danh sách ứng viên" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="applicationListButton_Click" x:Name="applicationListButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="PlaylistCheck" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Duyệt hồ sơ ứng tuyển" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 
                     <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Lập danh sách Doanh Nghiệp Tiềm Năng" Style="{StaticResource menuButtonText}" 
+                            <TextBlock Text="Lập danh sách doanh nghiệp tiềm năng" Style="{StaticResource menuButtonText}" 
                                        MaxWidth="200"/>
                         </StackPanel>
                     </ToggleButton>
