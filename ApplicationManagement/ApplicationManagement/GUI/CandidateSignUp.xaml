@@ -53,7 +53,7 @@ Margin="20 10 10 10">
             VerticalContentAlignment="Center"
             FontSize="13"
             Width="270"
-            x:Name="accountTextBox">
+            x:Name="usernameTextBox">
                                     </TextBox>
                                     <TextBlock IsHitTestVisible="False" Text="Nhập tài khoản" 
            VerticalAlignment="Center"
@@ -64,7 +64,7 @@ Margin="20 10 10 10">
                                             <Style TargetType="{x:Type TextBlock}">
                                                 <Setter Property="Visibility" Value="Collapsed"/>
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=accountTextBox}" Value="">
+                                                    <DataTrigger Binding="{Binding Text, ElementName=usernameTextBox}" Value="">
                                                         <Setter Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
@@ -95,28 +95,19 @@ Margin="20 10 10 10">
         Width="250"
         Margin="0"
         HorizontalAlignment="Center">
-                                    <TextBox Text="{Binding password}"
+                                    <PasswordBox 
             BorderThickness="0"
             VerticalContentAlignment="Center"
             FontSize="13"
             Width="270"
-            x:Name="passwordTextBox">
-                                    </TextBox>
+            x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged">
+                                    </PasswordBox>
                                     <TextBlock IsHitTestVisible="False" Text="Nhập mật khẩu" 
-           VerticalAlignment="Center"
+           VerticalAlignment="Center" Name="passwordTextBlock"
            FontSize="13"
-           HorizontalAlignment="Left" Margin="5,0,0,0"
+           HorizontalAlignment="Left" Margin="5,0,0,0" MouseDown="passwordTextBlock_MouseDown"
            Foreground="DarkGray">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=passwordTextBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
+                                        
                                     </TextBlock>
                                 </Grid>
                             </Border>
@@ -140,28 +131,19 @@ Margin="20 10 10 10">
         Width="250"
         Margin="0"
         HorizontalAlignment="Center">
-                                    <TextBox Text="{Binding password}"
+                                    <PasswordBox PasswordChanged="retypePasswordTextBox_PasswordChanged"
             BorderThickness="0"
             VerticalContentAlignment="Center"
             FontSize="13"
             Width="270"
             x:Name="retypePasswordTextBox">
-                                    </TextBox>
+                                    </PasswordBox>
                                     <TextBlock IsHitTestVisible="False" Text="Nhập lại mật khẩu" 
-           VerticalAlignment="Center"
+           VerticalAlignment="Center" Name="retypePasswordTextBlock" MouseDown="retypePasswordTextBlock_MouseDown"
            FontSize="13"
            HorizontalAlignment="Left" Margin="5,0,0,0"
            Foreground="DarkGray">
-                                        <TextBlock.Style>
-                                            <Style TargetType="{x:Type TextBlock}">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding Text, ElementName=retypePasswordTextBox}" Value="">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </TextBlock.Style>
+                                        
                                     </TextBlock>
                                 </Grid>
                             </Border>

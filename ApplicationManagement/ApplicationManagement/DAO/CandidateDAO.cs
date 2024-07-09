@@ -20,16 +20,29 @@ namespace ApplicationManagement.DAO {
             connection.Close();
         }
 
-        public void AddCandidateAccount(CandidateDTO candidate) {
+        public void AddCandidateAccount(string username, string password, CandidateDTO candidate) {
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
+
+            /*// Bước 1: Tìm AccountID lớn nhất hiện có
+            string getMaxIdQuery = "SELECT ISNULL(MAX(CAST(MaTK AS INT)), 0) FROM TAIKHOAN";
+            SqlCommand getMaxIdCommand = new SqlCommand(getMaxIdQuery, connection);
+            int maxId = Convert.ToInt32(getMaxIdCommand.ExecuteScalar());
+
+            // Bước 2: Tạo AccountID mới
+            int newAccountId = maxId + 1;*/
+
+
+
+
             string query = "INSERT INTO TAIKHOAN (MaTK, TenTaiKhoan, MatKhau, MaQuyen) VALUES (@AccountID, @Username, @Password, @PermissionLevel)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@AccountID", candidate.CCCD);
-            command.Parameters.AddWithValue("@Username", candidate.CandidateName.ToLower().Trim());
-            command.Parameters.AddWithValue("@Password", candidate.PhoneNumber);
+            command.Parameters.AddWithValue("@Username", username);
+            command.Parameters.AddWithValue("@Password", password);
             command.Parameters.AddWithValue("@PermissionLevel", 3);
             command.ExecuteNonQuery();
+
             connection.Close();
         }
 
