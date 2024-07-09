@@ -63,5 +63,13 @@ namespace ApplicationManagement
         {
             this.Close();
         }
+
+        private void ServerTermTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click(sender, e);
+            }
+        }
     }
 }

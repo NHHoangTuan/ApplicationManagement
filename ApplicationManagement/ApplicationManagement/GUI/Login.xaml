@@ -59,7 +59,8 @@
 
                         <Image Source="/Assets/Images/Design/user_icon.png" Height="20"/>
                         <TextBlock x:Name="userTextBlock" MouseDown="userTextBlock_MouseDown" Text="Username" Style="{StaticResource textHint}"/>
-                        <TextBox x:Name="userTextBox" TextChanged="userTextBox_TextChanged" Style="{StaticResource textBox}"/>
+                        <TextBox x:Name="userTextBox" TextChanged="userTextBox_TextChanged" Style="{StaticResource textBox}"
+                                 KeyDown="userTextBox_KeyDown"/>
                     </Grid>
                 </Border>
 
@@ -72,7 +73,8 @@
 
                         <Image Source="/Assets/Images/Design/lock_icon.png" Height="20"/>
                         <TextBlock x:Name="passwordTextBlock" MouseDown="passwordTextBlock_MouseDown" Text="Password" Style="{StaticResource textHint}"/>
-                        <PasswordBox x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged" Style="{StaticResource textBox}"/>
+                        <PasswordBox x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged" 
+                                     KeyDown="passwordTextBox_KeyDown" Style="{StaticResource textBox}"/>
                     </Grid>
                 </Border>
 

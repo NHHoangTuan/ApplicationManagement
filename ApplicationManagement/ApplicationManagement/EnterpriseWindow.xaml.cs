@@ -19,11 +19,11 @@ namespace ApplicationManagement {
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, JobPostingButton, tag2Button,
+            ToggleButton[] new_buttons = new ToggleButton[] { JobPostingButton, tag2Button,
                 tag3Button, logOutButton};
             buttons = new_buttons;
 
-            dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            JobPostingButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
@@ -49,15 +49,6 @@ namespace ApplicationManagement {
             }
         }
 
-        private void dashboardButton_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(dashboardButton);
-            /*if (pageNavigation.NavigationService.Content != null)
-            {
-                pageNavigation.NavigationService.RemoveBackEntry();
-            }
-
-            pageNavigation.NavigationService.Navigate(dashboard);*/
-        }
 
         private void JobPostingButton_Click(object sender, RoutedEventArgs e) {
             changeButtonColor(JobPostingButton);

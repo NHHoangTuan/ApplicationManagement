@@ -49,7 +49,7 @@
             Width="265"
             Margin="0"
             HorizontalAlignment="Center">
-                    <TextBox 
+                    <TextBox KeyDown="ServerTermTextBox_KeyDown"
                 BorderThickness="0"
                 VerticalContentAlignment="Center"
                 FontSize="13"
