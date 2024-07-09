@@ -60,12 +60,7 @@
                     </StackPanel>
 
                     <!--Menu Items-->
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="dashboardButton_Click" x:Name="dashboardButton">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Trang chủ" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </ToggleButton>
+                    
 
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
                         <StackPanel Orientation="Horizontal">

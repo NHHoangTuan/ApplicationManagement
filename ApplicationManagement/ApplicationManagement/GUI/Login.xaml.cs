@@ -196,5 +196,21 @@ namespace ApplicationManagement.GUI {
                 AppConfig.SetValue("checkRememberMe", "false");
             }*/
         }
+
+        private void userTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SignInButton_Click(sender, e);
+            }
+        }
+
+        private void passwordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SignInButton_Click(sender, e);
+            }
+        }
     }
 }
