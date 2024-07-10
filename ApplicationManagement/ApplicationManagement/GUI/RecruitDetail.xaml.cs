@@ -1,4 +1,5 @@
-﻿using ApplicationManagement.DTO;
+﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace ApplicationManagement.GUI
 
         RecruitmentDTO copyRecruitmentDTO { get; set; }
         RecruitmentDTO selectedRecruit;
+        RecruitmentBUS recruitmentBUS;
 
         public RecruitDetail(RecruitmentDTO r)
         {
@@ -31,6 +33,7 @@ namespace ApplicationManagement.GUI
             this.DataContext = r;
             copyRecruitmentDTO = (RecruitmentDTO)r.Clone();
             selectedRecruit = r;
+            recruitmentBUS = new RecruitmentBUS();
         }
 
         private void acceptButton_Click(object sender, RoutedEventArgs e)
@@ -43,9 +46,10 @@ namespace ApplicationManagement.GUI
                    "Confirm remove", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    /*_phoneBUS.deletePhone(selectedPhone);
-                    isUpdate = false;
-                    DialogResult = true;*/
+
+                    recruitmentBUS.setValidity(selectedRecruit, true);
+                    recruitmentBUS.updateRecruitStatus(selectedRecruit);
+                    DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);
                 }
@@ -62,9 +66,9 @@ namespace ApplicationManagement.GUI
                    "Confirm remove", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    /*_phoneBUS.deletePhone(selectedPhone);
-                    isUpdate = false;
-                    DialogResult = true;*/
+                    recruitmentBUS.setValidity(selectedRecruit, true);
+                    recruitmentBUS.deleteRecruit(selectedRecruit);
+                    DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);
                 }

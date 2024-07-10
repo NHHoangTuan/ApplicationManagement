@@ -154,7 +154,15 @@ new RecruitmentDTO
 
             if (recruitDetail.ShowDialog() == true)
             {
+                originalList.Clear();
+                originalList = _recruitmentBUS.getAllRecruitment();
 
+
+
+                var currentListShow = originalList.Where(a => a.Validity == "NOT OK").ToList();
+
+                recruitListView.ItemsSource = currentListShow;
+                
 
             }
         }
@@ -187,17 +195,6 @@ new RecruitmentDTO
         private void LastButton_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void rejectButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void acceptButton_Click(object sender, RoutedEventArgs e)
-        {
-
-            
         }
 
 

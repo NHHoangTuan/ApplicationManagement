@@ -1,4 +1,5 @@
-﻿using ApplicationManagement.DTO;
+﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,9 @@ namespace ApplicationManagement.GUI
     public partial class Nominee : Page
     {
 
-        BindingList<RecruitmentDTO> list = null;
+        BindingList<RecruitmentDTO> listShow = null;
         BindingList<RecruitmentDTO> originalList = null; // Store the original list
+        RecruitmentBUS _recruitmentBUS;
 
         // Page pagination
         int currentPage = 1;
@@ -33,6 +35,7 @@ namespace ApplicationManagement.GUI
         public Nominee()
         {
             InitializeComponent();
+            _recruitmentBUS = new RecruitmentBUS();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -40,6 +43,12 @@ namespace ApplicationManagement.GUI
 
             // Initialize or reset currentPage
             currentPage = 1;
+
+            originalList = _recruitmentBUS.getAllRecruitment();
+            if (originalList != null)
+            {
+                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
+            }
 
             /*originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
             {
@@ -123,8 +132,8 @@ namespace ApplicationManagement.GUI
             }
             };*/
 
-            list = new BindingList<RecruitmentDTO>(originalList);
-            nomineeListView.ItemsSource = list;
+            
+            nomineeListView.ItemsSource = listShow;
 
             // Display the first page items
             DisplayCurrentPageItems();
@@ -163,7 +172,7 @@ namespace ApplicationManagement.GUI
             string searchTerm = SearchTermTextBox.Text?.ToLower();
             if (string.IsNullOrEmpty(searchTerm))
             {
-                list = new BindingList<RecruitmentDTO>(originalList.ToList());
+                listShow = new BindingList<RecruitmentDTO>(originalList.ToList());
             }
             else
             {
@@ -172,7 +181,7 @@ namespace ApplicationManagement.GUI
                     || r.Enterprise.EnterpriseName?.ToLower().Contains(searchTerm) == true
                     || r.Enterprise.Address?.ToLower().Contains(searchTerm) == true)
                     .ToList();
-                list = new BindingList<RecruitmentDTO>(filteredList);
+                listShow = new BindingList<RecruitmentDTO>(filteredList);
             }
 
             // Reset to the first page when searching
@@ -193,13 +202,13 @@ namespace ApplicationManagement.GUI
             switch (selectedSortOption)
             {
                 case "No Sort":
-                    list = new BindingList<RecruitmentDTO>(originalList.ToList());
+                    listShow = new BindingList<RecruitmentDTO>(originalList.ToList());
                     break;
                 case "Sort by name (A-Z)":
-                    list = new BindingList<RecruitmentDTO>(originalList.OrderBy(r => r.Vacancies).ToList());
+                    listShow = new BindingList<RecruitmentDTO>(originalList.OrderBy(r => r.Vacancies).ToList());
                     break;
                 case "Sort by name (Z-A)":
-                    list = new BindingList<RecruitmentDTO>(originalList.OrderByDescending(r => r.Vacancies).ToList());
+                    listShow = new BindingList<RecruitmentDTO>(originalList.OrderByDescending(r => r.Vacancies).ToList());
                     break;
                 default:
                     break;
@@ -212,7 +221,7 @@ namespace ApplicationManagement.GUI
 
         private void UpdatePageInfo()
         {
-            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
             pageInfoTextBlock.Text = $"{currentPage}/{totalPages}";
 
         }
@@ -220,9 +229,9 @@ namespace ApplicationManagement.GUI
         private void DisplayCurrentPageItems()
         {
             int startIndex = (currentPage - 1) * itemsPerPage;
-            int endIndex = Math.Min(startIndex + itemsPerPage - 1, list.Count - 1);
+            int endIndex = Math.Min(startIndex + itemsPerPage - 1, listShow.Count - 1);
 
-            var currentPageItems = list.Skip(startIndex).Take(itemsPerPage).ToList();
+            var currentPageItems = listShow.Skip(startIndex).Take(itemsPerPage).ToList();
 
             nomineeListView.ItemsSource = currentPageItems;
 
@@ -246,7 +255,7 @@ namespace ApplicationManagement.GUI
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
             if (currentPage < totalPages)
             {
                 currentPage++;
@@ -256,7 +265,7 @@ namespace ApplicationManagement.GUI
 
         private void LastButton_Click(object sender, RoutedEventArgs e)
         {
-            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
             currentPage = totalPages;
             DisplayCurrentPageItems();
         }

@@ -43,5 +43,10 @@ namespace ApplicationManagement.BUS
             }
         }
 
+        public void deleteRecruit(RecruitmentDTO recruitment)
+        {
+            _recruitFormDAO.deleteRecruit(recruitment);
+        }
+
     }
 }

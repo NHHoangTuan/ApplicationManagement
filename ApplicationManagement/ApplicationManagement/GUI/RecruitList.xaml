@@ -153,40 +153,6 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
 
 
-
-
-
-                                            <Button Width="40" Height="40" Background="Red" Foreground="White" Content="✖" FontSize="20" 
-HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Red" BorderThickness="0" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3"
-ToolTip="Reject" VerticalAlignment="Center" Name="rejectButton" Click="rejectButton_Click">
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Grid>
-                                                            <Ellipse Fill="Red" />
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                        </Grid>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
-
-
-                                            <!-- Button for "Accept" -->
-                                            <Button Width="40" Height="40" Background="Green" Foreground="White" Content="✔" FontSize="20" 
-HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Green" BorderThickness="0"
-ToolTip="Accept" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3"  VerticalAlignment="Center" Name="acceptButton" Click="acceptButton_Click">
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Grid>
-                                                            <Ellipse Fill="Green" />
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                        </Grid>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
-
-
-
-
                                         </Grid>
 
 
@@ -337,7 +303,7 @@ Width="180">
                     <TextBlock 
     Name="pageInfoTextBlock"
     Grid.Column="2"
-    Text = "1/3" 
+    Text = "1/1" 
     FontSize="13"
     VerticalAlignment="Center"
     HorizontalAlignment="Center"
