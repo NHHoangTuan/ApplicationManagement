@@ -41,7 +41,7 @@ namespace ApplicationManagement.GUI
             // Initialize or reset currentPage
             currentPage = 1;
 
-            originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
+            /*originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
             {
                 Vacancies = "Kế Toán Trưởng",
                 Description = "Công ty TNHH MTV Kosei Quốc tế đang tuyển dụng Kế Toán Trưởng với mức lương 20-25 triệu/tháng.",
@@ -50,7 +50,7 @@ namespace ApplicationManagement.GUI
                 ExperienceRequirement = "3 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Kosei",
+                    EnterpriseName = "Kosei",
                     Description = "Công ty TNHH MTV Kosei Quốc tế",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -66,7 +66,7 @@ namespace ApplicationManagement.GUI
                 ExperienceRequirement = "2 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Tech Corp",
+                    EnterpriseName = "Tech Corp",
                     Description = "Tech Corp là công ty công nghệ hàng đầu",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -82,7 +82,7 @@ namespace ApplicationManagement.GUI
                 ExperienceRequirement = "1 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Sales Inc",
+                    EnterpriseName = "Sales Inc",
                     Description = "Sales Inc chuyên về các giải pháp kinh doanh",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -98,7 +98,7 @@ namespace ApplicationManagement.GUI
                 ExperienceRequirement = "2 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Marketing Pro",
+                    EnterpriseName = "Marketing Pro",
                     Description = "Marketing Pro là công ty chuyên về dịch vụ tiếp thị",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -114,14 +114,14 @@ namespace ApplicationManagement.GUI
                 ExperienceRequirement = "5 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Project Management Ltd",
+                    EnterpriseName = "Project Management Ltd",
                     Description = "Project Management Ltd chuyên về quản lý dự án",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
                     Address = "Đà Nẵng"
                 }
             }
-            };
+            };*/
 
             list = new BindingList<RecruitmentDTO>(originalList);
             nomineeListView.ItemsSource = list;
@@ -169,7 +169,7 @@ namespace ApplicationManagement.GUI
             {
                 var filteredList = originalList
                     .Where(r => r.Vacancies?.ToLower().Contains(searchTerm) == true
-                    || r.Enterprise.Name?.ToLower().Contains(searchTerm) == true
+                    || r.Enterprise.EnterpriseName?.ToLower().Contains(searchTerm) == true
                     || r.Enterprise.Address?.ToLower().Contains(searchTerm) == true)
                     .ToList();
                 list = new BindingList<RecruitmentDTO>(filteredList);

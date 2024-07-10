@@ -1,4 +1,5 @@
-﻿using ApplicationManagement.DAO;
+﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DAO;
 using ApplicationManagement.DTO;
 using System;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ namespace ApplicationManagement.GUI {
     public partial class EnterpriseSignUp : Window {
         EnterpriseDTO enterprise = new EnterpriseDTO();
         EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
+        AccountBUS accountBUS = new AccountBUS();
 
         public EnterpriseSignUp() {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace ApplicationManagement.GUI {
             string Username = accountTextBox.Text;
             string Password = passwordTextBox.Text;
 
-            enterprise.Name = enterpriseNameTextBox.Text;
+            enterprise.EnterpriseName = enterpriseNameTextBox.Text;
             enterprise.Description = "Description";
             enterprise.Logo = "Assets/Images/Design/enterprise.jpg";
             enterprise.Background = "Assets/Images/Design/1_1.jpg";
@@ -29,6 +31,13 @@ namespace ApplicationManagement.GUI {
             enterprise.TaxID = taxCodeTextBox.Text;
             enterprise.Leader = representativeNameTextBox.Text;
             enterprise.Email = emailTextBox.Text;
+
+            if (accountBUS.IsUsernameExist(Username))
+            {
+                MessageBox.Show("Tên tài khoản đã tồn tại", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
 
             if (IsValid(enterprise)) {
                 try {

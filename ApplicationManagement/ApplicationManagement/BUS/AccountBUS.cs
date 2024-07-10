@@ -1,16 +1,20 @@
 ﻿using ApplicationManagement.DAO;
 using ApplicationManagement.DTO;
+using System.Data.SqlClient;
+using System;
 
 namespace ApplicationManagement.BUS {
     internal class AccountBUS {
         AccountAccess accountAccess;
         CandidateDAO _candidateDAO;
+        AccountDAO _accountDAO;
 
 
         public AccountBUS()
         {
             accountAccess = new AccountAccess();
             _candidateDAO = new CandidateDAO();
+            _accountDAO = new AccountDAO();
         }
 
         public string CheckLogin(Account account) {
@@ -29,6 +33,11 @@ namespace ApplicationManagement.BUS {
         public void addAccount(string username, string password, CandidateDTO candidate)
         {
             _candidateDAO.AddCandidateAccount(username, password, candidate);
+        }
+
+        public bool IsUsernameExist(string username)
+        {
+            return _accountDAO.IsUsernameExist(username);
         }
 
     }

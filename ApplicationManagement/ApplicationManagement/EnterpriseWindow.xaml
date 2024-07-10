@@ -64,7 +64,7 @@
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="JobPostingButton_Click" x:Name="JobPostingButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Đăng Ký Tuyển Dụng" Style="{DynamicResource menuButtonText}"/>
+                            <TextBlock Text="Đăng Tuyển Dụng" Style="{DynamicResource menuButtonText}"/>
                         </StackPanel>
                     </ToggleButton>
 

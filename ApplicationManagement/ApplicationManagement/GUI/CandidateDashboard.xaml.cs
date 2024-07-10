@@ -1,4 +1,5 @@
-﻿using ApplicationManagement.DTO;
+﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DTO;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,10 +12,13 @@ namespace ApplicationManagement.GUI {
 
         BindingList<RecruitmentDTO> listNominee = null;
         BindingList<EnterpriseDTO> listEnterprise = null;
+        RecruitmentBUS recruitmentBUS;
 
 
         public CandidateDashboard() {
             InitializeComponent();
+
+            recruitmentBUS = new RecruitmentBUS();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
@@ -23,7 +27,7 @@ namespace ApplicationManagement.GUI {
             {
                 new EnterpriseDTO()
                 {
-                    Name = "Shopee",
+                    EnterpriseName = "Shopee",
                     Description = "Shopee là nền tảng thương mại điện tử ở Đông Nam Á và Đài Loan. Ra mắt năm 2015, nền tảng thương mại Shopee được xây dựng nhằm cung cấp cho người sử dụng những trải nghiệm dễ dàng, an toàn và nhanh chóng khi mua sắm trực tuyến thông qua hệ thống hỗ trợ thanh toán và vận hành vững mạnh.",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -31,7 +35,7 @@ namespace ApplicationManagement.GUI {
                 },
                 new EnterpriseDTO
                 {
-                    Name = "Lazada",
+                    EnterpriseName = "Lazada",
                     Description = "Lazada là một trong những nền tảng thương mại điện tử hàng đầu tại Đông Nam Á. Được thành lập vào năm 2012, Lazada mang đến trải nghiệm mua sắm trực tuyến dễ dàng và an toàn với nhiều sản phẩm phong phú.",
                     Logo = "Assets/Images/Design/2.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -39,7 +43,7 @@ namespace ApplicationManagement.GUI {
                 },
                 new EnterpriseDTO
                 {
-                    Name = "Tiki",
+                    EnterpriseName = "Tiki",
                     Description = "Tiki là nền tảng thương mại điện tử hàng đầu Việt Nam. Với dịch vụ giao hàng nhanh chóng và đa dạng các sản phẩm, Tiki cam kết mang lại sự hài lòng cho khách hàng trong mỗi giao dịch mua sắm.",
                     Logo = "Assets/Images/Design/3.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -47,7 +51,7 @@ namespace ApplicationManagement.GUI {
                 },
                 new EnterpriseDTO
                 {
-                    Name = "Sendo",
+                    EnterpriseName = "Sendo",
                     Description = "Sendo là một trong những sàn thương mại điện tử lớn nhất Việt Nam, mang đến trải nghiệm mua sắm trực tuyến đa dạng với nhiều sản phẩm từ thời trang, điện tử, đến gia dụng.",
                     Logo = "Assets/Images/Design/4.png",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -55,7 +59,7 @@ namespace ApplicationManagement.GUI {
                 },
                 new EnterpriseDTO
                 {
-                    Name = "Amazon",
+                    EnterpriseName = "Amazon",
                     Description = "Amazon là công ty thương mại điện tử hàng đầu thế giới, cung cấp hàng triệu sản phẩm và dịch vụ khác nhau. Amazon mang đến cho khách hàng trên toàn cầu trải nghiệm mua sắm tiện lợi và đáng tin cậy.",
                     Logo = "Assets/Images/Design/5.png",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -63,8 +67,9 @@ namespace ApplicationManagement.GUI {
                 }
             };
 
+            listNominee = recruitmentBUS.getAllRecruitment();
 
-            listNominee = new BindingList<RecruitmentDTO> { new RecruitmentDTO
+            /*listNominee = new BindingList<RecruitmentDTO> { new RecruitmentDTO
             {
                 Vacancies = "Kế Toán Trưởng",
                 Description = "Công ty TNHH MTV Kosei Quốc tế đang tuyển dụng Kế Toán Trưởng với mức lương 20-25 triệu/tháng.",
@@ -73,7 +78,7 @@ namespace ApplicationManagement.GUI {
                 ExperienceRequirement = "3 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Kosei",
+                    EnterpriseName = "Kosei",
                     Description = "Công ty TNHH MTV Kosei Quốc tế",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -90,7 +95,7 @@ namespace ApplicationManagement.GUI {
                 ExperienceRequirement = "2 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Tech Corp",
+                    EnterpriseName = "Tech Corp",
                     Description = "Tech Corp là công ty công nghệ hàng đầu",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -107,7 +112,7 @@ namespace ApplicationManagement.GUI {
                 ExperienceRequirement = "1 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Sales Inc",
+                    EnterpriseName = "Sales Inc",
                     Description = "Sales Inc chuyên về các giải pháp kinh doanh",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -124,7 +129,7 @@ namespace ApplicationManagement.GUI {
                 ExperienceRequirement = "2 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Marketing Pro",
+                    EnterpriseName = "Marketing Pro",
                     Description = "Marketing Pro là công ty chuyên về dịch vụ tiếp thị",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -141,7 +146,7 @@ namespace ApplicationManagement.GUI {
                 ExperienceRequirement = "5 năm kinh nghiệm",
                 Enterprise = new EnterpriseDTO
                 {
-                    Name = "Project Management Ltd",
+                    EnterpriseName = "Project Management Ltd",
                     Description = "Project Management Ltd chuyên về quản lý dự án",
                     Logo = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
@@ -149,7 +154,7 @@ namespace ApplicationManagement.GUI {
                     TaxID = "0123456789"
                 }
             }
-            };
+            };*/
 
 
             var TotalNomineeNumber = listNominee.Count;
