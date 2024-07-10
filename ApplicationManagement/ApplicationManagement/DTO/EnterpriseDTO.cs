@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace ApplicationManagement.DTO {
     public class EnterpriseDTO : INotifyPropertyChanged, ICloneable {
 
-        public string Name { get; set; }
+        public string EnterpriseName { get; set; }
         public string Description { get; set; }
         public string Logo { get; set; }
         public string Background { get; set; }
@@ -25,8 +25,8 @@ namespace ApplicationManagement.DTO {
             get {
                 string result = null;
                 switch (columnName) {
-                    case nameof(Name):
-                        if (string.IsNullOrWhiteSpace(Name)) {
+                    case nameof(EnterpriseName):
+                        if (string.IsNullOrWhiteSpace(EnterpriseName)) {
                             result = "Tên không được trống!";
                         }
                         break;

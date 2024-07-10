@@ -1,4 +1,5 @@
-﻿using ApplicationManagement.DTO;
+﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,12 @@ namespace ApplicationManagement.GUI
     public partial class RecruitList : Page
     {
 
-        BindingList<RecruitmentDTO> list = null;
-        BindingList<RecruitmentDTO> originalList = null; // Store the original list
+        BindingList<RecruitmentDTO>? list = null;
+        BindingList<RecruitmentDTO>? originalList = null; // Store the original list
+        BindingList<RecruitmentDTO>? listShow = null;
+        RecruitmentBUS _recruitmentBUS;
+        RecruitmentDTO selectRecruit = null;
+
 
         // Page pagination
         int currentPage = 1;
@@ -33,6 +38,9 @@ namespace ApplicationManagement.GUI
         public RecruitList()
         {
             InitializeComponent();
+            _recruitmentBUS = new RecruitmentBUS();
+
+            
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -40,7 +48,13 @@ namespace ApplicationManagement.GUI
             // Initialize or reset currentPage
             currentPage = 1;
 
-            originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
+            originalList = _recruitmentBUS.getAllRecruitment();
+            if (originalList != null)
+            {
+                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "NOT OK").ToList());
+            }
+
+            /*originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
 {
     Vacancies = "Kế Toán Trưởng",
     Description = "Công ty TNHH MTV Kosei Quốc tế đang tuyển dụng Kế Toán Trưởng với mức lương 20-25 triệu/tháng.",
@@ -49,7 +63,7 @@ namespace ApplicationManagement.GUI
     ExperienceRequirement = "3 năm kinh nghiệm",
     Enterprise = new EnterpriseDTO
     {
-        Name = "Kosei",
+        EnterpriseName = "Kosei",
         Description = "Công ty TNHH MTV Kosei Quốc tế",
         Logo = "Assets/Images/Design/1.jpg",
         Background = "Assets/Images/Design/1_1.jpg",
@@ -65,7 +79,7 @@ new RecruitmentDTO
     ExperienceRequirement = "2 năm kinh nghiệm",
     Enterprise = new EnterpriseDTO
     {
-        Name = "Tech Corp",
+        EnterpriseName = "Tech Corp",
         Description = "Tech Corp là công ty công nghệ hàng đầu",
         Logo = "Assets/Images/Design/1.jpg",
         Background = "Assets/Images/Design/1_1.jpg",
@@ -81,7 +95,7 @@ new RecruitmentDTO
     ExperienceRequirement = "1 năm kinh nghiệm",
     Enterprise = new EnterpriseDTO
     {
-        Name = "Sales Inc",
+        EnterpriseName = "Sales Inc",
         Description = "Sales Inc chuyên về các giải pháp kinh doanh",
         Logo = "Assets/Images/Design/1.jpg",
         Background = "Assets/Images/Design/1_1.jpg",
@@ -97,7 +111,7 @@ new RecruitmentDTO
     ExperienceRequirement = "2 năm kinh nghiệm",
     Enterprise = new EnterpriseDTO
     {
-        Name = "Marketing Pro",
+        EnterpriseName = "Marketing Pro",
         Description = "Marketing Pro là công ty chuyên về dịch vụ tiếp thị",
         Logo = "Assets/Images/Design/1.jpg",
         Background = "Assets/Images/Design/1_1.jpg",
@@ -113,25 +127,36 @@ new RecruitmentDTO
     ExperienceRequirement = "5 năm kinh nghiệm",
     Enterprise = new EnterpriseDTO
     {
-        Name = "Project Management Ltd",
+        EnterpriseName = "Project Management Ltd",
         Description = "Project Management Ltd chuyên về quản lý dự án",
         Logo = "Assets/Images/Design/1.jpg",
         Background = "Assets/Images/Design/1_1.jpg",
         Address = "Đà Nẵng"
     }
 }
-};
+};*/
 
-            list = new BindingList<RecruitmentDTO>(originalList);
-            recruitListView.ItemsSource = list;
+            //list = new BindingList<RecruitmentDTO>(listShow);
+            recruitListView.ItemsSource = listShow;
 
             // Display the first page items
-            DisplayCurrentPageItems();
+            //DisplayCurrentPageItems();
+
+            
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var recruit = recruitListView.SelectedItem as RecruitmentDTO;
+            if (recruit == null) return;
+            RecruitDetail recruitDetail = new RecruitDetail(recruit);
+            recruitDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            if (recruitDetail.ShowDialog() == true)
+            {
+
+
+            }
         }
 
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -166,12 +191,13 @@ new RecruitmentDTO
 
         private void rejectButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void acceptButton_Click(object sender, RoutedEventArgs e)
         {
 
+            
         }
 
 

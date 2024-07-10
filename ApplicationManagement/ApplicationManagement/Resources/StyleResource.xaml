@@ -265,9 +265,50 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
 
 
+    <Style x:Key="acceptButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Green" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+        BorderBrush="{TemplateBinding BorderBrush}"
+        BorderThickness="{TemplateBinding BorderThickness}"
+        Padding="{TemplateBinding Padding}"
+        CornerRadius="8">
+                        <ContentPresenter HorizontalAlignment="Center"
+                      VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="rejectButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="Red" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+    BorderBrush="{TemplateBinding BorderBrush}"
+    BorderThickness="{TemplateBinding BorderThickness}"
+    Padding="{TemplateBinding Padding}"
+    CornerRadius="8">
+                        <ContentPresenter HorizontalAlignment="Center"
+                  VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
 

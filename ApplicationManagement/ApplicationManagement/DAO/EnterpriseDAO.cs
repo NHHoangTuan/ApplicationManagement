@@ -28,7 +28,7 @@ namespace ApplicationManagement.DAO {
             using (SqlCommand command2 = new SqlCommand("AddPDKThongTin", connection))
             {
                 command2.CommandType = System.Data.CommandType.StoredProcedure;
-                command2.Parameters.AddWithValue("@TenCTy", enterprise.Name);
+                command2.Parameters.AddWithValue("@TenCTy", enterprise.EnterpriseName);
                 command2.Parameters.AddWithValue("@MaThue", enterprise.TaxID);
                 command2.Parameters.AddWithValue("@MaNV", 1);
                 command2.Parameters.AddWithValue("@NguoiDaiDien", enterprise.Leader);
@@ -39,5 +39,29 @@ namespace ApplicationManagement.DAO {
 
             connection.Close();
         }
+
+
+        public EnterpriseDTO getEnterpriseByTaxID(string taxID)
+        {
+            var sql1 = "select TenCty, NguoiDaiDien, DiaChi, Email from PDK_THONGTIN where MaThue = @taxID";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command1 = new SqlCommand(sql1, connection);
+            command1.Parameters.AddWithValue("@taxID", taxID);
+            command1.ExecuteNonQuery();
+            var reader1 = command1.ExecuteReader();
+            var enterprise = new EnterpriseDTO();
+            while (reader1.Read())
+            {
+                enterprise.TaxID = taxID;
+                enterprise.EnterpriseName = (string)reader1["TenCty"];
+                enterprise.Leader = (string)reader1["NguoiDaiDien"];
+                enterprise.Address = (string)reader1["DiaChi"];
+                enterprise.Email = (string)reader1["Email"];
+            }
+
+            return enterprise;
+        }
+
     }
 }
