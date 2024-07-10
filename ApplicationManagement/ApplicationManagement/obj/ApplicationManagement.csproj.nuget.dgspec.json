@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {}
+    "C:\\Users\\Lenovo\\Downloads\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {}
   },
   "projects": {
-    "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {
+    "C:\\Users\\Lenovo\\Downloads\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+        "projectUniqueName": "C:\\Users\\Lenovo\\Downloads\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
         "projectName": "ApplicationManagement",
-        "projectPath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
-        "packagesPath": "C:\\Users\\Hoang Tuan\\.nuget\\packages\\",
-        "outputPath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\obj\\",
+        "projectPath": "C:\\Users\\Lenovo\\Downloads\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lenovo\\Downloads\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hoang Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -72,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

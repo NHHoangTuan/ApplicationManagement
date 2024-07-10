@@ -28,19 +28,21 @@ namespace ApplicationManagement.GUI {
             candidate.CCCD = candidateIDTextBox.Text;
             candidate.PhoneNumber = candidatePhoneNumberTextBox.Text;
             candidate.Gender = (bool)candidateRadioButtonMale.IsChecked ? "Nam" : "Nữ";
-            candidate.DateOfBirth = candidateDOB.SelectedDate.ToString();
+            candidate.DateOfBirth = candidateDOB.SelectedDate?.ToString("yyyy-MM-dd");
 
             string inputUsername = usernameTextBox.Text;
             string inputPassword = passwordTextBox.Password;
             string inputRePassword = retypePasswordTextBox.Password;
+
+            bool candidateExists = candidateBUS.CheckIfCandidateExists(candidate.CCCD);
 
 
             if (string.IsNullOrEmpty(inputUsername) || string.IsNullOrEmpty(inputPassword) || string.IsNullOrEmpty(inputRePassword))
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản và mật khẩu");
             else if (inputPassword.Equals(inputRePassword) == false) MessageBox.Show("Hai mật khẩu không trùng khớp");
 
-            else if (accountBUS.IsUsernameExist(inputUsername)) 
-                MessageBox.Show("Tên tài khoản đã tồn tại", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            else if (candidateExists || accountBUS.IsUsernameExist(inputUsername)) 
+                MessageBox.Show("Tài khoản đã tồn tại", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
 
             else
             {
@@ -66,11 +68,14 @@ namespace ApplicationManagement.GUI {
             }
         }
 
-        private bool IsValid(CandidateDTO candidate) {
+        private bool IsValid(CandidateDTO candidate)
+        {
             var properties = TypeDescriptor.GetProperties(candidate);
-            foreach (PropertyDescriptor property in properties) {
+            foreach (PropertyDescriptor property in properties)
+            {
                 var error = candidate[property.Name];
-                if (!string.IsNullOrEmpty(error)) {
+                if (!string.IsNullOrEmpty(error))
+                {
                     Console.WriteLine(error);
                     return false;
                 }

@@ -34,7 +34,11 @@ namespace ApplicationManagement.BUS
             _candidateDAO.SaveCandidate(candidate);
         }
 
-        
+        public bool CheckIfCandidateExists(string cccd)
+        {
+            return _candidateDAO.CheckCandidateExists(cccd);
+        }
+
 
     }
 }

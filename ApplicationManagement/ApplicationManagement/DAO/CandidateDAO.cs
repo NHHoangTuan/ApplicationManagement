@@ -75,5 +75,18 @@ namespace ApplicationManagement.DAO {
 
             return candidates;
         }
+
+        public bool CheckCandidateExists(string cccd)
+        {
+            using (SqlConnection connection = SqlConnectionData.Connect())
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM HSUV WHERE CCCD = @CCCD";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CCCD", cccd);
+                int count = (int)command.ExecuteScalar();
+                return count > 0;
+            }
+        }
     }
 }
