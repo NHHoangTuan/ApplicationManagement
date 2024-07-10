@@ -72,13 +72,15 @@ namespace ApplicationManagement.DAO
         {
             var sqlquery = @"
             SELECT 
+                DOANHNGHIEP_DANGTUYEN.MaPhieu,
                 DOANHNGHIEP.MaThue,
                 PCC_TT_DANGTUYEN.ViTriTuyenDung, 
                 PCC_TT_DANGTUYEN.SLTuyenDung, 
                 PCC_TT_DANGTUYEN.KTGDangTuyen, 
                 PCC_TT_DANGTUYEN.ThongTinYeuCau, 
                 DOANHNGHIEP_DANGTUYEN.TGDangTuyen, 
-                DOANHNGHIEP_DANGTUYEN.HinhThuc
+                DOANHNGHIEP_DANGTUYEN.HinhThuc,
+                DOANHNGHIEP_DANGTUYEN.TinhHopLe
             FROM 
                 PCC_TT_DANGTUYEN
             JOIN 
@@ -101,8 +103,9 @@ namespace ApplicationManagement.DAO
                 var require = (string)reader["ThongTinYeuCau"];
                 var recruitForm = (string)reader["HinhThuc"];
                 var recruitTime = (DateTime)reader["TGDangTuyen"];
-                //var formID = (int)reader["MaPhieu"];
+                var formID = (int)reader["MaPhieu"];
                 var taxID = reader["MaThue"] == DBNull.Value ? null : (string?)reader["MaThue"];
+                var validity = (string)reader["TinhHopLe"];
 
 
                 RecruitmentDTO recruitment = new RecruitmentDTO()
@@ -114,8 +117,8 @@ namespace ApplicationManagement.DAO
                     RecruitForm = recruitForm,
                     RecruitTime = recruitTime,
                     Enterprise = enterpriseDAO.getEnterpriseByTaxID(taxID),
-                    
-
+                    formID = formID,
+                    Validity = validity,
                 };
 
                 list.Add(recruitment);
@@ -125,6 +128,19 @@ namespace ApplicationManagement.DAO
         }
 
 
+
+        public void updateRecruitStatus(RecruitmentDTO recruitment)
+        {
+            var query = "update DOANHNGHIEP_DANGTUYEN set TinhHopLe = @validity where MaPhieu = @formID";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@formID", recruitment.formID);
+            command.Parameters.AddWithValue("@validity", recruitment.Validity);
+
+            command.ExecuteNonQuery();
+        }
 
     }
 }

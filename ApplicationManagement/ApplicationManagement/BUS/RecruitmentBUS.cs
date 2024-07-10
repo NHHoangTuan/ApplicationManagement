@@ -26,5 +26,22 @@ namespace ApplicationManagement.BUS
             return _recruitFormDAO.getAllRecruitment();
         }
 
+        public void updateRecruitStatus(RecruitmentDTO recruitment)
+        {
+            _recruitFormDAO.updateRecruitStatus(recruitment);
+        }
+
+        public void setValidity(RecruitmentDTO recruitment, bool isValidity)
+        {
+            if (isValidity)
+            {
+                recruitment.Validity = "OK";
+            }
+            else
+            {
+                recruitment.Validity = "NOT OK";
+            }
+        }
+
     }
 }

@@ -10,6 +10,7 @@ namespace ApplicationManagement.DTO
     public class RecruitmentDTO : INotifyPropertyChanged, ICloneable
     {
 
+        public int formID { get; set; }
         public string Vacancies { get; set; }
         public int RecruitNumber { get; set; }
         public int RecruitPeriod { get; set; }
@@ -21,6 +22,7 @@ namespace ApplicationManagement.DTO
         public EnterpriseDTO Enterprise { get; set; }
         public string Background { get; set; }
         public string RecruitForm {  get; set; }
+        public string Validity { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
