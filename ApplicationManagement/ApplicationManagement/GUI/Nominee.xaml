@@ -74,14 +74,14 @@
 Name="NomineeItem" HorizontalAlignment="Center" VerticalAlignment="Center"
 Width="1060"
 Margin="0 10 0 10"
-Height="120">
+Height="150">
 
                                     <Button Name="ItemButton"
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
     Width="1050"
     Margin="0 2 0 2"
-    Height="110"
+    Height="140"
     BorderThickness="0.1"
     BorderBrush="Orange"
     Padding="8, 8,8,8"
@@ -90,7 +90,7 @@ Height="120">
                     
     >
 
-                                        <Grid Width="1030" Height="80" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Grid Width="1030" Height="110" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2*"/>
@@ -126,37 +126,29 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
                                             <!-- binding -->
                                             <TextBlock Name="Vacancices" Grid.Row="0" Grid.Column="1"
-                   Text="{Binding Vacancies}" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left"
+                   Text="{Binding Vacancies}" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Left"
                    TextWrapping="Wrap"
                    Margin="5, 0, 0, 0"
                    Foreground="#353935"
                    FontWeight="Bold"
                    />
 
-                                            <TextBlock Name="EnterpriseName" Grid.Row="1" Grid.Column="1" FontSize="13"
+                                            <TextBlock Name="EnterpriseName" Grid.Row="1" Grid.Column="1" FontSize="17"
                            VerticalAlignment="Center" HorizontalAlignment="Left"
                            Margin="5 0 0 0">
                <Run Text="Doanh nghiệp: " FontWeight="SemiBold"/>
-        <Run Text="{Binding Enterprise.Name}"/>
+        <Run Text="{Binding Enterprise.EnterpriseName}"/>
                                             </TextBlock>
 
 
                                             <Border Grid.Row="2" Grid.Column="1" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
-                                                <TextBlock Name="Address"  FontSize="13"
+                                                <TextBlock Name="Address"  FontSize="17"
                    
                    Margin="5 0 0 0">
        <Run Text="📍" FontWeight="SemiBold"/>
 <Run Text="{Binding Enterprise.Address}"/>
                                                 </TextBlock>
                                             </Border>
-
-
-
-                                            <Button x:Name="RecruitmentButton" Content="Ứng tuyển" Click="RecruitmentButton_Click"
-                            Background="#5A9" BorderBrush="Transparent"
-                            Grid.Row="1" Grid.Column="2" Style="{StaticResource RecruitButtonStyle}"/>
-
-
 
 
                                         </Grid>

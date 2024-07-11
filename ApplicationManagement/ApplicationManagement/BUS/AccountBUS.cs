@@ -40,5 +40,10 @@ namespace ApplicationManagement.BUS {
             return _accountDAO.IsUsernameExist(username);
         }
 
+
+        public Account getAccountByUsername(string username)
+        {
+            return _accountDAO.getAccountByUsername(username);
+        }
     }
 }

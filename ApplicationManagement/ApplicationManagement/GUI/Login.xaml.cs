@@ -16,6 +16,8 @@ namespace ApplicationManagement.GUI {
         AccountBUS accountBUS = new AccountBUS();
         bool isChecked;
 
+        public static string CurrentAccountID { get; set; }
+
         public Login() {
             InitializeComponent();
             if (rememberCheckBox.IsChecked == true) {
@@ -24,6 +26,8 @@ namespace ApplicationManagement.GUI {
             else {
                 isChecked = false;
             }
+
+
 
         }
 
@@ -107,6 +111,8 @@ namespace ApplicationManagement.GUI {
             }
 
             MessageBox.Show("Đăng nhập thành công!");
+
+            CurrentAccountID = accountBUS.getAccountByUsername(account.Username).AccountID;
 
             switch (getUser) {
                 case "1":

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 D:\IT\Github\ApplicationManagement\ApplicationManagement\ApplicationManagement\App.xaml
-221866316588
+231358818045
 9-1035562976
-45-928883223
+51638780777
 201-498454524
-CandidateWindow.xaml;ConfigDataBase.xaml;EnterpriseWindow.xaml;GUI\ApplicationList.xaml;GUI\Candidate.xaml;GUI\CandidateDashboard.xaml;GUI\CandidateDetail.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseDetail.xaml;GUI\EnterpriseSignUp.xaml;GUI\JobPosting.xaml;GUI\Login.xaml;GUI\Nominee.xaml;GUI\NomineeDetail.xaml;GUI\RecruitDetail.xaml;GUI\RecruitList.xaml;GUI\SubmitApplication.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
+CandidateWindow.xaml;ConfigDataBase.xaml;EnterpriseWindow.xaml;GUI\ApplicationDetail.xaml;GUI\ApplicationList.xaml;GUI\Candidate.xaml;GUI\CandidateDashboard.xaml;GUI\CandidateDetail.xaml;GUI\CandidateSignUp.xaml;GUI\ChooseTypeSignUp.xaml;GUI\Enterprise.xaml;GUI\EnterpriseDetail.xaml;GUI\EnterpriseSignUp.xaml;GUI\JobPosting.xaml;GUI\Login.xaml;GUI\Nominee.xaml;GUI\NomineeDetail.xaml;GUI\RecruitDetail.xaml;GUI\RecruitList.xaml;GUI\SubmitApplication.xaml;MainWindow.xaml;Resources\ColorResources.xaml;Resources\StyleResource.xaml;
 
-True
+False
 

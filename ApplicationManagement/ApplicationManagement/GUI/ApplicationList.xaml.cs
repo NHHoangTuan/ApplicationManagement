@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApplicationManagement.BUS;
+using ApplicationManagement.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace ApplicationManagement.GUI
     public partial class ApplicationList : Page
     {
 
-        public class DataTest
+        /*public class DataTest
         {
             public string CandidateName { get; set; }
             public string CCCD { get; set; }
@@ -31,20 +33,33 @@ namespace ApplicationManagement.GUI
             public string PhoneNumber { get; set; }
             public string Position { get; set; }
             public string Avatar { get; set; }
-        }
+        }*/
 
-        BindingList<DataTest> listApplication = null;
+        //BindingList<DataTest> listApplication = null;
+
+        BindingList<ApplicationDTO>? originalList = null; // Store the original list
+        BindingList<ApplicationDTO>? listShow = null;
+        ApplicationBUS _applicationBUS;
 
 
         public ApplicationList()
         {
             InitializeComponent();
-            listApplication = new BindingList<DataTest>();
+            //listApplication = new BindingList<DataTest>();
+            _applicationBUS = new ApplicationBUS();
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            listApplication= new BindingList<DataTest>{
+
+
+            originalList = _applicationBUS.getAllApplication();
+            if (originalList != null)
+            {
+                listShow = new BindingList<ApplicationDTO>(originalList.Where(a => a.Validity == "NOT OK").ToList());
+            }
+            /*listApplication= new BindingList<DataTest>{
                 new DataTest { CandidateName = "Nguyễn Văn A", CCCD = "012345678901", Gender = "Nam", BirthDate = new DateTime(1990, 1, 1), PhoneNumber = "0901234567", Position = "Developer", Avatar = "Assets/Images/Data/user_icon.png" },
                 new DataTest { CandidateName = "Trần Thị B", CCCD = "012345678902", Gender = "Nữ", BirthDate = new DateTime(1991, 2, 2), PhoneNumber = "0901234568", Position = "Designer", Avatar = "Assets/Images/Data/user_icon.png" },
                 new DataTest { CandidateName = "Lê Văn C", CCCD = "012345678903", Gender = "Nam", BirthDate = new DateTime(1992, 3, 3), PhoneNumber = "0901234569", Position = "Tester", Avatar = "Assets/Images/Data/user_icon.png" },
@@ -55,14 +70,33 @@ namespace ApplicationManagement.GUI
                 new DataTest { CandidateName = "Ngô Thị H", CCCD = "012345678908", Gender = "Nữ", BirthDate = new DateTime(1997, 8, 8), PhoneNumber = "0901234574", Position = "Manager", Avatar = "Assets/Images/Data/user_icon.png" },
                 new DataTest { CandidateName = "Bùi Văn I", CCCD = "012345678909", Gender = "Nam", BirthDate = new DateTime(1998, 9, 9), PhoneNumber = "0901234575", Position = "Developer", Avatar = "Assets/Images/Data/user_icon.png" },
                 new DataTest { CandidateName = "Vũ Thị J", CCCD = "012345678910", Gender = "Nữ", BirthDate = new DateTime(1999, 10, 10), PhoneNumber = "0901234576", Position = "Designer", Avatar = "Assets/Images/Data/user_icon.png" }
-            };
+            };*/
 
-            applicationListView.ItemsSource = listApplication;
+            applicationListView.ItemsSource = listShow;
+
+            
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var application = applicationListView.SelectedItem as ApplicationDTO;
+            if (application == null) return;
+            ApplicationDetail recruitDetail = new ApplicationDetail(application);
+            recruitDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            if (recruitDetail.ShowDialog() == true)
+            {
+                originalList.Clear();
+                originalList = _applicationBUS.getAllApplication();
+
+
+
+                var currentListShow = originalList.Where(a => a.Validity == "NOT OK").ToList();
+
+                applicationListView.ItemsSource = currentListShow;
+
+
+            }
         }
 
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)

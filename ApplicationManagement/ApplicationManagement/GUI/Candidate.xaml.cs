@@ -24,7 +24,7 @@ namespace ApplicationManagement.GUI {
         }
 
         private void LoadCandidatesFromDatabase() {
-            List<CandidateDTO> candidates = _candidateDAO.GetCandidates();
+            List<CandidateDTO> candidates = _candidateDAO.getCandidates();
             list = new BindingList<CandidateDTO>(candidates);
             candidateListView.ItemsSource = list;
         }

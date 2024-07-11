@@ -18,7 +18,7 @@
     <Grid Background="#d9ead3" >
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.4*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
@@ -36,6 +36,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -45,21 +46,13 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="21" Grid.ColumnSpan="3" Grid.Row="0">
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="25" Grid.ColumnSpan="3" Grid.Row="0">
                     <Run Text="{Binding Vacancies}" FontWeight="Bold"/>
                 </TextBlock>
 
 
-                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Mức lương" FontSize="18"/>
-                    <TextBlock FontSize="16" FontWeight="Bold">
-                        <Run Text="{Binding MinSalary}"/>
-                        <Run Text=" - "/>
-                        <Run Text="{Binding MaxSalary}"/>
-                    </TextBlock>
-                </StackPanel>
-
-                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" 
+                            Margin="10 0 0 0" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBlock Text="Địa điểm" FontSize="18"/>
                     <TextBlock FontSize="16" FontWeight="Bold">
         <Run Text="{Binding Enterprise.Address}"/>
@@ -67,26 +60,41 @@
                     </TextBlock>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Text="Kinh nghiệm" FontSize="18"/>
-                    <TextBlock FontSize="16" FontWeight="Bold">
-        <Run Text="{Binding ExperienceRequirement}"/>
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" 
+                            Margin="0 0 10 0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="Số lượng tuyển dụng" FontSize="18"/>
+                    <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Center">
+        <Run Text="{Binding RecruitNumber}"/>
                     </TextBlock>
                 </StackPanel>
 
+
                 <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <TextBlock Name="Address"  FontSize="16"
+                    <TextBlock FontSize="16"
                    
                    Margin="5 0 0 0">
-       <Run Text="📍 Hạn nộp hồ sơ" FontWeight="SemiBold"/>
-<Run Text="{Binding Deadline}"/>
+       <Run Text="📍 Ngày đăng tuyển: " FontWeight="SemiBold"/>
+<Run Text="{Binding RecruitTime}"/>
                     </TextBlock>
                 </Border>
 
+
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock  FontSize="16"
+                   
+                   Margin="5 0 0 0">
+       <Run Text="📍 Hạn nộp hồ sơ: " FontWeight="SemiBold"/>
+<Run Text="{Binding RecruitPeriod}"/>
+                        <Run Text=" ngày kể từ ngày đăng tuyển"/>
+                    </TextBlock>
+                </Border>
+                
+                
+
                 <Button x:Name="RecruitmentButton" Content="Ứng tuyển ngay" Click="RecruitmentButton_Click"
-        Background="#5A9" BorderBrush="Transparent"
-        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource RecruitButtonStyle}"
-                        HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="30"/>
+        Background="#5A9" BorderBrush="Transparent" FontSize="16"
+        Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource RecruitButtonStyle}"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="40"/>
 
 
             </Grid>
@@ -100,7 +108,6 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -119,17 +126,15 @@ RenderOptions.BitmapScalingMode="HighQuality"
 Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 />
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="21" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1">
-    <Run Text="{Binding Enterprise.Name}" FontWeight="Bold"/>
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="25" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1">
+    <Run Text="{Binding Enterprise.EnterpriseName}" FontWeight="Bold"/>
                 </TextBlock>
 
-                <TextBlock Text="Quy mô: " FontSize="18" Grid.Row="1" Grid.Column="0" Margin="10,0,0,0"/>
-                <TextBlock FontSize="16" FontWeight="Bold" Grid.Row="1" Grid.Column="1">
-<Run Text="{Binding Enterprise.CompanySize}"/>
-                </TextBlock>
+                
+              
 
                 <TextBlock Text="Địa điểm: " FontSize="18" Grid.Row="2" Grid.Column="0" Margin="10 0 0 0"/>
-                <TextBlock FontSize="16" FontWeight="Bold" Grid.Row="2" Grid.Column="1">
+                <TextBlock FontSize="16" FontWeight="Bold" Grid.Row="2" Grid.Column="1" TextWrapping="Wrap">
 <Run Text="{Binding Enterprise.Address}"/>
                 </TextBlock>
 
@@ -144,22 +149,22 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
         <Border Grid.Column="0" Grid.Row="1" Background="White" Margin="15" CornerRadius="10">
             <StackPanel  >
                 <Border Background="#018001" CornerRadius="10,10,0,0" Padding="10">
-                    <TextBlock Text="Chi tiết tuyển dụng" FontWeight="Bold" FontSize="22" Foreground="White"/>
+                    <TextBlock Text="Chi tiết tuyển dụng" FontWeight="Bold" FontSize="24" Foreground="White"/>
                 </Border>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="18">
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="20">
                     <Run Text="Mô tả công việc: " FontWeight="SemiBold"/>
                 </TextBlock>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="15"
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="17"
                            Text="{Binding Description}"/>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="18">
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="20">
     <Run Text="Yêu cầu ứng viên: " FontWeight="SemiBold"/>
                 </TextBlock>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="15"
-           Text="{Binding Requirement}"/>
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="17"
+           Text="{Binding Require}"/>
 
 
             </StackPanel>
@@ -172,7 +177,7 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
             <StackPanel  >
                 <Border Background="#018001" CornerRadius="10,10,0,0" Padding="10">
-                    <TextBlock Text="Thông tin chung" FontWeight="Bold" FontSize="22" Foreground="White"/>
+                    <TextBlock Text="Thông tin chung" FontWeight="Bold" FontSize="24" Foreground="White"/>
                 </Border>
                 
             </StackPanel>

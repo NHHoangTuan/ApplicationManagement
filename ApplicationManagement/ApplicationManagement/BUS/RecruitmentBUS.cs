@@ -48,5 +48,10 @@ namespace ApplicationManagement.BUS
             _recruitFormDAO.deleteRecruit(recruitment);
         }
 
+        public int getAdvertiseByRecruitFormID(int recruitFormID)
+        {
+            return _recruitFormDAO.getAdvertiseByRecruitFormID(recruitFormID);
+        }
+
     }
 }
