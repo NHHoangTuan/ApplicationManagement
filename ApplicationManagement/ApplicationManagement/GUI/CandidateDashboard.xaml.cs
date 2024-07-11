@@ -17,7 +17,6 @@ namespace ApplicationManagement.GUI {
 
         public CandidateDashboard() {
             InitializeComponent();
-
             recruitmentBUS = new RecruitmentBUS();
         }
 
@@ -67,8 +66,8 @@ namespace ApplicationManagement.GUI {
                 }
             };
 
-            listNominee = recruitmentBUS.getAllRecruitment();
 
+            listNominee = recruitmentBUS.getAllRecruitment();
             /*listNominee = new BindingList<RecruitmentDTO> { new RecruitmentDTO
             {
                 Vacancies = "Kế Toán Trưởng",
