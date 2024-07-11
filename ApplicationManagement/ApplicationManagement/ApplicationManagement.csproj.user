@@ -16,6 +16,15 @@
     <Compile Update="GUI\ApplicationList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\Bill.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\BillDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\BillList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\Candidate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +64,12 @@
     <Compile Update="GUI\NomineeDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\Payment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\PaymentDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\RecruitDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -76,6 +91,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\ApplicationList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\Bill.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\BillDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\BillList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\Candidate.xaml">
@@ -112,6 +136,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\NomineeDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\Payment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\PaymentDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\RecruitDetail.xaml">

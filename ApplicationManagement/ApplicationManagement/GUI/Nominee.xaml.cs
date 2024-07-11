@@ -45,94 +45,25 @@ namespace ApplicationManagement.GUI
             currentPage = 1;
 
             originalList = _recruitmentBUS.getAllRecruitment();
+<<<<<<< HEAD
             if (originalList != null)
             {
                 listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
             }
 
             /*originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
+=======
+            if(originalList!= null)
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
             {
-                Vacancies = "Kế Toán Trưởng",
-                Description = "Công ty TNHH MTV Kosei Quốc tế đang tuyển dụng Kế Toán Trưởng với mức lương 20-25 triệu/tháng.",
-                MinSalary = 20000000,
-                MaxSalary = 25000000,
-                ExperienceRequirement = "3 năm kinh nghiệm",
-                Enterprise = new EnterpriseDTO
-                {
-                    EnterpriseName = "Kosei",
-                    Description = "Công ty TNHH MTV Kosei Quốc tế",
-                    Logo = "Assets/Images/Design/1.jpg",
-                    Background = "Assets/Images/Design/1_1.jpg",
-                    Address = "TP. Hồ Chí Minh"
-                }
-            },
-            new RecruitmentDTO
-            {
-                Vacancies = "Lập Trình Viên .NET",
-                Description = "Tuyển dụng Lập Trình Viên .NET làm việc tại Hà Nội.",
-                MinSalary = 15000000,
-                MaxSalary = 20000000,
-                ExperienceRequirement = "2 năm kinh nghiệm",
-                Enterprise = new EnterpriseDTO
-                {
-                    EnterpriseName = "Tech Corp",
-                    Description = "Tech Corp là công ty công nghệ hàng đầu",
-                    Logo = "Assets/Images/Design/1.jpg",
-                    Background = "Assets/Images/Design/1_1.jpg",
-                    Address = "Hà Nội"
-                }
-            },
-            new RecruitmentDTO
-            {
-                Vacancies = "Nhân Viên Kinh Doanh",
-                Description = "Tuyển dụng Nhân Viên Kinh Doanh làm việc tại TP. Hồ Chí Minh.",
-                MinSalary = 12000000,
-                MaxSalary = 18000000,
-                ExperienceRequirement = "1 năm kinh nghiệm",
-                Enterprise = new EnterpriseDTO
-                {
-                    EnterpriseName = "Sales Inc",
-                    Description = "Sales Inc chuyên về các giải pháp kinh doanh",
-                    Logo = "Assets/Images/Design/1.jpg",
-                    Background = "Assets/Images/Design/1_1.jpg",
-                    Address = "TP. Hồ Chí Minh"
-                }
-            },
-            new RecruitmentDTO
-            {
-                Vacancies = "Chuyên Viên Marketing",
-                Description = "Công ty TNHH Marketing Pro tuyển dụng Chuyên Viên Marketing.",
-                MinSalary = 18000000,
-                MaxSalary = 25000000,
-                ExperienceRequirement = "2 năm kinh nghiệm",
-                Enterprise = new EnterpriseDTO
-                {
-                    EnterpriseName = "Marketing Pro",
-                    Description = "Marketing Pro là công ty chuyên về dịch vụ tiếp thị",
-                    Logo = "Assets/Images/Design/1.jpg",
-                    Background = "Assets/Images/Design/1_1.jpg",
-                    Address = "TP. Hồ Chí Minh"
-                }
-            },
-            new RecruitmentDTO
-            {
-                Vacancies = "Quản Lý Dự Án",
-                Description = "Tuyển dụng Quản Lý Dự Án làm việc tại Đà Nẵng.",
-                MinSalary = 25000000,
-                MaxSalary = 30000000,
-                ExperienceRequirement = "5 năm kinh nghiệm",
-                Enterprise = new EnterpriseDTO
-                {
-                    EnterpriseName = "Project Management Ltd",
-                    Description = "Project Management Ltd chuyên về quản lý dự án",
-                    Logo = "Assets/Images/Design/1.jpg",
-                    Background = "Assets/Images/Design/1_1.jpg",
-                    Address = "Đà Nẵng"
-                }
+                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
             }
-            };*/
 
+<<<<<<< HEAD
             
+=======
+       
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
             nomineeListView.ItemsSource = listShow;
 
             // Display the first page items

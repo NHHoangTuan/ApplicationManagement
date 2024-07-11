@@ -58,7 +58,7 @@ namespace ApplicationManagement.GUI
 
         private void rejectButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
             if (selectedRecruit != null)
             {

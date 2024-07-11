@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {}
+    "F:\\SUHAO\\ApplicationManagement-main\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {}
   },
   "projects": {
-    "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {
+    "F:\\SUHAO\\ApplicationManagement-main\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+        "projectUniqueName": "F:\\SUHAO\\ApplicationManagement-main\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
         "projectName": "ApplicationManagement",
-        "projectPath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
-        "packagesPath": "C:\\Users\\Hoang Tuan\\.nuget\\packages\\",
-        "outputPath": "D:\\IT\\Github\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement\\obj\\",
+        "projectPath": "F:\\SUHAO\\ApplicationManagement-main\\ApplicationManagement\\ApplicationManagement\\ApplicationManagement.csproj",
+        "packagesPath": "C:\\Users\\xuanh\\.nuget\\packages\\",
+        "outputPath": "F:\\SUHAO\\ApplicationManagement-main\\ApplicationManagement\\ApplicationManagement\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Hoang Tuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\xuanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

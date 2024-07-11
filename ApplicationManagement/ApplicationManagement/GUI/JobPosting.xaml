@@ -293,6 +293,7 @@ HorizontalAlignment="Right"
 Margin="0,80,20,0"
 Click="post_Click"
 >
+
                         <StackPanel
     Orientation="Horizontal">
                             <Icon:PackIconMaterial 

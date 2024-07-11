@@ -1,4 +1,4 @@
-﻿<Page x:Class="ApplicationManagement.GUI.RecruitList"
+﻿<Page x:Class="ApplicationManagement.GUI.Payment"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="730" d:DesignWidth="990"
-      Title="RecruitList" Loaded="Page_Loaded">
+      Title="Payment" Loaded="Page_Loaded">
 
     <Page.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -38,6 +38,7 @@
 
 
             <!--Hiển thị nếu không có sản phẩm nào được tìm thấy-->
+          
             <TextBlock 
              Foreground="#353935"
              FontWeight="Medium" 
@@ -57,7 +58,7 @@
                     <!--Hiển thị những sản phẩm-->
                     <ListView 
         
-        Name="recruitListView"
+        Name="PaymentListView"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         
         HorizontalAlignment="Center"
@@ -71,22 +72,22 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid 
-Name="RecruitItem" HorizontalAlignment="Center" VerticalAlignment="Center"
-Width="1060"
-Margin="0 10 0 10"
-Height="150">
+        Name="PaymentItem" HorizontalAlignment="Center" VerticalAlignment="Center"
+        Width="1060"
+        Margin="0 10 0 10"
+        Height="150">
 
-                                    <Button Name="ItemButton"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Center"
-    Width="1050"
-    Margin="0 2 0 2"
-    Height="140"
-    BorderThickness="0.1"
-    BorderBrush="Orange"
-    Padding="8, 8,8,8"
-    IsEnabled="False"
-    Style="{StaticResource MyButtonStyle}"
+                                            <Button Name="ItemButton"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="1050"
+            Margin="0 2 0 2"
+            Height="140"
+            BorderThickness="0.1"
+            BorderBrush="Orange"
+            Padding="8, 8,8,8"
+            IsEnabled="False"
+            Style="{StaticResource MyButtonStyle}"
                     
     >
 
@@ -108,18 +109,18 @@ Height="150">
 
                                             <Image Width="90" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
 
-Cursor="Hand"                      
-Margin="0, 0, 0, 0"
-HorizontalAlignment="Center"
-RenderOptions.BitmapScalingMode="HighQuality"
-Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
->
+                                            Cursor="Hand"                      
+                                            Margin="0, 0, 0, 0"
+                                            HorizontalAlignment="Center"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
+                                            >
                                                 <Image.Effect>
-                                                    <DropShadowEffect BlurRadius="35"
-   ShadowDepth="1"
-   Opacity="0.2"
-   Direction="-90"
-   Color="#8B4000"/>
+                                                <DropShadowEffect BlurRadius="35"
+                                               ShadowDepth="1"
+                                               Opacity="0.2"
+                                               Direction="-90"
+                                               Color="#8B4000"/>
                                                 </Image.Effect>
                                             </Image>
 
@@ -127,12 +128,12 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
                                             <!-- binding -->
                                             <TextBlock Name="Vacancices" Grid.Row="0" Grid.Column="1"
-                   Text="{Binding Vacancies}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left"
-                   TextWrapping="Wrap"
-                   Margin="5, 0, 0, 0"
-                   Foreground="#353935"
-                   FontWeight="Bold"
-                   />
+                                            Text="{Binding Vacancies}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                            TextWrapping="Wrap"
+                                            Margin="5, 0, 0, 0"
+                                            Foreground="#353935"
+                                            FontWeight="Bold"
+                                            />
 
                                             <TextBlock Name="EnterpriseName" Grid.Row="1" Grid.Column="1" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -152,12 +153,26 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
                                             </Border>
 
 
-
-<<<<<<< HEAD
-=======
+                                            <!-- Button for "Payment" -->
 
 
->>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
+                                            <Button Width="130" Height="60" Foreground="Black" Content="Thanh Toán" FontSize="20" 
+        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" 
+        Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" ToolTip="Payment" VerticalAlignment="Center" Name="PaymentButton" Click="Payment_Click"
+        HorizontalAlignment="Right" >
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid>
+                                                            <Rectangle Fill="Green" RadiusX="20" RadiusY="20" Stroke="Black" StrokeThickness="2"/>
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+
+
+
                                         </Grid>
 
 
@@ -308,7 +323,7 @@ Width="180">
                     <TextBlock 
     Name="pageInfoTextBlock"
     Grid.Column="2"
-    Text = "1/1" 
+    Text = "1/3" 
     FontSize="13"
     VerticalAlignment="Center"
     HorizontalAlignment="Center"

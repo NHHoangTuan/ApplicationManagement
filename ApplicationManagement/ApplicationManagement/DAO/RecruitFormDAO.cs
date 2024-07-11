@@ -64,6 +64,7 @@ namespace ApplicationManagement.DAO
                 command2.ExecuteNonQuery();
             }
 
+<<<<<<< HEAD
             //Add PDK_QUANGCAO
             using (SqlCommand command3 = new SqlCommand("AddPDKQuangCao", connection))
             {
@@ -75,10 +76,15 @@ namespace ApplicationManagement.DAO
 
                 command3.ExecuteNonQuery();
             }
+=======
+
+
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
 
             connection.Close();
         }
 
+<<<<<<< HEAD
 
         public int getAdvertiseByRecruitFormID(int recruitFormID)
         {
@@ -103,6 +109,8 @@ namespace ApplicationManagement.DAO
         }
 
 
+=======
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
         public BindingList<RecruitmentDTO> getAllRecruitment()
         {
             var sqlquery = @"
@@ -129,7 +137,7 @@ namespace ApplicationManagement.DAO
 
             BindingList<RecruitmentDTO> list = new BindingList<RecruitmentDTO>();
             EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
- 
+
             while (reader.Read())
             {
                 var vacancies = (string)reader["ViTriTuyenDung"];
@@ -196,8 +204,16 @@ namespace ApplicationManagement.DAO
             command.Parameters.AddWithValue("@formID", r.formID);
             command.ExecuteNonQuery();
 
+<<<<<<< HEAD
             
         }
 
+=======
+
+        }
+
+
+
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
     }
 }
