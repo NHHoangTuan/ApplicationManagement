@@ -75,14 +75,14 @@
 Name="CandidateItem" HorizontalAlignment="Center" VerticalAlignment="Center"
 Width="1060"
 Margin="0 0 0 0"
-Height="90">
+Height="120">
 
                                     <Button Name="ItemButton"
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
     Width="1050"
     Margin="0 2 0 2"
-    Height="80"
+    Height="110"
     BorderThickness="0.1"
     BorderBrush="Orange"
     Padding="8, 8,8,8"
@@ -91,7 +91,7 @@ Height="90">
                     
     >
 
-                                        <Grid Width="1030" Height="60" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Grid Width="1030" Height="100" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
@@ -126,14 +126,14 @@ Source="..\Assets\Images\Design\user_icon.png"
 
                                             <!-- binding -->
                                             <TextBlock Name="CandidateName" Grid.Row="0" Grid.Column="1"
-                   Text="{Binding CandidateName}" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"
+                   Text="{Binding CandidateName}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"
                    TextWrapping="Wrap"
                    Margin="5, 0, 0, 0"
                    Foreground="#353935"
                    FontWeight="Bold"
                    />
 
-                                            <TextBlock Name="Nominee" Grid.Row="1" Grid.Column="1" FontSize="15"
+                                            <TextBlock Name="Nominee" Grid.Row="1" Grid.Column="1" FontSize="19"
                            VerticalAlignment="Center" HorizontalAlignment="Left"
                            Margin="5 0 0 0">
                <Run Text="Giới tính: " FontWeight="SemiBold"/>

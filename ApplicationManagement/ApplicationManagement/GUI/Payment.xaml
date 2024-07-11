@@ -17,7 +17,7 @@
         <local1:DecimalToCurrencyConverter x:Key="currencyConverter"/>
     </Page.Resources>
 
-    <Border Background="#cfe2f3" CornerRadius="15">
+    <Border Background="#fce5cd" CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*"/>
