@@ -31,5 +31,18 @@ namespace ApplicationManagement.BUS {
             _candidateDAO.AddCandidateAccount(username, password, candidate);
         }
 
+<<<<<<< HEAD
+        public bool IsUsernameExist(string username)
+        {
+            return _accountDAO.IsUsernameExist(username);
+        }
+
+
+        public Account getAccountByUsername(string username)
+        {
+            return _accountDAO.getAccountByUsername(username);
+        }
+=======
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
     }
 }

@@ -10,6 +10,9 @@
     <Compile Update="CandidateWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\ApplicationDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\ApplicationList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -82,6 +85,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ConfigDataBase.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\ApplicationDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\ApplicationList.xaml">

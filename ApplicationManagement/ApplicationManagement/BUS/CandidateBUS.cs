@@ -34,7 +34,10 @@ namespace ApplicationManagement.BUS
             _candidateDAO.SaveCandidate(candidate);
         }
 
-        
+        public CandidateDTO getCandidateByID(string id)
+        {
+            return _candidateDAO.getCandidateByID(id);
+        }
 
     }
 }

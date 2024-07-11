@@ -85,6 +85,8 @@ namespace ApplicationManagement.GUI
                 {
                     recruitFormDAO.AddRecruit(recruitForm);
                     MessageBox.Show("Đăng tuyển thành công", "Thành Công!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    refeshForm();
+
                 }
                 catch (Exception ex)
                 {
@@ -115,6 +117,17 @@ namespace ApplicationManagement.GUI
         private void RecruitForm_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void refeshForm()
+        {
+            vacanciesTextBox.Text = string.Empty;
+            numberRecruitTextBox.Text = string.Empty;
+            dateStartPicker.Text = string.Empty;
+            dateEndPicker.Text = string.Empty;
+            requireInfoTextBox.Text = string.Empty;
+            specificDate.Text = string.Empty;
+            RecruitForm.Text = string.Empty;
         }
     }
 }

@@ -153,8 +153,11 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
 
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
                                         </Grid>
 
 
@@ -305,7 +308,7 @@ Width="180">
                     <TextBlock 
     Name="pageInfoTextBlock"
     Grid.Column="2"
-    Text = "1/3" 
+    Text = "1/1" 
     FontSize="13"
     VerticalAlignment="Center"
     HorizontalAlignment="Center"

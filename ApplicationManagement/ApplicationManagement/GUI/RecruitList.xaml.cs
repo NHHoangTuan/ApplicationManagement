@@ -70,11 +70,20 @@ namespace ApplicationManagement.GUI
             {
                 originalList.Clear();
                 originalList = _recruitmentBUS.getAllRecruitment();
+<<<<<<< HEAD
+=======
 
                 var currentListShow = originalList.Where(a => a.Validity == "NOT OK").ToList();
 
                 recruitListView.ItemsSource = currentListShow;
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
 
+
+
+                var currentListShow = originalList.Where(a => a.Validity == "NOT OK").ToList();
+
+                recruitListView.ItemsSource = currentListShow;
+                
 
             }
         }

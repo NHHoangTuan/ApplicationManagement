@@ -34,10 +34,11 @@
                 <Grid Margin="20" Grid.Column="0" Grid.Row="1">
                     <StackPanel>
                         <TextBlock  
-                       FontWeight="Bold" FontSize="16" Margin="0,0,0,20">
+                       FontWeight="Bold" FontSize="22" Margin="0,0,0,20">
+                            <Run Text="Ứng tuyển vị trí "/>
                             <Run Text="{Binding Vacancies}"/>
                             <Run Text=" - Công ty "/>
-                            <Run Text="{Binding Enterprise.Name}"/>
+                            <Run Text="{Binding Enterprise.EnterpriseName}"/>
                         </TextBlock>
 
                         <GroupBox Header="Chọn CV để ứng tuyển" FontSize="15" FontWeight="Bold">
@@ -45,8 +46,13 @@
                                 <TextBlock Text="Tải lên CV từ máy tính" Margin="0,0,0,10" FontWeight="SemiBold" FontSize="13"/>
                                 <TextBlock Text="Hỗ trợ định dạng .doc, .docx, pdf có kích thước dưới 5MB"
                                FontSize="12" Foreground="Gray" Margin="0,0,0,10"/>
-                                <Button Content="Chọn CV" Width="100" HorizontalAlignment="Center" Style="{StaticResource RecruitButtonStyle}"
-                                    Foreground="White" Background="#01a001" Margin="10" />
+
+                                <TextBlock Text="" Name="nameFileUpload"
+FontSize="12" Foreground="Black" Margin="5,0,0,10"/>
+
+                                <Button Content="Chọn CV" Width="100" HorizontalAlignment="Center" 
+                                        Name="upCV" Style="{StaticResource RecruitButtonStyle}"
+                                    Foreground="White" Background="#01a001" Margin="10" Click="upCV_Click"/>
                             </StackPanel>
                         </GroupBox>
 
@@ -94,7 +100,7 @@
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,50,0,0">
                             <Button Content="Nộp hồ sơ ứng tuyển" Width="250" Height="60" Background="Green" Foreground="White"
-                                Style="{StaticResource RecruitButtonStyle}"/>
+                                Style="{StaticResource RecruitButtonStyle}" Name="submit" Click="submit_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>

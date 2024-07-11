@@ -1,4 +1,5 @@
 ﻿using ApplicationManagement.DTO;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,12 +64,53 @@ namespace ApplicationManagement.DAO
                 command2.ExecuteNonQuery();
             }
 
+<<<<<<< HEAD
+            //Add PDK_QUANGCAO
+            using (SqlCommand command3 = new SqlCommand("AddPDKQuangCao", connection))
+            {
+                command3.CommandType = CommandType.StoredProcedure;
+                command3.Parameters.AddWithValue("@MaThue", recruitForm.TaxID);
+                command3.Parameters.AddWithValue("@MaPhieuDT", maPhieu);
+                command3.Parameters.AddWithValue("@MaNV", 1);
+                
+
+                command3.ExecuteNonQuery();
+            }
+=======
 
 
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
 
             connection.Close();
         }
 
+<<<<<<< HEAD
+
+        public int getAdvertiseByRecruitFormID(int recruitFormID)
+        {
+            var sql1 = "select MaPhieu from PDK_QUANGCAO where MaPhieuDT = @id";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command1 = new SqlCommand(sql1, connection);
+            command1.Parameters.AddWithValue("@id", recruitFormID);
+            command1.ExecuteNonQuery();
+            var reader1 = command1.ExecuteReader();
+
+
+            int formID = 0;
+            while (reader1.Read())
+            {
+                formID = (int)reader1["MaPhieu"];
+            }
+            
+             
+
+            return formID;
+        }
+
+
+=======
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
         public BindingList<RecruitmentDTO> getAllRecruitment()
         {
             var sqlquery = @"
@@ -162,10 +204,16 @@ namespace ApplicationManagement.DAO
             command.Parameters.AddWithValue("@formID", r.formID);
             command.ExecuteNonQuery();
 
+<<<<<<< HEAD
+            
+        }
+
+=======
 
         }
 
 
 
+>>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
     }
 }

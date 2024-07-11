@@ -15,11 +15,11 @@
     </Window.Resources>
 
 
-    <Grid Background="#d9ead3" >
+    <Grid Background="#cfe2f3" >
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.8*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
 
@@ -36,6 +36,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
 
                 </Grid.RowDefinitions>
 
@@ -46,7 +47,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="21" Grid.ColumnSpan="3" Grid.Row="0">
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="25" Grid.ColumnSpan="3" Grid.Row="0">
                     <Run Text="{Binding Vacancies}" FontWeight="Bold"/>
                 </TextBlock>
 
@@ -64,11 +65,22 @@
 
 
                 <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
-                    <TextBlock Name="Address"  FontSize="16" 
+                    <TextBlock FontSize="16"
+                   
+                   Margin="5 0 0 0">
+       <Run Text="📍 Ngày đăng tuyển: " FontWeight="SemiBold"/>
+<Run Text="{Binding RecruitTime}"/>
+                    </TextBlock>
+                </Border>
+
+
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock   FontSize="16" 
                    
                    Margin="10 0 0 0">
-       <Run Text="📍 Hạn nộp hồ sơ" FontWeight="SemiBold"/>
-<Run Text="{Binding Deadline}"/>
+       <Run Text="📍 Hạn nộp hồ sơ: " FontWeight="SemiBold"/>
+<Run Text="{Binding RecruitPeriod}"/>
+                        <Run Text="ngày kể từ ngày đăng tuyển"/>
                     </TextBlock>
                 </Border>
 
@@ -128,21 +140,21 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
         <Border Grid.Column="0" Grid.Row="1" Background="White" Margin="15" CornerRadius="10">
             <StackPanel  >
                 <Border Background="#018001" CornerRadius="10,10,0,0" Padding="10">
-                    <TextBlock Text="Chi tiết tuyển dụng" FontWeight="Bold" FontSize="22" Foreground="White"/>
+                    <TextBlock Text="Chi tiết tuyển dụng" FontWeight="Bold" FontSize="24" Foreground="White"/>
                 </Border>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="18">
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="20">
                     <Run Text="Mô tả công việc: " FontWeight="SemiBold"/>
                 </TextBlock>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="15"
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="17"
                            Text="{Binding Description}"/>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="18">
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="20">
     <Run Text="Yêu cầu ứng viên: " FontWeight="SemiBold"/>
                 </TextBlock>
 
-                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="15"
+                <TextBlock Margin="10" TextWrapping="Wrap" FontSize="17"
            Text="{Binding Require}"/>
 
 
@@ -156,7 +168,7 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
             <StackPanel  >
                 <Border Background="#018001" CornerRadius="10,10,0,0" Padding="10">
-                    <TextBlock Text="Thông tin chung" FontWeight="Bold" FontSize="22" Foreground="White"/>
+                    <TextBlock Text="Thông tin chung" FontWeight="Bold" FontSize="24" Foreground="White"/>
                 </Border>
 
             </StackPanel>

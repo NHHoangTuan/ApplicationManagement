@@ -17,38 +17,35 @@ using System.Windows.Shapes;
 namespace ApplicationManagement.GUI
 {
     /// <summary>
-    /// Interaction logic for RecruitDetail.xaml
+    /// Interaction logic for ApplicationDetail.xaml
     /// </summary>
-    public partial class RecruitDetail : Window
+    public partial class ApplicationDetail : Window
     {
 
-        RecruitmentDTO copyRecruitmentDTO { get; set; }
-        RecruitmentDTO selectedRecruit;
-        RecruitmentBUS recruitmentBUS;
+        ApplicationDTO selectedApplication;
+        ApplicationBUS applicationBUS;
 
-        public RecruitDetail(RecruitmentDTO r)
+        public ApplicationDetail(ApplicationDTO a)
         {
             InitializeComponent();
+            this.DataContext = a;
+            selectedApplication = a;
+            
+            applicationBUS = new ApplicationBUS();
 
-            this.DataContext = r;
-            copyRecruitmentDTO = (RecruitmentDTO)r.Clone();
-            selectedRecruit = r;
-            recruitmentBUS = new RecruitmentBUS();
         }
 
         private void acceptButton_Click(object sender, RoutedEventArgs e)
         {
-
-
-            if (selectedRecruit != null)
+            if (selectedApplication != null)
             {
-                var result = MessageBox.Show($"Bạn có chắc muốn duyệt bài tuyển dụng {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
+                var result = MessageBox.Show($"Bạn có chắc muốn duyệt hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
                    "Xác nhận duyệt", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
 
-                    recruitmentBUS.setValidity(selectedRecruit, true);
-                    recruitmentBUS.updateRecruitStatus(selectedRecruit);
+                    applicationBUS.setValidity(selectedApplication, true);
+                    applicationBUS.updateApplicationStatus(selectedApplication);
                     DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);
@@ -58,16 +55,14 @@ namespace ApplicationManagement.GUI
 
         private void rejectButton_Click(object sender, RoutedEventArgs e)
         {
-
-
-            if (selectedRecruit != null)
+            if (selectedApplication != null)
             {
-                var result = MessageBox.Show($"Bạn có chắc muốn xóa hồ sơ {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
+                var result = MessageBox.Show($"Bạn có chắc muốn xóa hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
                    "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    recruitmentBUS.setValidity(selectedRecruit, true);
-                    recruitmentBUS.deleteRecruit(selectedRecruit);
+                    applicationBUS.setValidity(selectedApplication, true);
+                    applicationBUS.deleteApplication(selectedApplication);
                     DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);

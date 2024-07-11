@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Reflection;
 
 namespace ApplicationManagement.DAO {
     internal class CandidateDAO : DatabaseHelper {
@@ -46,7 +47,7 @@ namespace ApplicationManagement.DAO {
             connection.Close();
         }
 
-        public List<CandidateDTO> GetCandidates()
+        public List<CandidateDTO> getCandidates()
         {
             List<CandidateDTO> candidates = new List<CandidateDTO>();
 
@@ -59,13 +60,22 @@ namespace ApplicationManagement.DAO {
 
             while (reader.Read())
             {
+
+
+                var candidateName = (string)reader["Ten"];
+                var CCCD = (string)reader["CCCD"];
+                var Gender = (string)reader["GioiTinh"];
+                var DateOfBirth = reader["NgaySinh"].ToString();
+                var PhoneNumber = (string)reader["SDT"];
+
                 CandidateDTO candidate = new CandidateDTO
                 {
-                    CandidateName = reader["Ten"].ToString(),
-                    CCCD = reader["CCCD"].ToString(),
-                    Gender = reader["GioiTinh"].ToString(),
-                    DateOfBirth = reader["NgaySinh"].ToString(),
-                    PhoneNumber = reader["SDT"].ToString(),
+                    CandidateName = candidateName,
+                    CCCD = CCCD,
+                    Gender = Gender,
+                    DateOfBirth = DateOfBirth,
+                    PhoneNumber = PhoneNumber,
+
                 };
                 candidates.Add(candidate);
             }
@@ -74,6 +84,29 @@ namespace ApplicationManagement.DAO {
             connection.Close();
 
             return candidates;
+        }
+
+
+        public CandidateDTO getCandidateByID(string id)
+        {
+            var sql1 = "select Ten, GioiTinh, NgaySinh, SDT from HSUV where CCCD = @id";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command1 = new SqlCommand(sql1, connection);
+            command1.Parameters.AddWithValue("@id", id);
+            command1.ExecuteNonQuery();
+            var reader1 = command1.ExecuteReader();
+            var candidate = new CandidateDTO();
+            while (reader1.Read())
+            {
+                candidate.CCCD = id;
+                candidate.CandidateName = (string)reader1["Ten"];
+                candidate.Gender = (string)reader1["GioiTinh"];
+                candidate.DateOfBirth = reader1["NgaySinh"].ToString();
+                candidate.PhoneNumber = (string)reader1["SDT"];
+            }
+
+            return candidate;
         }
     }
 }
