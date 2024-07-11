@@ -15,6 +15,7 @@ namespace ApplicationManagement {
         Candidate candidate;
         RecruitList recruitList;
         ApplicationList applicationList;
+        BillList billList;
 
         public MainWindow() {
             InitializeComponent();
@@ -22,12 +23,12 @@ namespace ApplicationManagement {
             candidate = new Candidate();
             recruitList = new RecruitList();
             applicationList = new ApplicationList();
+            billList = new BillList();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { enterpriseButton, recruitListButton, candidateButton,
-                applicationListButton,
-                tag3Button, logOutButton};
+            ToggleButton[] new_buttons = new ToggleButton[] { enterpriseButton, recruitListButton, paymentListButton,
+                candidateButton, applicationListButton, tag3Button, logOutButton};
             buttons = new_buttons;
 
             enterpriseButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -122,6 +123,17 @@ namespace ApplicationManagement {
             }
 
             pageNavigation.NavigationService.Navigate(applicationList);
+        }
+
+        private void paymentListButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(paymentListButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+
+            pageNavigation.NavigationService.Navigate(billList);
         }
     }
 }

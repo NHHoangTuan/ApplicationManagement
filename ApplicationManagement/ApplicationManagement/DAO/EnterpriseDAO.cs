@@ -40,7 +40,6 @@ namespace ApplicationManagement.DAO {
             connection.Close();
         }
 
-
         public EnterpriseDTO getEnterpriseByTaxID(string taxID)
         {
             var sql1 = "select TenCty, NguoiDaiDien, DiaChi, Email from PDK_THONGTIN where MaThue = @taxID";
@@ -62,6 +61,5 @@ namespace ApplicationManagement.DAO {
 
             return enterprise;
         }
-
     }
 }

@@ -19,62 +19,66 @@ using System.Windows.Shapes;
 namespace ApplicationManagement.GUI
 {
     /// <summary>
-    /// Interaction logic for RecruitList.xaml
+    /// Interaction logic for BillList.xaml
     /// </summary>
-    public partial class RecruitList : Page
+    public partial class BillList : Page
     {
 
-        BindingList<RecruitmentDTO>? list = null;
-        BindingList<RecruitmentDTO>? originalList = null; // Store the original list
+   
+        BindingList<BillDTO>? originalList = null; // Store the original list
 
-        BindingList<RecruitmentDTO>? listShow = null;
-        RecruitmentBUS _recruitmentBUS;
-        RecruitmentDTO selectRecruit = null;
+        BindingList<BillDTO>? listShow = null;
+        BillBUS _billBUS;
+        BillBUS selectBill = null;
+
 
         // Page pagination
         int currentPage = 1;
         int itemsPerPage = 4;
 
-        public RecruitList()
+        public BillList()
         {
             InitializeComponent();
-            _recruitmentBUS = new RecruitmentBUS();
+            _billBUS = new BillBUS();
         }
+
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             // Initialize or reset currentPage
-            currentPage = 1;        
+            currentPage = 1;
 
-            originalList = _recruitmentBUS.getAllRecruitment();
+            originalList = _billBUS.GetAllBills();
 
             if (originalList != null)
             {
-                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "NOT OK").ToList());
+                listShow = new BindingList<BillDTO>(originalList.Where(a => a.DaNhan == 0).ToList());
             }
 
-            recruitListView.ItemsSource = listShow;
+
+            BillListView.ItemsSource = listShow;
 
             // Display the first page items
-            //DisplayCurrentPageItems();
+            DisplayCurrentPageItems();
+
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var recruit = recruitListView.SelectedItem as RecruitmentDTO;
-            if (recruit == null) return;
-            RecruitDetail recruitDetail = new RecruitDetail(recruit);
-            recruitDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            if (recruitDetail.ShowDialog() == true)
+            var bill = BillListView.SelectedItem as BillDTO;
+            if (bill == null) return;
+            BillDetail billDetail = new BillDetail(bill);
+            billDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            if (billDetail.ShowDialog() == true)
             {
                 originalList.Clear();
-                originalList = _recruitmentBUS.getAllRecruitment();
+                originalList = _billBUS.GetAllBills();
 
-                var currentListShow = originalList.Where(a => a.Validity == "NOT OK").ToList();
+                var currentListShow = originalList.Where(a => a.DaNhan == 0).ToList();
 
-                recruitListView.ItemsSource = currentListShow;
-
+                BillListView.ItemsSource = currentListShow;
 
             }
         }
@@ -109,10 +113,9 @@ namespace ApplicationManagement.GUI
 
         }
 
-
         private void UpdatePageInfo()
         {
-            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
+            int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
             pageInfoTextBlock.Text = $"{currentPage}/{totalPages}";
 
         }
@@ -121,15 +124,13 @@ namespace ApplicationManagement.GUI
         private void DisplayCurrentPageItems()
         {
             int startIndex = (currentPage - 1) * itemsPerPage;
-            int endIndex = Math.Min(startIndex + itemsPerPage - 1, list.Count - 1);
+            int endIndex = Math.Min(startIndex + itemsPerPage - 1, listShow.Count - 1);
 
-            var currentPageItems = list.Skip(startIndex).Take(itemsPerPage).ToList();
+            var currentPageItems = listShow.Skip(startIndex).Take(itemsPerPage).ToList();
 
-            recruitListView.ItemsSource = currentPageItems;
+            BillListView.ItemsSource = currentPageItems;
 
             UpdatePageInfo();
         }
-
-      
     }
 }

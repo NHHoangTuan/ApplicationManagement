@@ -63,10 +63,11 @@ namespace ApplicationManagement.DAO
                 command2.ExecuteNonQuery();
             }
 
+
+
+
             connection.Close();
         }
-
-
 
         public BindingList<RecruitmentDTO> getAllRecruitment()
         {
@@ -94,7 +95,7 @@ namespace ApplicationManagement.DAO
 
             BindingList<RecruitmentDTO> list = new BindingList<RecruitmentDTO>();
             EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
- 
+
             while (reader.Read())
             {
                 var vacancies = (string)reader["ViTriTuyenDung"];
@@ -141,6 +142,30 @@ namespace ApplicationManagement.DAO
 
             command.ExecuteNonQuery();
         }
+
+
+        public void deleteRecruit(RecruitmentDTO r)
+        {
+            var query = "delete from PCC_TT_DANGTUYEN where MaPhieu = @formID";
+            var query1 = "delete from DOANHNGHIEP_DANGTUYEN where MaPhieu = @formID";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+
+
+            var command1 = new SqlCommand(query1, connection);
+
+            command1.Parameters.AddWithValue("@formID", r.formID);
+            command1.ExecuteNonQuery();
+
+            var command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@formID", r.formID);
+            command.ExecuteNonQuery();
+
+
+        }
+
+
 
     }
 }

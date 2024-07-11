@@ -1,4 +1,4 @@
-﻿<Page x:Class="ApplicationManagement.GUI.RecruitList"
+﻿<Page x:Class="ApplicationManagement.GUI.BillList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="730" d:DesignWidth="990"
-      Title="RecruitList" Loaded="Page_Loaded">
+      Title="BillList" Loaded="Page_Loaded">
 
     <Page.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -57,7 +57,7 @@
                     <!--Hiển thị những sản phẩm-->
                     <ListView 
         
-        Name="recruitListView"
+        Name="BillListView"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                         
         HorizontalAlignment="Center"
@@ -71,7 +71,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid 
-Name="RecruitItem" HorizontalAlignment="Center" VerticalAlignment="Center"
+Name="BillItem" HorizontalAlignment="Center" VerticalAlignment="Center"
 Width="1060"
 Margin="0 10 0 10"
 Height="150">
@@ -126,13 +126,12 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
 
                                             <!-- binding -->
-                                            <TextBlock Name="Vacancices" Grid.Row="0" Grid.Column="1"
-                   Text="{Binding Vacancies}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left"
-                   TextWrapping="Wrap"
-                   Margin="5, 0, 0, 0"
-                   Foreground="#353935"
-                   FontWeight="Bold"
-                   />
+                                            <TextBlock Name="MaHoaDon" Grid.Row="0" Grid.Column="1"
+                   FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="5, 0, 0, 0"
+                   Foreground="#353935" FontWeight="Bold">
+                   <Run Text="Mã hóa đơn: " FontWeight="SemiBold"/>  
+                   <Run Text="{Binding Bill.MaHoaDon}"/>
+                                            </TextBlock>
 
                                             <TextBlock Name="EnterpriseName" Grid.Row="1" Grid.Column="1" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left"
