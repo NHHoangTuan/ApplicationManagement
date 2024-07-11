@@ -14,9 +14,9 @@
         <local1:DecimalToCurrencyConverter x:Key="currencyConverter"/>
     </Window.Resources>
 
-    
 
-    <Grid Background="#d9ead3" >
+
+    <Grid Background="#fce5cd" >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -165,7 +165,7 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
         </Border>
 
 
-        <Grid Grid.Row="2" Grid.Column="1">
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0 0 30 0">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -177,13 +177,13 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
 
             <Button Content="✔ Thanh Toán" FontSize="16" Name="PaymentButton" Width="160" Height="40" VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Center" Margin="0 0 20 0"
                         Click="PaymentButton_Click" BorderThickness="0" Style="{StaticResource PaymentButtonStyle}" />
 
           
 
-            <Button Content="✖ Hủy đơn" FontSize="17" Name="rejectButton" Width="110" Height="40" VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
+            <Button Content="✖ Hủy đơn" FontSize="16" Name="rejectButton" Width="110" Height="40" VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Margin="20 0 0 0"
                         Click="rejectButton_Click" BorderThickness="0" Grid.Column="1" Style="{StaticResource rejectButtonStyle}"/>
 
 

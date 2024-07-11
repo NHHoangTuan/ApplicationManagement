@@ -58,13 +58,13 @@ Source="..\Assets\Images\Design\user_icon.png"
 
                     <TextBlock Margin="10" TextWrapping="Wrap" FontSize="22">
     <Run Text="Giới tính: " FontWeight="SemiBold"/>
-    <Run Text="{Binding Candidate.Gender}"/>
+    <Run Text="{Binding Gender}"/>
                     </TextBlock>
 
 
                     <TextBlock Margin="10" TextWrapping="Wrap" FontSize="22">
 <Run Text="Ngày sinh: " FontWeight="SemiBold"/>
-<Run Text="{Binding Candidate.DateOfBirth}"/>
+<Run Text="{Binding DateOfBirth}"/>
                     </TextBlock>
 
 
@@ -81,7 +81,7 @@ Source="..\Assets\Images\Design\user_icon.png"
                     <StackPanel Margin="10">
                         
                         <TextBlock Text="🗺️ Số điện thoại"  FontSize="18" FontWeight="Bold" Margin="0,10,0,0"/>
-                        <TextBlock Text="{Binding Candidate.PhoneNumber}"  FontSize="18" Margin="0,10,0,0"/>
+                        <TextBlock Text="{Binding PhoneNumber}"  FontSize="18" Margin="0,10,0,0"/>
                         
                     </StackPanel>
                 </StackPanel>

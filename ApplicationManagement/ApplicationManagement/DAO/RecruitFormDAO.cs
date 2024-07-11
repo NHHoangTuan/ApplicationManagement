@@ -203,5 +203,67 @@ namespace ApplicationManagement.DAO
 
 
         }
+
+
+
+        // hàm trả về danh sách bài tuyển dụng mà ứng viên hiện tại chưa ứng tuyển
+        public BindingList<RecruitmentDTO> getAllRecruitmentByCurrentUserID(string currentUserID)
+        {
+            var sqlquery = @"
+            SELECT 
+                DOANHNGHIEP_DANGTUYEN.MaPhieu,
+                DOANHNGHIEP.MaThue,
+                PCC_TT_DANGTUYEN.ViTriTuyenDung, 
+                PCC_TT_DANGTUYEN.SLTuyenDung, 
+                PCC_TT_DANGTUYEN.KTGDangTuyen, 
+                PCC_TT_DANGTUYEN.ThongTinYeuCau, 
+                DOANHNGHIEP_DANGTUYEN.TGDangTuyen, 
+                DOANHNGHIEP_DANGTUYEN.HinhThuc,
+                DOANHNGHIEP_DANGTUYEN.TinhHopLe
+            FROM 
+                PCC_TT_DANGTUYEN
+            JOIN 
+                DOANHNGHIEP_DANGTUYEN ON PCC_TT_DANGTUYEN.MaPhieu = DOANHNGHIEP_DANGTUYEN.MaPhieu
+            JOIN 
+                DOANHNGHIEP ON DOANHNGHIEP_DANGTUYEN.MaThue = DOANHNGHIEP.MaThue";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sqlquery, connection);
+            var reader = command.ExecuteReader();
+
+            BindingList<RecruitmentDTO> list = new BindingList<RecruitmentDTO>();
+            EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
+
+            while (reader.Read())
+            {
+                var vacancies = (string)reader["ViTriTuyenDung"];
+                var recruitNumber = (int)reader["SLTuyenDung"];
+                var recruitPeriod = (int)reader["KTGDangTuyen"];
+                var require = (string)reader["ThongTinYeuCau"];
+                var recruitForm = (string)reader["HinhThuc"];
+                var recruitTime = (DateTime)reader["TGDangTuyen"];
+                var formID = (int)reader["MaPhieu"];
+                var taxID = reader["MaThue"] == DBNull.Value ? null : (string?)reader["MaThue"];
+                var validity = (string)reader["TinhHopLe"];
+
+
+                RecruitmentDTO recruitment = new RecruitmentDTO()
+                {
+                    Vacancies = vacancies,
+                    RecruitNumber = recruitNumber,
+                    RecruitPeriod = recruitPeriod,
+                    Require = require,
+                    RecruitForm = recruitForm,
+                    RecruitTime = recruitTime,
+                    Enterprise = enterpriseDAO.getEnterpriseByTaxID(taxID),
+                    formID = formID,
+                    Validity = validity,
+                };
+
+                list.Add(recruitment);
+            }
+            reader.Close();
+            return list;
+        }
     }
 }
