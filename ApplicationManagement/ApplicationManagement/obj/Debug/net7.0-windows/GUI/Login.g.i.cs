@@ -110,7 +110,7 @@ namespace ApplicationManagement.GUI {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ApplicationManagement;V1.0.0.0;component/gui/login.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ApplicationManagement;component/gui/login.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\GUI\Login.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -45,25 +45,13 @@ namespace ApplicationManagement.GUI
             currentPage = 1;
 
             originalList = _recruitmentBUS.getAllRecruitment();
-<<<<<<< HEAD
-            if (originalList != null)
-            {
-                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
-            }
 
-            /*originalList = new BindingList<RecruitmentDTO> { new RecruitmentDTO
-=======
             if(originalList!= null)
->>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
             {
                 listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
             }
 
-<<<<<<< HEAD
-            
-=======
-       
->>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
+
             nomineeListView.ItemsSource = listShow;
 
             // Display the first page items
