@@ -151,13 +151,6 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
                                                 </TextBlock>
                                             </Border>
 
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> c2515aed41f5017a1ef8aed04bd03c89da6d0dd2
                                         </Grid>
 
 
