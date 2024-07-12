@@ -231,6 +231,7 @@ namespace ApplicationManagement.DAO
                 DOANHNGHIEP_DANGTUYEN ON PCC_TT_DANGTUYEN.MaPhieu = DOANHNGHIEP_DANGTUYEN.MaPhieu
             JOIN 
                 DOANHNGHIEP ON DOANHNGHIEP_DANGTUYEN.MaThue = DOANHNGHIEP.MaThue";
+
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
             var command = new SqlCommand(sqlquery, connection);

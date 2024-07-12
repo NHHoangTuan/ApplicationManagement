@@ -27,11 +27,14 @@ namespace ApplicationManagement.GUI
         BindingList<RecruitmentDTO> listShow = null;
         BindingList<RecruitmentDTO> originalList = null; // Store the original list
         RecruitmentBUS _recruitmentBUS;
+        BillBUS _billBUS;
+        
 
         public Payment()
         {
             InitializeComponent();
             _recruitmentBUS = new RecruitmentBUS();
+            _billBUS = new BillBUS();
         }
 
         
@@ -46,10 +49,20 @@ namespace ApplicationManagement.GUI
             // Initialize or reset currentPage
             currentPage = 1;
 
+
             originalList = _recruitmentBUS.getAllRecruitmentWaitingPayment(Login.CurrentAccountID);
+
+
+            var billStatus = _billBUS.GetBillStatuses();
+
             if (originalList != null)
             {
-                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
+                listShow = new BindingList<RecruitmentDTO>(
+                    originalList.Where(a =>
+                        (!billStatus.ContainsKey(a.formID) && a.Validity == "OK") ||
+                        (billStatus.ContainsKey(a.formID) && billStatus[a.formID] == -1)
+                    ).ToList()
+                );
             }
 
             if (listShow != null) 

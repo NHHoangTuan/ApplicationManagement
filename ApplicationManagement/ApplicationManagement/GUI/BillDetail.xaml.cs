@@ -22,7 +22,7 @@ namespace ApplicationManagement.GUI
     public partial class BillDetail : Window
     {
 
-        BillDTO copyBillDTO { get; set; }
+        //BillDTO copyBillDTO { get; set; }
         BillDTO selectedBill;
         BillBUS billBUS;
 
@@ -30,7 +30,7 @@ namespace ApplicationManagement.GUI
         {
             InitializeComponent();
             this.DataContext = r;
-            copyBillDTO = (BillDTO)r.Clone();
+            //copyBillDTO = (BillDTO)r.Clone();
             selectedBill = r;
             billBUS = new BillBUS();
         }
@@ -75,6 +75,23 @@ namespace ApplicationManagement.GUI
             Close();
             MainWindow.Instance.HideOverlay();
             
+        }
+
+        private void Refused_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedBill != null)
+            {
+                var result = MessageBox.Show($"Hóa đơn này chưa thanh toán đủ?",
+                   "Confirm accept", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    billBUS.setDaNhan(selectedBill, -1);
+                    billBUS.updateDaNhan(selectedBill);
+                    DialogResult = true;
+
+                }
+            }
+
         }
     }
 }

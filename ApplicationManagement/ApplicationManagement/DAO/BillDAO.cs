@@ -66,6 +66,34 @@ namespace ApplicationManagement.DAO
             return bills;
         }
 
+
+        public Dictionary<int, int> GetBillStatuses()
+        {
+            var sqlquery = @"
+        SELECT 
+            MaPhieu, 
+            DaNhan 
+        FROM 
+            HOADON";
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sqlquery, connection);
+            var reader = command.ExecuteReader();
+
+            Dictionary<int, int> billStatuses = new Dictionary<int, int>();
+            while (reader.Read())
+            {
+                var maPhieu = (int)reader["MaPhieu"];
+                var daNhan = (int)reader["DaNhan"];
+                billStatuses[maPhieu] = daNhan;
+            }
+            reader.Close();
+            connection.Close();
+
+            return billStatuses;
+        }
+
         public void updateDaNhan(BillDTO bill)
         {
             string query = "UPDATE HOADON SET DaNhan = @DaNhan WHERE MaHoaDon = @MaHoaDon";
@@ -77,6 +105,21 @@ namespace ApplicationManagement.DAO
                     command.Parameters.AddWithValue("@MaHoaDon", bill.MaHoaDon);
                     command.Parameters.AddWithValue("@DaNhan", bill.DaNhan);
 
+                    command.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        public void DeleteBillByFormID(int formID)
+        {
+            string query = "DELETE FROM HOADON WHERE MaPhieu = @formID";
+            using (SqlConnection connection = SqlConnectionData.Connect())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@formID", formID);
                     command.ExecuteNonQuery();
                 }
                 connection.Close();

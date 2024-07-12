@@ -23,6 +23,11 @@ namespace ApplicationManagement.BUS
             return billDAO.AddBill(bill);
         }
 
+        public Dictionary<int, int> GetBillStatuses()
+        {
+            return billDAO.GetBillStatuses();
+        }
+
         public BindingList<BillDTO> GetAllBills()
         {
             return billDAO.GetAllBills();
@@ -34,10 +39,15 @@ namespace ApplicationManagement.BUS
             {
                 bill.DaNhan = 1;
             }
-            else
+            else if (valid == 0)
             {
                 bill.DaNhan = 0;
             }
+            else if (valid == -1) 
+            {
+                bill.DaNhan = -1;
+            }
+
         }
 
         public void updateDaNhan(BillDTO bill)
@@ -54,6 +64,13 @@ namespace ApplicationManagement.BUS
         public BillDTO getBillByFormID(int recruitFormID)
         {
             return billDAO.getBillByFormID(recruitFormID);
+
+        }
+
+        public void deleteBill(int id)
+        {
+            billDAO.DeleteBillByFormID(id);
+
         }
     }
 }
