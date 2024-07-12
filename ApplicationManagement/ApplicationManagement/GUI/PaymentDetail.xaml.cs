@@ -28,7 +28,7 @@ namespace ApplicationManagement.GUI
         RecruitmentDTO copyRecruitmentDTO { get; set; }
         RecruitmentDTO selectedRecruit;
         RecruitmentBUS recruitmentBUS;
-
+        BillBUS _billBUS;
 
         public PaymentDetail(RecruitmentDTO r)
         {
@@ -38,20 +38,42 @@ namespace ApplicationManagement.GUI
             copyRecruitmentDTO = (RecruitmentDTO)r.Clone();
             selectedRecruit = r;
             recruitmentBUS = new RecruitmentBUS();
+            _billBUS = new BillBUS();
 
         }
 
         private void rejectButton_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedRecruit != null)
+            {
+                var result = MessageBox.Show($"Bạn có chắc muốn hủy hóa đơn này? Đồng nghĩa xóa bài đăng tuyển! {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
+                   "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Hiển thị và làm mờ overlay
+                    Overlay.Visibility = Visibility.Visible;
+                    DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
+                    Overlay.BeginAnimation(OpacityProperty, fadeIn);
 
-            
+                    int id = selectedRecruit.formID;
+
+                    _billBUS.deleteBill(id);
+
+                    recruitmentBUS.setValidity(selectedRecruit, true);
+                    recruitmentBUS.deleteRecruit(selectedRecruit);
+                    DialogResult = true;
+
+                    //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);
+                }
+            }
+
         }
 
         private void PaymentButton_Click(object sender, RoutedEventArgs e)
         {
             if (selectedRecruit != null)
             {
-                var result = MessageBox.Show($"Bạn muốn thanh toán hóa đơn cho bài đăng tuyển? {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
+                var result = MessageBox.Show($"Gửi thanh toán hóa đơn cho bài đăng tuyển? Khi đã gửi không thể hoàn tác. {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
                    "Confirm accept", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
