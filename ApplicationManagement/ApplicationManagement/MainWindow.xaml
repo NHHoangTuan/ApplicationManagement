@@ -5,126 +5,133 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:ApplicationManagement"
+        xmlns:local1="clr-namespace:ApplicationManagement.Converter"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
          Title="MainWindow" Height="780" Width="1280" ResizeMode="CanMinimize" WindowState="Maximized"
  Background="Transparent" Loaded="Window_Loaded">
 
 
-    <Border  Padding="20" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+
+    <Border  Padding="0" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="161*"/>
-                <RowDefinition Height="573*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <Rectangle x:Name="Overlay" Fill="Black" Opacity="0" Visibility="Collapsed" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
 
-            <!--Menu-->
-            <Border Grid.RowSpan="2" CornerRadius="15"  Margin="10">
-                <Border.Background>
-                    <LinearGradientBrush Opacity="0.4">
-                        <GradientStop Color="#2986cc" Offset="0.5" />
 
-                        
-                    </LinearGradientBrush>
-                </Border.Background>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="161*"/>
+                    <RowDefinition Height="573*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                <StackPanel>
-                    <!--Logo-->
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10 30 10 40">
-                        <Grid>
-                            <Border Background="#ffffff" Width="35" Height="35" CornerRadius="50"/>
-                            <Border Width="35" Height="35" BorderBrush="#ffffff" BorderThickness="3" CornerRadius="50">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
-                                </Border.Effect>
+                <!--Menu-->
+                <Border Grid.RowSpan="2" CornerRadius="15"  Margin="10">
+                    <Border.Background>
+                        <LinearGradientBrush Opacity="0.4">
+                            <GradientStop Color="#2986cc" Offset="0.5" />
 
-                                <!--Icon-->
-                                <Icon:PackIconMaterial Kind="ShoppingOutline" Width="15" Height="15" Foreground="#fb7154" VerticalAlignment="Center"
+
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel>
+                        <!--Logo-->
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10 30 10 40">
+                            <Grid>
+                                <Border Background="#ffffff" Width="35" Height="35" CornerRadius="50"/>
+                                <Border Width="35" Height="35" BorderBrush="#ffffff" BorderThickness="3" CornerRadius="50">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                                    </Border.Effect>
+
+                                    <!--Icon-->
+                                    <Icon:PackIconMaterial Kind="ShoppingOutline" Width="15" Height="15" Foreground="#fb7154" VerticalAlignment="Center"
                                                    HorizontalAlignment="Center" Margin="0 0 0 0">
 
-                                </Icon:PackIconMaterial>
-                            </Border>
-                        </Grid>
+                                    </Icon:PackIconMaterial>
+                                </Border>
+                            </Grid>
 
-                        <!--Tilte Text-->
-                        <TextBlock Text="Công Ty ABC" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
-                            </TextBlock.Effect>
-                        </TextBlock>
-                    </StackPanel>
-
-                    <!--Menu Items-->
-                    
-
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Danh sách doanh nghiệp" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                            <!--Tilte Text-->
+                            <TextBlock Text="Công Ty ABC" Foreground="White" FontSize="30" Margin="10 10 10 3" HorizontalAlignment="Center">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
                         </StackPanel>
-                    </ToggleButton>
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="recruitListButton_Click" x:Name="recruitListButton" >
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ListBox" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Duyệt hồ sơ tuyển dụng" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
-                        </StackPanel>
-                    </ToggleButton>
-
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="paymentListButton_Click" x:Name="paymentListButton" >
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="PlaylistCheck" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Kiểm tra hóa đơn" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
-                        </StackPanel>
-                    </ToggleButton>
+                        <!--Menu Items-->
 
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="candidateButton_Click" x:Name="candidateButton" >
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Danh sách ứng viên" Style="{DynamicResource menuButtonText}"/>
-                        </StackPanel>
-                    </ToggleButton>
+                        <ToggleButton Style="{DynamicResource menuToggleButton}" Click="enterpriseButton_Click" x:Name="enterpriseButton" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
+                                <TextBlock Text="Danh sách doanh nghiệp" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                            </StackPanel>
+                        </ToggleButton>
+
+                        <ToggleButton Style="{DynamicResource menuToggleButton}" Click="recruitListButton_Click" x:Name="recruitListButton" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="ListBox" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
+                                <TextBlock Text="Duyệt hồ sơ tuyển dụng" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                            </StackPanel>
+                        </ToggleButton>
+
+                        <ToggleButton Style="{DynamicResource menuToggleButton}" Click="paymentListButton_Click" x:Name="paymentListButton" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="PlaylistCheck" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
+                                <TextBlock Text="Kiểm tra hóa đơn" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
+                            </StackPanel>
+                        </ToggleButton>
 
 
-                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="applicationListButton_Click" x:Name="applicationListButton" >
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="PlaylistCheck" Style="{DynamicResource menuButtonIcon}"/>
-                            <TextBlock Text="Duyệt hồ sơ ứng tuyển" Style="{DynamicResource menuButtonText}"/>
-                        </StackPanel>
-                    </ToggleButton>
+                        <ToggleButton Style="{DynamicResource menuToggleButton}" Click="candidateButton_Click" x:Name="candidateButton" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>
+                                <TextBlock Text="Danh sách ứng viên" Style="{DynamicResource menuButtonText}"/>
+                            </StackPanel>
+                        </ToggleButton>
 
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Center"/>
-                            <TextBlock Text="Lập danh sách doanh nghiệp tiềm năng" Style="{StaticResource menuButtonText}" 
+
+                        <ToggleButton Style="{DynamicResource menuToggleButton}" Click="applicationListButton_Click" x:Name="applicationListButton" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="PlaylistCheck" Style="{DynamicResource menuButtonIcon}"/>
+                                <TextBlock Text="Duyệt hồ sơ ứng tuyển" Style="{DynamicResource menuButtonText}"/>
+                            </StackPanel>
+                        </ToggleButton>
+
+                        <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Center"/>
+                                <TextBlock Text="Lập danh sách doanh nghiệp tiềm năng" Style="{StaticResource menuButtonText}" 
                                        MaxWidth="200"/>
-                        </StackPanel>
-                    </ToggleButton>
+                            </StackPanel>
+                        </ToggleButton>
 
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="logOutButton_Click" x:Name="logOutButton" >
-                        <StackPanel Orientation="Horizontal">
-                            <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Đăng Xuất" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </ToggleButton>
-                </StackPanel>
-            </Border>
-
-
-            <Frame x:Name="pageNavigation" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10 0 0 0" Grid.RowSpan="2">
-
-            </Frame>
+                        <ToggleButton Style="{StaticResource menuToggleButton}" Click="logOutButton_Click" x:Name="logOutButton" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Đăng Xuất" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </ToggleButton>
+                    </StackPanel>
+                </Border>
 
 
+                <Frame x:Name="pageNavigation" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10 0 0 0" Grid.RowSpan="2">
+
+                </Frame>
 
 
 
+
+            </Grid>
         </Grid>
     </Border>
 

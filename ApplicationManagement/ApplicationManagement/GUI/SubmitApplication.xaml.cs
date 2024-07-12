@@ -76,7 +76,7 @@ namespace ApplicationManagement.GUI
                 {
 
                     // Define the destination path
-                    string destinationDirectory = @"D:\CV_Uploaded";
+                    string destinationDirectory = @"D:\App\CV_Uploaded";
 
                     // Ensure the directory exists
                     if (!Directory.Exists(destinationDirectory))
@@ -92,6 +92,8 @@ namespace ApplicationManagement.GUI
                    MessageBoxButton.OK);
 
                     nameFileUpload.Text = fileInfo.Name;
+
+                    
                 }
                 catch (Exception ex)
                 {
@@ -153,6 +155,7 @@ namespace ApplicationManagement.GUI
                     
                     MessageBox.Show("Nộp hồ sơ ứng tuyển thành công", "Thông báo",
                    MessageBoxButton.OK);
+                    DialogResult = true;
                     Close();
                 }
                 catch(Exception ex)

@@ -6,7 +6,8 @@
         xmlns:local1="clr-namespace:ApplicationManagement.Converter"
         xmlns:local="clr-namespace:ApplicationManagement.GUI"
         mc:Ignorable="d"
-        Title="PaymentDetail" Height="450" Width="800" WindowState="Maximized" ResizeMode="CanMinimize">
+        Title="PaymentDetail" Height="450" Width="800" WindowState="Maximized" ResizeMode="CanMinimize"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -176,8 +177,8 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
 
 
 
-            <Button Content="✔ Thanh Toán" FontSize="16" Name="PaymentButton" Width="160" Height="40" VerticalAlignment="Center"
-                    HorizontalAlignment="Center" Margin="0 0 20 0"
+            <Button Content="✔ Thanh Toán" FontSize="16" Name="PaymentButton" Height="40" VerticalAlignment="Center"
+                    HorizontalAlignment="Center" Margin="0 0 20 0" HorizontalContentAlignment="Stretch" Padding="8 0 8 0"
                         Click="PaymentButton_Click" BorderThickness="0" Style="{StaticResource PaymentButtonStyle}" />
 
           

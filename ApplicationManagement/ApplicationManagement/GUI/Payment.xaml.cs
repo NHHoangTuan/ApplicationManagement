@@ -46,14 +46,19 @@ namespace ApplicationManagement.GUI
             // Initialize or reset currentPage
             currentPage = 1;
 
-            originalList = _recruitmentBUS.getAllRecruitment();
+            originalList = _recruitmentBUS.getAllRecruitmentWaitingPayment(Login.CurrentAccountID);
             if (originalList != null)
             {
                 listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
             }
 
-
+            if (listShow != null) 
             PaymentListView.ItemsSource = listShow;
+
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì đơn cần thanh toán nào";
+            }
 
             // Display the first page items
             DisplayCurrentPageItems();

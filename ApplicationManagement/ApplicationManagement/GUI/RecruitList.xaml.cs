@@ -53,7 +53,15 @@ namespace ApplicationManagement.GUI
                 listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "NOT OK").ToList());
             }
 
+            if (listShow != null)
             recruitListView.ItemsSource = listShow;
+
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì bài tuyển dụng cần duyệt nào";
+            }
+
+            
 
             // Display the first page items
             //DisplayCurrentPageItems();

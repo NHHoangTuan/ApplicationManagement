@@ -19,7 +19,9 @@
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="/Assets/Images/Design/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+        <Image Source="/Assets/Images/Design/close.png" Grid.Column="1" Panel.ZIndex="1" 
+               MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"
+               RenderOptions.BitmapScalingMode="HighQuality"/>
 
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
@@ -57,7 +59,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="/Assets/Images/Design/user_icon.png" Height="20"/>
+                        <Image Source="/Assets/Images/Design/user_icon.png" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
                         <TextBlock x:Name="userTextBlock" MouseDown="userTextBlock_MouseDown" Text="Username" Style="{StaticResource textHint}"/>
                         <TextBox x:Name="userTextBox" TextChanged="userTextBox_TextChanged" Style="{StaticResource textBox}"
                                  KeyDown="userTextBox_KeyDown"/>
@@ -71,7 +73,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="/Assets/Images/Design/lock_icon.png" Height="20"/>
+                        <Image Source="/Assets/Images/Design/lock_icon.png" Height="20" RenderOptions.BitmapScalingMode="HighQuality"/>
                         <TextBlock x:Name="passwordTextBlock" MouseDown="passwordTextBlock_MouseDown" Text="Password" Style="{StaticResource textHint}"/>
                         <PasswordBox x:Name="passwordTextBox" PasswordChanged="passwordTextBox_PasswordChanged" 
                                      KeyDown="passwordTextBox_KeyDown" Style="{StaticResource textBox}"/>

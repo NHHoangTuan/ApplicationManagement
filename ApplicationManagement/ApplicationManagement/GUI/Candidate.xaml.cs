@@ -26,7 +26,14 @@ namespace ApplicationManagement.GUI {
         private void LoadCandidatesFromDatabase() {
             List<CandidateDTO> candidates = _candidateDAO.getCandidates();
             list = new BindingList<CandidateDTO>(candidates);
+
+            if (list != null) 
             candidateListView.ItemsSource = list;
+
+            if (list == null || list.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì ứng viên nào";
+            }
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e) {

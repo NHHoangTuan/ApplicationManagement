@@ -277,7 +277,7 @@ Width="180">
     BorderThickness="0" Click="FirstButton_Click"
     
                 >
-                        <Image Source="/Assets/Images/Design/first_icon.png" Width="15" Height="15"/>
+                        <Image Source="/Assets/Images/Design/first_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Button>
                     <Button
     Name="PrevButton" Style="{StaticResource MyTransButton}"
@@ -285,7 +285,7 @@ Width="180">
     Background="Transparent" Click="PrevButton_Click"
     BorderThickness="0"
    >
-                        <Image Source="/Assets/Images/Design/prev_icon.png" Width="15" Height="15"/>
+                        <Image Source="/Assets/Images/Design/prev_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Button>
 
                     <TextBlock 
@@ -305,7 +305,7 @@ Width="180">
     Background="Transparent"
     BorderThickness="0" Click="NextButton_Click"
    >
-                        <Image Source="/Assets/Images/Design/next_icon.png" Width="15" Height="15"/>
+                        <Image Source="/Assets/Images/Design/next_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Button>
 
                     <Button 
@@ -314,7 +314,7 @@ Width="180">
     Background="Transparent" Click="LastButton_Click"
     BorderThickness="0"
     >
-                        <Image Source="/Assets/Images/Design/last_icon.png" Width="15" Height="15"/>
+                        <Image Source="/Assets/Images/Design/last_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Button>
                 </Grid>
             </Border>

@@ -45,7 +45,7 @@
             VerticalAlignment="Center"
             x:Name="MessageText" 
             Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"
-            d:Text="Opps! Không tìm thấy bất kì đơn ứng tuyển nào"/>
+            d:Text="Opps! Không tìm thấy bất kì đơn ứng tuyển cần duyệt nào"/>
 
 
             <!--Hien thi danh sach san pham-->
