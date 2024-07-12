@@ -61,5 +61,10 @@ namespace ApplicationManagement.GUI
             // Logic để chọn ảnh
             MessageBox.Show("Chọn ảnh chuyển khoản.");
         }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
     }
 }

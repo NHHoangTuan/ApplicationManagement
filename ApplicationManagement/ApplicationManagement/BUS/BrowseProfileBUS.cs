@@ -24,5 +24,11 @@ namespace ApplicationManagement.BUS
             browseProfileDAO.insertBrowseProfile(maPhieuQC, maPhieuUT, now);
         }
 
+
+        public int getApplicationFormIDWithCurrentUser(int maPhieuDT, string cccd)
+        {
+            return browseProfileDAO.getApplicationFormIDWithCurrentUser(maPhieuDT, cccd);
+        }
+
     }
 }

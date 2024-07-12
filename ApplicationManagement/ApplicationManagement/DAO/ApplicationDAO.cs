@@ -132,8 +132,62 @@ namespace ApplicationManagement.DAO
         }
 
 
-        
-        
+
+        // lay danh sach ung tuyen da duoc nhan vien duyet de hien thi cho nha tuyen dung xem va duyet
+        public BindingList<ApplicationDTO> getAllApplicationByEnterprise(string maThue)
+        {
+            var sqlquery = @"
+            	SELECT 
+    MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe
+FROM 
+    PDK_UNGTUYEN
+JOIN 
+    HSUV on PDK_UNGTUYEN.CCCD = HSUV.CCCD join DUYETHOSO on DUYETHOSO.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
+	join PDK_QUANGCAO on PDK_QUANGCAO.MaPhieu = DUYETHOSO.MaPhieuQC
+	and TinhHopLe = 'OK' and MaThue = @maThue";
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sqlquery, connection);
+
+            command.Parameters.AddWithValue("@maThue", maThue);
+            command.ExecuteNonQuery();
+
+            var reader = command.ExecuteReader();
+
+            BindingList<ApplicationDTO> list = new BindingList<ApplicationDTO>();
+            EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
+            CandidateDAO candidateDAO = new CandidateDAO();
+            BrowseProfileDAO browseProfileDAO = new BrowseProfileDAO();
+
+            while (reader.Read())
+            {
+                var cccd = (string)reader["CCCD"];
+                var candidate = candidateDAO.getCandidateByID(cccd);
+                var position = (string)reader["ViTri"];
+                var note = (string)reader["GhiChu"];
+                var formID = (int)reader["MaPhieu"];
+                var validity = (string)reader["TinhHopLe"];
+                var enterprise = browseProfileDAO.getEnterpriseByApplicationFormID(formID);
+
+
+                ApplicationDTO app = new ApplicationDTO()
+                {
+
+                    FormID = formID,
+                    Candidate = candidate,
+                    Position = position,
+                    Note = note,
+                    Validity = validity,
+                    Enterprise = enterprise
+                };
+
+                list.Add(app);
+            }
+            reader.Close();
+            return list;
+        }
+
 
     }
 }

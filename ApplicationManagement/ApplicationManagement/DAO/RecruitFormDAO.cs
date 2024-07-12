@@ -186,21 +186,26 @@ namespace ApplicationManagement.DAO
         {
             var query = "delete from PCC_TT_DANGTUYEN where MaPhieu = @formID";
             var query1 = "delete from DOANHNGHIEP_DANGTUYEN where MaPhieu = @formID";
+            var query2 = "delete from PDK_QUANGCAO where MaPhieuDT = @formID";
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
 
+
+            var command2 = new SqlCommand(query2, connection);
+
+            command2.Parameters.AddWithValue("@formID", r.formID);
+            command2.ExecuteNonQuery();
 
             var command1 = new SqlCommand(query1, connection);
 
             command1.Parameters.AddWithValue("@formID", r.formID);
             command1.ExecuteNonQuery();
 
+
             var command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@formID", r.formID);
             command.ExecuteNonQuery();
-
-
 
         }
 

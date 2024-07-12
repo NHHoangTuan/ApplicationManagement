@@ -139,7 +139,7 @@
                            VerticalAlignment="Center" HorizontalAlignment="Left"
                            Margin="5 0 0 0">
                <Run Text="Doanh nghiệp: " FontWeight="SemiBold"/>
-        <Run Text="{Binding Enterprise.Name}"/>
+        <Run Text="{Binding Enterprise.EnterpriseName}"/>
                                             </TextBlock>
 
 
@@ -154,23 +154,6 @@
 
 
                                             <!-- Button for "Payment" -->
-
-
-                                            <Button Width="130" Height="60" Foreground="Black" Content="Thanh Toán" FontSize="20" 
-        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" 
-        Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" ToolTip="Payment" VerticalAlignment="Center" Name="PaymentButton" Click="Payment_Click"
-        HorizontalAlignment="Right" >
-                                                <Button.Template>
-                                                    <ControlTemplate TargetType="Button">
-                                                        <Grid>
-                                                            <Rectangle Fill="Green" RadiusX="20" RadiusY="20" Stroke="Black" StrokeThickness="2"/>
-                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                        </Grid>
-                                                    </ControlTemplate>
-                                                </Button.Template>
-                                            </Button>
-
-
 
 
                                         </Grid>

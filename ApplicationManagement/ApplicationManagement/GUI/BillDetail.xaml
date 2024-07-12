@@ -4,45 +4,128 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:ApplicationManagement.GUI"
-        mc:Ignorable="d" 
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         d:DesignHeight="450" d:DesignWidth="800"
         Title="BillDetail" Background="WhiteSmoke">
 
-    <Grid Margin="10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="2*" />
-        </Grid.ColumnDefinitions>
 
-        <StackPanel VerticalAlignment="Top" Height="344" HorizontalAlignment="Center">
-            <TextBlock Text="Mã hóa đơn:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
-            <TextBox Name="InvoiceCodeTextBox" Text="{Binding MaHoaDon}" FontSize="19" IsReadOnly="True" Margin="0,5,0,10" HorizontalAlignment="Left" Height="30" Width="350"/>
+    <Border Background="#cfe2f3" CornerRadius="10">
+        <Grid Margin="10">
 
-            <TextBlock Text="Mã thuế:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
-            <TextBox Name="TaxCodeTextBox" Text="{Binding MaThue}" FontSize="19" IsReadOnly="True"  Margin="0,5,0,10" HorizontalAlignment="Left" Height="30" Width="350"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.3*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="0.3*"/>
+            </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Mã phiếu đăng tuyển:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
-            <TextBox Name="JobPostCodeTextBox" Text="{Binding MaPhieu}" FontSize="19" IsReadOnly="True" Margin="0,5,0,10" HorizontalAlignment="Left" Height="30" Width="350"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
 
-            <TextBlock Text="Tổng tiền:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
-            <TextBox Name="TotalAmountTextBox" Text="{Binding SoTien, StringFormat={}{0} VNĐ}" FontSize="19" IsReadOnly="True"  Margin="0,5,0,10" HorizontalAlignment="Left" Height="30" Width="350"/>
-        </StackPanel>
+            <Image Source="/Assets/Images/Design/close.png" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
+       Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+            
 
-        <Button Content="Xác nhận thanh toán đủ" Width="220" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
-                                    Foreground="White" Background="#01a001" Margin="10" Click="Confirm_Click" />
+            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
 
-        <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Background="AliceBlue">
-            <Image Name="CompanyLogo" Source="\Assets\Images\Design\abc_logo.png" Height="177" Width="284" Margin="0,10,0,10"/>
-            <TextBlock Text="Số tài khoản công ty: 0998 8876 6654 234" FontWeight="Bold" FontSize="15" Margin="0,10,0,0" HorizontalAlignment="Center"/>
-            <TextBlock Text="Số hotline: 0123 445 668" FontWeight="Bold" Margin="0,10,0,0" FontSize="15" Width="294"/>
-            <GroupBox Header="________________________________________________________________________________________________" FontSize="15" FontWeight="Bold" Height="184">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Ảnh chuyển khoản của doanh nghiệp" HorizontalAlignment="Center" Margin="0,0,0,10" FontWeight="SemiBold" FontSize="15"/>
-                    
-                    <Button Content="Xem ảnh" Width="120" Height="30" HorizontalAlignment="Center" Style="{StaticResource RecruitButtonStyle}"
-                                    Foreground="White" Background="#01a001" Margin="10" Click="ShowDetailBanking_Click" />
+
+                <StackPanel Margin="0 5 0 10">
+                    <TextBlock Text="Mã hóa đơn:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+
+                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                        <TextBox Name="InvoiceCodeTextBox" Text="{Binding MaHoaDon}" FontSize="19" IsReadOnly="True" Margin="0,0,0,0" HorizontalAlignment="Center"
+         Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
+                    </Border>
                 </StackPanel>
-            </GroupBox>
-        </StackPanel>
-    </Grid>
+
+
+                <StackPanel Margin="0 5 0 10">
+                    <TextBlock Text="Mã thuế:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+
+                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                        <TextBox Name="TaxCodeTextBox" Text="{Binding MaThue}" FontSize="19" IsReadOnly="True"  Margin="0 0 0 0" HorizontalAlignment="Center" 
+                         Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="0 5 0 10">
+                    <TextBlock Text="Mã phiếu đăng tuyển:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+
+                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                        <TextBox Name="JobPostCodeTextBox" Text="{Binding MaPhieu}" FontSize="19" IsReadOnly="True" Margin="0" HorizontalAlignment="Center" 
+                     Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
+                    </Border>
+                </StackPanel>
+
+
+                <StackPanel Margin="0 5 0 10">
+                    <TextBlock Text="Tổng tiền:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+
+                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                        <TextBox Name="TotalAmountTextBox" Text="{Binding SoTien, StringFormat={}{0} VNĐ}" FontSize="19" IsReadOnly="True"  Margin="0" HorizontalAlignment="Center" 
+                     Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
+                    </Border>
+                </StackPanel>
+
+
+                <Button 
+Content="Xác nhận thanh toán đủ" Width="220" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
+                    Foreground="White" Background="#01a001" Margin="10" Click="Confirm_Click" />
+
+            </StackPanel>
+
+
+            <Border CornerRadius="8" Background="AliceBlue" BorderThickness="1" Grid.Column="0" Grid.Row="1">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+
+
+                    <Image Name="CompanyLogo" Source="\Assets\Images\Design\abc_logo.png" 
+                           Height="177" Width="350" Margin="0,10,0,10" Grid.Row="0"/>
+
+                    <TextBlock Text="Số tài khoản công ty: 0998 8876 6654 234" FontWeight="Bold" 
+                               FontSize="18" Margin="10,10,0,0" HorizontalAlignment="Left"
+                               Grid.Row="1"/>
+
+                    <TextBlock Text="Số hotline: 0123 445 668" FontWeight="Bold" Margin="10,10,0,0" 
+                               FontSize="18" HorizontalAlignment="Left"
+                               Grid.Row="2"/>
+
+                    <GroupBox Margin="10" FontSize="16" 
+                              FontWeight="SemiBold" BorderThickness="1.5" BorderBrush="Gray"
+                              Grid.Row="3">
+                        <StackPanel Margin="10">
+
+                            <TextBlock Text="Ảnh chuyển khoản của doanh nghiệp" 
+                                       HorizontalAlignment="Center" Margin="0,0,0,10" 
+                                       FontWeight="SemiBold" FontSize="15"/>
+
+                            <Button Content="Xem ảnh" Width="120" Height="30" HorizontalAlignment="Center" Style="{StaticResource RecruitButtonStyle}"
+            Foreground="White" Background="#01a001" Margin="10" Click="ShowDetailBanking_Click" />
+                        </StackPanel>
+                    </GroupBox>
+
+
+
+
+                </Grid>
+
+
+            </Border>
+
+
+
+            
+        </Grid>
+    </Border>
 </Window>

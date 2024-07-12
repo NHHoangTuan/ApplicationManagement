@@ -137,7 +137,7 @@ Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
                            VerticalAlignment="Center" HorizontalAlignment="Left"
                            Margin="5 0 0 0">
                <Run Text="Doanh nghiệp: " FontWeight="SemiBold"/>
-        <Run Text="{Binding Enterprise.Name}"/>
+        <Run Text="{Binding Enterprise.EnterpriseName}"/>
                                             </TextBlock>
 
 
