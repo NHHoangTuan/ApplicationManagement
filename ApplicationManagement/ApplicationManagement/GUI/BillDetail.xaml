@@ -71,8 +71,12 @@
 
 
                 <Button 
-Content="Xác nhận thanh toán đủ" Width="220" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
+Content="Xác nhận đã thanh toán đủ" Width="280" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
                     Foreground="White" Background="#01a001" Margin="10" Click="Confirm_Click" />
+
+                <Button 
+Content="Từ chối, vì chưa thanh toán đủ!" Width="280" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
+                    Foreground="White" Background="red" Margin="10" Click="Refused_Click" />
 
             </StackPanel>
 
