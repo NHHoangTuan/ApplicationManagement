@@ -53,5 +53,11 @@ namespace ApplicationManagement.BUS
                 application.Validity = "NOT OK";
             }
         }
+
+
+        public BindingList<ApplicationDTO> getAllApplicationByEnterprise(string maThue)
+        {
+            return applicationDAO.getAllApplicationByEnterprise(maThue);
+        }
     }
 }

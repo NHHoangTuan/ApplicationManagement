@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -55,6 +56,12 @@ namespace ApplicationManagement.GUI
                 if (result == MessageBoxResult.Yes)
                 {
 
+                    // Hiển thị và làm mờ overlay
+                    Overlay.Visibility = Visibility.Visible;
+                    DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
+                    Overlay.BeginAnimation(OpacityProperty, fadeIn);
+
+
                     BillBUS billBUS = new BillBUS();
                     BillDTO newBill = new BillDTO
                     {
@@ -72,10 +79,17 @@ namespace ApplicationManagement.GUI
                     Bill bill = new Bill(newBill);
                     if (bill.ShowDialog() == true)
                     {
+                        
                         this.Close();
                     }
-                    
-                    
+
+
+                    // Sau khi dialog đóng, ẩn overlay
+                    DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
+                    fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
+                    Overlay.BeginAnimation(OpacityProperty, fadeOut);
+
+
                     //bill.Show();
 
                     /*recruitmentBUS.setValidity(selectedRecruit, true);

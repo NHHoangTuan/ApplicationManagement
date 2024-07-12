@@ -6,7 +6,8 @@
         xmlns:local1="clr-namespace:ApplicationManagement.Converter"
         xmlns:local="clr-namespace:ApplicationManagement.GUI"
         mc:Ignorable="d"
-        Title="NomineeDetail" Height="450" Width="800" WindowState="Maximized" ResizeMode="CanMinimize">
+        Title="NomineeDetail" Height="450" Width="800" WindowState="Maximized" ResizeMode="CanMinimize"
+        Loaded="Window_Loaded">
 
     <Window.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -92,9 +93,15 @@
                 
 
                 <Button x:Name="RecruitmentButton" Content="Ứng tuyển ngay" Click="RecruitmentButton_Click"
-        Background="#5A9" BorderBrush="Transparent" FontSize="16"
+        Background="#2986cc" BorderBrush="Transparent" FontSize="16"
         Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource RecruitButtonStyle}"
                         HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="40"/>
+
+
+                <Button x:Name="appliedButton" Content="✔ Đã ứng tuyển"
+Background="Green" BorderBrush="Transparent" FontSize="12" Visibility="Hidden"
+Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" Style="{StaticResource RecruitButtonStyle}"
+                HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Height="40"/>
 
 
             </Grid>

@@ -39,6 +39,11 @@ namespace ApplicationManagement.GUI {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản và mật khẩu");
             else if (inputPassword.Equals(inputRePassword) == false) MessageBox.Show("Hai mật khẩu không trùng khớp");
 
+            else if (accountBUS.IsUsernameExist(inputUsername))
+            {
+                MessageBox.Show("Tên tài khoản đã tồn tại");
+            }
+
             else
             {
 

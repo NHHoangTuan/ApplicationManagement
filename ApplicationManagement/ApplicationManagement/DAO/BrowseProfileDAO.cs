@@ -53,5 +53,38 @@ namespace ApplicationManagement.DAO
             return enterprise;
         }
 
+
+
+        // hàm kiểm tra xem với bài tuyển dụng A thì ứng viên B có ứng tuyển hay chưa
+        // nếu trả về list null thì chưa ứng tuyển, trả về list != null thì đã ứng tuyển
+
+        public int getApplicationFormIDWithCurrentUser(int maPhieuDT, string cccd)
+        {
+            int applicationFormID = -1;
+
+
+            var sql1 = "select PDK_UNGTUYEN.MaPhieu from PDK_UNGTUYEN join DUYETHOSO on PDK_UNGTUYEN.MaPhieu = DUYETHOSO.MaPhieuUT " +
+                "join PDK_QUANGCAO on PDK_QUANGCAO.MaPhieu = DUYETHOSO.MaPhieuQC " +
+                "and MaPhieuDT = @maPhieuDT and CCCD = @cccd";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command1 = new SqlCommand(sql1, connection);
+            command1.Parameters.AddWithValue("@maPhieuDT", maPhieuDT);
+            command1.Parameters.AddWithValue("@cccd", cccd);
+            command1.ExecuteNonQuery();
+
+
+            var reader1 = command1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                applicationFormID = (int)reader1["MaPhieu"];
+                
+            }
+
+
+            return applicationFormID;
+        }
+
     }
 }

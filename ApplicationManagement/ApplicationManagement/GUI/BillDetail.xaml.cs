@@ -56,5 +56,10 @@ namespace ApplicationManagement.GUI
             MessageBox.Show("/ Bill chuyển khoản /!");
             this.Close();
         }
+
+        private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -73,7 +73,7 @@
                                 <Grid 
 Name="NomineeItem" HorizontalAlignment="Center" VerticalAlignment="Center"
 Width="1060"
-Margin="0 10 0 10"
+Margin="0 5 0 5"
 Height="150">
 
                                     <Button Name="ItemButton"
@@ -84,13 +84,13 @@ Height="150">
     Height="140"
     BorderThickness="0.1"
     BorderBrush="Orange"
-    Padding="8, 8,8,8"
+    Padding="8, 0,8,0"
     IsEnabled="False"
     Style="{StaticResource MyButtonStyle}"
                     
     >
 
-                                        <Grid Width="1030" Height="110" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Grid Width="1030" Height="130" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2*"/>
