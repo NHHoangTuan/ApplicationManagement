@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ApplicationManagement.GUI"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         d:DesignHeight="450" d:DesignWidth="800"
-        Title="BillDetail" Background="WhiteSmoke">
+        Title="BillDetail" Background="Transparent">
 
 
     <Border Background="#cfe2f3" CornerRadius="10">
@@ -25,7 +25,8 @@
             </Grid.RowDefinitions>
 
             <Image Source="/Assets/Images/Design/close.png" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
-       Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+       Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
             
 
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
@@ -115,7 +116,7 @@ Content="Từ chối, vì chưa thanh toán đủ!" Width="280" Height="40" Font
                                        FontWeight="SemiBold" FontSize="15"/>
 
                             <Button Content="Xem ảnh" Width="120" Height="30" HorizontalAlignment="Center" Style="{StaticResource RecruitButtonStyle}"
-            Foreground="White" Background="#01a001" Margin="10" Click="ShowDetailBanking_Click" />
+            Foreground="White" Background="#01a001" Margin="10" Click="ShowDetailBanking_Click" VerticalAlignment="Bottom" />
                         </StackPanel>
                     </GroupBox>
 

@@ -55,5 +55,20 @@ namespace ApplicationManagement.BUS
         }
 
 
+
+        public BindingList<RecruitmentDTO> getAllRecruitmentWaitingPayment(string TaxID)
+        {
+            return _recruitFormDAO.getAllRecruitmentWaitingPayment(TaxID);
+        }
+
+        public BindingList<RecruitmentDTO> getAllRecruitmentWaitingPost()
+        {
+            return _recruitFormDAO.getAllRecruitmentWaitingPost();
+        }
+
+        public BindingList<RecruitmentDTO> getAllRecruitmentForApplication()
+        {
+            return _recruitFormDAO.getAllRecruitmentForApplication();
+        }
     }
 }

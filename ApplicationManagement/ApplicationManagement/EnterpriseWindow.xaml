@@ -75,7 +75,7 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
+                    <ToggleButton Style="{StaticResource menuToggleButton}" Click="ApproveApplicationButton_Click" x:Name="ApproveApplicationButton">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Receipt" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Duyệt Hồ Sơ Ứng Tuyển" Style="{StaticResource menuButtonText}"/>

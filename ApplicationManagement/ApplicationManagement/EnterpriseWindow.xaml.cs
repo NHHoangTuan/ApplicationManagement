@@ -12,6 +12,7 @@ namespace ApplicationManagement {
 
         ToggleButton[] buttons;
         JobPosting jobPosting;
+        ApproveApplicationList approveApplicationList;
 
         Payment payment;
 
@@ -19,11 +20,12 @@ namespace ApplicationManagement {
             InitializeComponent();
             jobPosting = new JobPosting();
             payment = new Payment();
+            approveApplicationList = new ApproveApplicationList();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             ToggleButton[] new_buttons = new ToggleButton[] { JobPostingButton, PaymentButton,
-                tag3Button, logOutButton};
+                ApproveApplicationButton, logOutButton};
             buttons = new_buttons;
 
             JobPostingButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -73,14 +75,14 @@ namespace ApplicationManagement {
             pageNavigation.NavigationService.Navigate(payment);
         }
 
-        private void tag3Button_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(tag3Button);
-            /*if (pageNavigation.NavigationService.Content != null)
+        private void ApproveApplicationButton_Click(object sender, RoutedEventArgs e) {
+            changeButtonColor(ApproveApplicationButton);
+            if (pageNavigation.NavigationService.Content != null)
             {
                 pageNavigation.NavigationService.RemoveBackEntry();
             }
 
-            pageNavigation.NavigationService.Navigate(tag3);*/
+            pageNavigation.NavigationService.Navigate(approveApplicationList);
         }
 
         private void logOutButton_Click(object sender, RoutedEventArgs e) {

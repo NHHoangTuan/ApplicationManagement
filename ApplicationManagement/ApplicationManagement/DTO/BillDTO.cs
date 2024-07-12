@@ -14,7 +14,19 @@ namespace ApplicationManagement.DTO
         public int MaPhieu { get; set; }
         public int SoTien { get; set; }
         public int DaNhan { get; set; }
+        public EnterpriseDTO? Enterprise { get; set; }
 
+
+        public BillDTO() { 
+        
+            MaHoaDon = -1;
+            MaThue = "";
+            MaPhieu = -1;
+            SoTien = -1;
+            DaNhan = -1;
+            Enterprise = null;
+            
+        }
 
 
         public event PropertyChangedEventHandler? PropertyChanged;

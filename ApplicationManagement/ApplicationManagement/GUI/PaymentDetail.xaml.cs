@@ -28,7 +28,9 @@ namespace ApplicationManagement.GUI
         RecruitmentDTO copyRecruitmentDTO { get; set; }
         RecruitmentDTO selectedRecruit;
         RecruitmentBUS recruitmentBUS;
+
         BillBUS _billBUS;
+
 
         public PaymentDetail(RecruitmentDTO r)
         {
@@ -39,6 +41,7 @@ namespace ApplicationManagement.GUI
             selectedRecruit = r;
             recruitmentBUS = new RecruitmentBUS();
             _billBUS = new BillBUS();
+
 
         }
 
@@ -71,6 +74,7 @@ namespace ApplicationManagement.GUI
 
         private void PaymentButton_Click(object sender, RoutedEventArgs e)
         {
+
             if (selectedRecruit != null)
             {
                 var result = MessageBox.Show($"Gửi thanh toán hóa đơn cho bài đăng tuyển? Khi đã gửi không thể hoàn tác. {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
@@ -84,22 +88,32 @@ namespace ApplicationManagement.GUI
                     Overlay.BeginAnimation(OpacityProperty, fadeIn);
 
 
-                    BillBUS billBUS = new BillBUS();
-                    BillDTO newBill = new BillDTO
+                    BillDTO bill = null;
+                    if (_billBUS.IsMaPhieuExists(selectedRecruit.formID))
                     {
-                        MaThue = selectedRecruit.Enterprise.TaxID,
-                        MaPhieu = selectedRecruit.formID,
-                        SoTien = CalculateAmount(selectedRecruit), 
-                        DaNhan = -1
-                    };
+                        bill = _billBUS.getBillByFormID(selectedRecruit.formID);
+                    }
+                    else
+                    {
+                        BillDTO newBill = new BillDTO
+                        {
+                            MaThue = selectedRecruit.Enterprise.TaxID,
+                            MaPhieu = selectedRecruit.formID,
+                            SoTien = CalculateAmount(selectedRecruit),
+                            DaNhan = -1
+                        };
 
 
-                    int billId = billBUS.CreateBill(newBill);
-                    newBill.MaHoaDon = billId;
+                        int billId = _billBUS.CreateBill(newBill);
+                        newBill.MaHoaDon = billId;
+
+                        bill = newBill;
+                    }
+                    
 
                    
-                    Bill bill = new Bill(newBill);
-                    if (bill.ShowDialog() == true)
+                    Bill billScreen = new Bill(bill);
+                    if (billScreen.ShowDialog() == true)
                     {
                         
                         this.Close();
@@ -125,9 +139,32 @@ namespace ApplicationManagement.GUI
 
         private int CalculateAmount(RecruitmentDTO recruit)
         {
-            return  150000*recruit.RecruitPeriod; // Số tiền ví dụ
+            return  30000*recruit.RecruitPeriod; // Số tiền ví dụ
         }
 
-        
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            if (_billBUS.getBillByFormID(selectedRecruit.formID) == null) return;
+            if (_billBUS.getBillByFormID(selectedRecruit.formID).DaNhan == 1)
+            {
+                PaymentButton.Content = "😘 Đã Thanh Toán";
+                PaymentButton.IsEnabled = false;
+                rejectButton.Visibility = Visibility.Hidden;
+            }
+            else if (_billBUS.getBillByFormID(selectedRecruit.formID).DaNhan == 0)
+            {
+                PaymentButton.Content = "⏱ Đã thanh toán và chờ duyệt";
+                PaymentButton.IsEnabled = false;
+                rejectButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                PaymentButton.Content = "✔ Thanh Toán";
+                PaymentButton.IsEnabled = true;
+                rejectButton.Visibility = Visibility.Visible;
+            }
+
+        }
     }
 }

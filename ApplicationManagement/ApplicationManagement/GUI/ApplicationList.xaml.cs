@@ -72,9 +72,15 @@ namespace ApplicationManagement.GUI
                 new DataTest { CandidateName = "Vũ Thị J", CCCD = "012345678910", Gender = "Nữ", BirthDate = new DateTime(1999, 10, 10), PhoneNumber = "0901234576", Position = "Designer", Avatar = "Assets/Images/Data/user_icon.png" }
             };*/
 
+            if (listShow != null) 
             applicationListView.ItemsSource = listShow;
 
-            
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì đơn ứng tuyển cần duyệt nào";
+            }
+
+
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -129,14 +135,6 @@ namespace ApplicationManagement.GUI
 
         }
 
-        private void rejectButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void acceptButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
     }
 }

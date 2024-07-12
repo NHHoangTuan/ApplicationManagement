@@ -28,7 +28,10 @@
                 <RowDefinition Height="1.5*"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/Assets/Images/Design/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+            <Image Source="/Assets/Images/Design/close.png" Grid.Column="1" Panel.ZIndex="1" 
+                   MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+      />
 
             <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.ColumnSpan="2">
                 <Grid Margin="20" Grid.Column="0" Grid.Row="1">

@@ -44,12 +44,18 @@ namespace ApplicationManagement.GUI
             Overlay.BeginAnimation(OpacityProperty, fadeIn);
 
             var submit = new SubmitApplication(copyRecruitmentDTO);
-            submit.ShowDialog();
+
+            if (submit.ShowDialog() == true)
+            {
+                Close();
+            }
 
             // Sau khi dialog đóng, ẩn overlay
             DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
             fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
             Overlay.BeginAnimation(OpacityProperty, fadeOut);
+
+            
  
         }
 

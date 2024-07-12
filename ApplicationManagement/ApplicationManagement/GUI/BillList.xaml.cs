@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -55,8 +56,13 @@ namespace ApplicationManagement.GUI
                 listShow = new BindingList<BillDTO>(originalList.Where(a => a.DaNhan == 0).ToList());
             }
 
-
+            if (listShow != null)
             BillListView.ItemsSource = listShow;
+
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì hóa đơn nào cần duyệt";
+            }
 
             // Display the first page items
             DisplayCurrentPageItems();
@@ -71,6 +77,12 @@ namespace ApplicationManagement.GUI
             BillDetail billDetail = new BillDetail(bill);
             billDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            
+
+            MainWindow.Instance.ShowOverlay();
+            ShowOverlay();
+
+
             if (billDetail.ShowDialog() == true)
             {
                 originalList.Clear();
@@ -80,7 +92,10 @@ namespace ApplicationManagement.GUI
 
                 BillListView.ItemsSource = currentListShow;
 
+
             }
+            HideOverlay();
+            MainWindow.Instance.HideOverlay();
         }
 
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -131,6 +146,23 @@ namespace ApplicationManagement.GUI
             BillListView.ItemsSource = currentPageItems;
 
             UpdatePageInfo();
+        }
+
+
+        public void ShowOverlay()
+        {
+            // Hiển thị và làm mờ overlay
+            Overlay.Visibility = Visibility.Visible;
+            DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
+            Overlay.BeginAnimation(OpacityProperty, fadeIn);
+        }
+
+        public void HideOverlay()
+        {
+            // Sau khi dialog đóng, ẩn overlay
+            DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
+            fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
+            Overlay.BeginAnimation(OpacityProperty, fadeOut);
         }
     }
 }

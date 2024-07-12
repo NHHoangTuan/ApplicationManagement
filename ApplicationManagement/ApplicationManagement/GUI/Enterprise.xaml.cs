@@ -72,7 +72,14 @@ namespace ApplicationManagement.GUI
                     Background = "Assets/Images/Design/1_1.jpg"
                 }
             };
+
+            if (list != null) 
             enterpriseListView.ItemsSource = list;
+
+            if (list == null || list.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì doanh nghiệp nào";
+            }
         }
 
       

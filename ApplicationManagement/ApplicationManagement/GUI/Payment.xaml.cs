@@ -49,11 +49,13 @@ namespace ApplicationManagement.GUI
             // Initialize or reset currentPage
             currentPage = 1;
 
-            originalList = _recruitmentBUS.getAllRecruitment();
+
+            originalList = _recruitmentBUS.getAllRecruitmentWaitingPayment(Login.CurrentAccountID);
+
 
             var billStatus = _billBUS.GetBillStatuses();
 
-            if (originalList != null)
+            /*if (originalList != null)
             {
                 listShow = new BindingList<RecruitmentDTO>(
                     originalList.Where(a =>
@@ -61,10 +63,24 @@ namespace ApplicationManagement.GUI
                         (billStatus.ContainsKey(a.formID) && billStatus[a.formID] == -1)
                     ).ToList()
                 );
+            }*/
+
+            if (originalList != null)
+            {
+                listShow = new BindingList<RecruitmentDTO>(
+                    originalList.ToList()
+                );
+            }
+
+            if (listShow != null) 
+            PaymentListView.ItemsSource = listShow;
+
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì đơn cần thanh toán nào";
             }
 
 
-            PaymentListView.ItemsSource = listShow;
 
             // Display the first page items
             DisplayCurrentPageItems();
@@ -147,6 +163,48 @@ namespace ApplicationManagement.GUI
         private void rejectButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void PaymentButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button paymentButton = sender as Button;
+            if (paymentButton == null)
+                return;
+
+            // Find the data context (which is your PaymentItem)
+            RecruitmentDTO item = paymentButton.DataContext as RecruitmentDTO;
+            if (item == null)
+                return;
+
+            // Find the rejectButton
+            /*Grid parentGrid = paymentButton.Parent as Grid;
+            if (parentGrid == null)
+                return;*/
+
+            /*Button rejectButton = parentGrid.Children.OfType<Button>().FirstOrDefault(b => b.Name == "rejectButton");
+            if (rejectButton == null)
+                return;*/
+
+            // Apply the logic based on the value of item.IsPaid
+            var bill = _billBUS.getBillByFormID(item.formID);
+            if (bill != null && bill.DaNhan == 1)
+            {
+                paymentButton.Content = "😘 Đã Thanh Toán";
+                paymentButton.IsEnabled = false;
+                //rejectButton.Visibility = Visibility.Hidden;
+            }
+            else if (bill != null && bill.DaNhan == 0)
+            {
+                paymentButton.Content = "⏱ Đã thanh toán và chờ duyệt";
+                paymentButton.IsEnabled = false;
+                //rejectButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                paymentButton.Content = "✔ Thanh Toán";
+                paymentButton.IsEnabled = true;
+                //rejectButton.Visibility = Visibility.Visible;
+            }
         }
     }
 }

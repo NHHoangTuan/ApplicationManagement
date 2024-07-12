@@ -43,8 +43,21 @@ namespace ApplicationManagement.GUI
                    "Confirm accept", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    billBUS.setDaNhan(selectedBill, 1);
-                    billBUS.updateDaNhan(selectedBill);
+
+                    try
+                    {
+                        billBUS.setDaNhan(selectedBill, 1);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    try
+                    {
+                        billBUS.updateDaNhan(selectedBill);
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+
                     DialogResult = true;
 
                 }
@@ -60,6 +73,8 @@ namespace ApplicationManagement.GUI
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Close();
+            MainWindow.Instance.HideOverlay();
+            
         }
 
         private void Refused_Click(object sender, RoutedEventArgs e)

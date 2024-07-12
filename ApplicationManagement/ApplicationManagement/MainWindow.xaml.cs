@@ -1,14 +1,19 @@
 ﻿using ApplicationManagement.GUI;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 
 namespace ApplicationManagement {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
+        public static MainWindow Instance { get; private set; }
+
 
         ToggleButton[] buttons;
         Enterprise enterprise;
@@ -19,6 +24,8 @@ namespace ApplicationManagement {
 
         public MainWindow() {
             InitializeComponent();
+            Instance = this;
+
             enterprise = new Enterprise();
             candidate = new Candidate();
             recruitList = new RecruitList();
@@ -134,6 +141,24 @@ namespace ApplicationManagement {
             }
 
             pageNavigation.NavigationService.Navigate(billList);
+        }
+
+
+
+        public void ShowOverlay()
+        {
+            // Hiển thị và làm mờ overlay
+            Overlay.Visibility = Visibility.Visible;
+            DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
+            Overlay.BeginAnimation(OpacityProperty, fadeIn);
+        }
+
+        public void HideOverlay()
+        {
+            // Sau khi dialog đóng, ẩn overlay
+            DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
+            fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
+            Overlay.BeginAnimation(OpacityProperty, fadeOut);
         }
     }
 }

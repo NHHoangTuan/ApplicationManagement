@@ -44,15 +44,20 @@ namespace ApplicationManagement.GUI
             // Initialize or reset currentPage
             currentPage = 1;
 
-            originalList = _recruitmentBUS.getAllRecruitment();
+            originalList = _recruitmentBUS.getAllRecruitmentForApplication();
 
             if(originalList!= null)
             {
-                listShow = new BindingList<RecruitmentDTO>(originalList.Where(a => a.Validity == "OK").ToList());
+                listShow = new BindingList<RecruitmentDTO>(originalList.ToList());
             }
 
-
+            if (listShow!= null)
             nomineeListView.ItemsSource = listShow;
+
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì vị trí ứng tuyển nào";
+            }
 
             // Display the first page items
             DisplayCurrentPageItems();

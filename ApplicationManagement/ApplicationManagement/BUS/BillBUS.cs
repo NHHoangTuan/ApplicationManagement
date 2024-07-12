@@ -55,9 +55,22 @@ namespace ApplicationManagement.BUS
             billDAO.updateDaNhan(bill);
         }
 
+
+        public bool IsMaPhieuExists(int maPhieu)
+        {
+            return billDAO.IsMaPhieuExists(maPhieu);
+        }
+
+        public BillDTO getBillByFormID(int recruitFormID)
+        {
+            return billDAO.getBillByFormID(recruitFormID);
+
+        }
+
         public void deleteBill(int id)
         {
             billDAO.DeleteBillByFormID(id);
+
         }
     }
 }
