@@ -13,16 +13,18 @@ namespace ApplicationManagement {
         ToggleButton[] buttons;
         Nominee nominee;
         CandidateDashboard candidateDashboard;
+        ResultApplication resultApplication;
 
         public CandidateWindow() {
             InitializeComponent();
 
             nominee = new Nominee();
             candidateDashboard = new CandidateDashboard();
+            resultApplication = new ResultApplication();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, NomineeButton, logOutButton };
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, NomineeButton, logOutButton, ResultButton };
             buttons = new_buttons;
 
             dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -85,6 +87,17 @@ namespace ApplicationManagement {
             }
 
             b.IsChecked = true;
+        }
+
+        private void ResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(ResultButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+
+            pageNavigation.NavigationService.Navigate(resultApplication);
         }
     }
 }

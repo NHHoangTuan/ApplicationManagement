@@ -17,23 +17,29 @@ using System.Windows.Shapes;
 namespace ApplicationManagement.GUI
 {
     /// <summary>
-    /// Interaction logic for ApplicationDetail.xaml
+    /// Interaction logic for ApproveApplicationDetail.xaml
     /// </summary>
-    public partial class ApplicationDetail : Window
+    public partial class ApproveApplicationDetail : Window
     {
 
         ApplicationDTO selectedApplication;
         ApplicationBUS applicationBUS;
         ApproveBUS approveBUS;
 
-        public ApplicationDetail(ApplicationDTO a)
+
+        public ApproveApplicationDetail(ApplicationDTO a)
         {
             InitializeComponent();
+
             this.DataContext = a;
             selectedApplication = a;
-            
+
             applicationBUS = new ApplicationBUS();
             approveBUS = new ApproveBUS();
+        }
+
+        private void viewButton_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
@@ -41,32 +47,16 @@ namespace ApplicationManagement.GUI
         {
             if (selectedApplication != null)
             {
-                var result = MessageBox.Show($"Bạn có chắc muốn duyệt hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
-                   "Xác nhận duyệt", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show($"Đồng ý phê duyệt hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
+                   "Xác nhận phê duyệt", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
 
                     try
                     {
-                        applicationBUS.setValidity(selectedApplication, true);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-
-                    try
-                    {
-                        applicationBUS.updateApplicationStatus(selectedApplication);
+                        approveBUS.updateApproveStatus(selectedApplication.FormID, 1);
                     }
                     catch (Exception ex) { MessageBox.Show(ex.Message); }
-
-
-                    try
-                    {
-                        approveBUS.insertApprove(selectedApplication.FormID, selectedApplication.Enterprise.TaxID);
-                    }
-                    catch(Exception ex) { MessageBox.Show(ex.Message); }
 
                     DialogResult = true;
 
@@ -79,25 +69,18 @@ namespace ApplicationManagement.GUI
         {
             if (selectedApplication != null)
             {
-                var result = MessageBox.Show($"Bạn có chắc muốn xóa hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
-                   "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show($"Từ chối phê duyệt cho hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
+                   "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
                     try
                     {
-                        applicationBUS.setValidity(selectedApplication, true);
+                        approveBUS.updateApproveStatus(selectedApplication.FormID, -1);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-
-                    try
-                    {
-                        applicationBUS.deleteApplication(selectedApplication);
-                    }
-                    catch ( Exception ex) { MessageBox.Show(ex.Message ); }
-
                     DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);

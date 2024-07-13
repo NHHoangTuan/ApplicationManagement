@@ -118,10 +118,18 @@ namespace ApplicationManagement.DAO
 
         public void deleteApplication(ApplicationDTO r)
         {
+
+            var query0 = "delete from DUYETHOSO where MaPhieuUT = @formID";
             var query = "delete from PDK_UNGTUYEN where MaPhieu = @formID";
 
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
+
+
+            var command0 = new SqlCommand(query0, connection);
+
+            command0.Parameters.AddWithValue("@formID", r.FormID);
+            command0.ExecuteNonQuery();
 
             var command = new SqlCommand(query, connection);
 
@@ -134,23 +142,82 @@ namespace ApplicationManagement.DAO
 
 
         // lay danh sach ung tuyen da duoc nhan vien duyet de hien thi cho nha tuyen dung xem va duyet
+        // nghia la co tinh hop le cua PDK_UNGTUYEN la OK va co TrangThai cua PHEDUYET la 0
         public BindingList<ApplicationDTO> getAllApplicationByEnterprise(string maThue)
         {
             var sqlquery = @"
             	SELECT 
-    MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe
+    PDK_QUANGCAO.MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe
 FROM 
     PDK_UNGTUYEN
 JOIN 
     HSUV on PDK_UNGTUYEN.CCCD = HSUV.CCCD join DUYETHOSO on DUYETHOSO.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
 	join PDK_QUANGCAO on PDK_QUANGCAO.MaPhieu = DUYETHOSO.MaPhieuQC
-	and TinhHopLe = 'OK' and MaThue = @maThue";
+    join PHEDUYET on PHEDUYET.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
+	and TinhHopLe = 'OK' and PDK_QUANGCAO.MaThue = @maThue and TrangThai = 0";
 
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
             var command = new SqlCommand(sqlquery, connection);
 
             command.Parameters.AddWithValue("@maThue", maThue);
+            command.ExecuteNonQuery();
+
+            var reader = command.ExecuteReader();
+
+            BindingList<ApplicationDTO> list = new BindingList<ApplicationDTO>();
+            EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
+            CandidateDAO candidateDAO = new CandidateDAO();
+            BrowseProfileDAO browseProfileDAO = new BrowseProfileDAO();
+
+            while (reader.Read())
+            {
+                var cccd = (string)reader["CCCD"];
+                var candidate = candidateDAO.getCandidateByID(cccd);
+                var position = (string)reader["ViTri"];
+                var note = (string)reader["GhiChu"];
+                var formID = (int)reader["MaPhieu"];
+                var validity = (string)reader["TinhHopLe"];
+                var enterprise = browseProfileDAO.getEnterpriseByApplicationFormID(formID);
+
+
+                ApplicationDTO app = new ApplicationDTO()
+                {
+
+                    FormID = formID,
+                    Candidate = candidate,
+                    Position = position,
+                    Note = note,
+                    Validity = validity,
+                    Enterprise = enterprise
+                };
+
+                list.Add(app);
+            }
+            reader.Close();
+            return list;
+        }
+
+
+
+        public BindingList<ApplicationDTO> getAllResultForCandidate(string userID)
+        {
+            var sqlquery = @"
+            		            	SELECT 
+    PDK_QUANGCAO.MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe, TrangThai
+FROM 
+    PDK_UNGTUYEN
+JOIN 
+    HSUV on PDK_UNGTUYEN.CCCD = HSUV.CCCD join DUYETHOSO on DUYETHOSO.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
+	join PDK_QUANGCAO on PDK_QUANGCAO.MaPhieu = DUYETHOSO.MaPhieuQC
+    join PHEDUYET on PHEDUYET.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
+	and TinhHopLe = 'OK'  and TrangThai = 1 and HSUV.CCCD = @userID";
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sqlquery, connection);
+
+            command.Parameters.AddWithValue("@userID", userID);
             command.ExecuteNonQuery();
 
             var reader = command.ExecuteReader();

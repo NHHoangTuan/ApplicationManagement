@@ -53,8 +53,41 @@ namespace ApplicationManagement.GUI
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var application = applicationListView.SelectedItem as ApplicationDTO;
+            if (application == null) return;
+            ApproveApplicationDetail approveDetail = new ApproveApplicationDetail(application);
+            approveDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
+            if (approveDetail.ShowDialog() == true)
+            {
+                originalList.Clear();
+                originalList = _applicationBUS.getAllApplicationByEnterprise(Login.CurrentAccountID);
+
+                RefeshList(originalList);
+
+
+            }
         }
+
+
+        public void RefeshList(BindingList<ApplicationDTO> list)
+        {
+            list.Clear();
+            list = _applicationBUS.getAllApplicationByEnterprise(Login.CurrentAccountID);
+            if (list != null)
+            {
+                listShow = new BindingList<ApplicationDTO>(list.ToList());
+            }
+
+            if (listShow != null)
+                applicationListView.ItemsSource = listShow;
+
+            if (listShow == null || listShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì hồ sơ ứng tuyển cần phê duyệt nào";
+            }
+        }
+
 
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

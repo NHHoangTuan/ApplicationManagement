@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -121,13 +122,32 @@ namespace ApplicationManagement.GUI
             if (paymentDetail.ShowDialog() == true)
             {
                 originalList.Clear();
-                originalList = _recruitmentBUS.getAllRecruitment();
+                originalList = _recruitmentBUS.getAllRecruitmentWaitingPayment(Login.CurrentAccountID);
 
-                var currentListShow = originalList.Where(a => a.Validity == "OK").ToList();
-
-                PaymentListView.ItemsSource = currentListShow;
+                RefeshList(originalList);
+                PaymentButton_Loaded(sender, e);
 
             }
+        }
+
+
+        private void RefeshList(BindingList<RecruitmentDTO> list)
+        {
+            if (list == null)
+            {
+                return;
+            }
+
+            var currentListShow = list.ToList();
+            if (currentListShow != null)
+                PaymentListView.ItemsSource = currentListShow;
+
+            if (currentListShow == null || currentListShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì đơn cần thanh toán nào";
+            }
+
+          
         }
 
         private void PrevButton_Click(object sender, RoutedEventArgs e)
@@ -176,34 +196,34 @@ namespace ApplicationManagement.GUI
             if (item == null)
                 return;
 
-            // Find the rejectButton
-            /*Grid parentGrid = paymentButton.Parent as Grid;
-            if (parentGrid == null)
-                return;*/
-
-            /*Button rejectButton = parentGrid.Children.OfType<Button>().FirstOrDefault(b => b.Name == "rejectButton");
-            if (rejectButton == null)
-                return;*/
-
             // Apply the logic based on the value of item.IsPaid
             var bill = _billBUS.getBillByFormID(item.formID);
             if (bill != null && bill.DaNhan == 1)
             {
                 paymentButton.Content = "😘 Đã Thanh Toán";
                 paymentButton.IsEnabled = false;
+                paymentButton.Background = new SolidColorBrush(Colors.Green);
                 //rejectButton.Visibility = Visibility.Hidden;
             }
             else if (bill != null && bill.DaNhan == 0)
             {
                 paymentButton.Content = "⏱ Đã thanh toán và chờ duyệt";
                 paymentButton.IsEnabled = false;
+                paymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4cc7cf"));
                 //rejectButton.Visibility = Visibility.Hidden;
+            }
+            else if (bill != null && bill.DaNhan == -1)
+            {
+                paymentButton.Content = "Chưa Thanh Toán";
+                paymentButton.IsEnabled = false;
+                paymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e06666"));
+                //rejectButton.Visibility = Visibility.Visible;
             }
             else
             {
-                paymentButton.Content = "✔ Thanh Toán";
-                paymentButton.IsEnabled = true;
-                //rejectButton.Visibility = Visibility.Visible;
+                paymentButton.Content = "😥 Bị từ chối";
+                paymentButton.IsEnabled = false;
+                paymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a9a19b"));
             }
         }
     }

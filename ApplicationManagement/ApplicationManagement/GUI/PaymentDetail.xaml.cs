@@ -60,10 +60,24 @@ namespace ApplicationManagement.GUI
 
                     int id = selectedRecruit.formID;
 
-                    _billBUS.deleteBill(id);
+                    try
+                    {
+                        _billBUS.deleteBill(id);
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-                    recruitmentBUS.setValidity(selectedRecruit, true);
-                    recruitmentBUS.deleteRecruit(selectedRecruit);
+                    try
+                    {
+                        recruitmentBUS.setValidity(selectedRecruit, true);
+                    }
+                    catch(Exception ex) { MessageBox.Show(ex.Message); }
+
+                    try
+                    {
+                        recruitmentBUS.deleteRecruit(selectedRecruit);
+                    }
+                    catch( Exception ex) { MessageBox.Show(ex.Message ); }
+
                     DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);
@@ -115,7 +129,7 @@ namespace ApplicationManagement.GUI
                     Bill billScreen = new Bill(bill);
                     if (billScreen.ShowDialog() == true)
                     {
-                        
+                        DialogResult = true;
                         this.Close();
                     }
 
@@ -151,16 +165,25 @@ namespace ApplicationManagement.GUI
                 PaymentButton.Content = "😘 Đã Thanh Toán";
                 PaymentButton.IsEnabled = false;
                 rejectButton.Visibility = Visibility.Hidden;
+                PaymentButton.Background = new SolidColorBrush(Colors.Green);
             }
             else if (_billBUS.getBillByFormID(selectedRecruit.formID).DaNhan == 0)
             {
                 PaymentButton.Content = "⏱ Đã thanh toán và chờ duyệt";
                 PaymentButton.IsEnabled = false;
                 rejectButton.Visibility = Visibility.Hidden;
+                PaymentButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4cc7cf"));
             }
+            else if (_billBUS.getBillByFormID(selectedRecruit.formID).DaNhan == -1)
+            {
+                PaymentButton.Content = "✔ Thanh toán";
+                PaymentButton.IsEnabled = true;
+                rejectButton.Visibility = Visibility.Visible;
+            }
+
             else
             {
-                PaymentButton.Content = "✔ Thanh Toán";
+                PaymentButton.Content = "✔ Thanh toán lại";
                 PaymentButton.IsEnabled = true;
                 rejectButton.Visibility = Visibility.Visible;
             }
