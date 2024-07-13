@@ -16,6 +16,9 @@
     <Compile Update="GUI\ApplicationList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\ApproveApplicationDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\ApproveApplicationList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +82,9 @@
     <Compile Update="GUI\RecruitList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\ResultApplication.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\SubmitApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +100,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\ApplicationList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\ApproveApplicationDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\ApproveApplicationList.xaml">
@@ -154,6 +163,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\RecruitList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\ResultApplication.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\SubmitApplication.xaml">

@@ -27,6 +27,7 @@ namespace ApplicationManagement.GUI
         BindingList<RecruitmentDTO> listShow = null;
         BindingList<RecruitmentDTO> originalList = null; // Store the original list
         RecruitmentBUS _recruitmentBUS;
+        BrowseProfileBUS browseProfileBUS;
 
         // Page pagination
         int currentPage = 1;
@@ -36,6 +37,7 @@ namespace ApplicationManagement.GUI
         {
             InitializeComponent();
             _recruitmentBUS = new RecruitmentBUS();
+            browseProfileBUS = new BrowseProfileBUS();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -63,19 +65,26 @@ namespace ApplicationManagement.GUI
             DisplayCurrentPageItems();
         }
 
-        private void RecruitmentButton_Click(object sender, RoutedEventArgs e)
+
+        private void RefeshList(BindingList<RecruitmentDTO> list)
         {
-            var nominee = nomineeListView.SelectedItem as RecruitmentDTO;
-            if (nominee == null) return;
-            NomineeDetail nomineeDetail = new NomineeDetail(nominee);
-            nomineeDetail.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            if (nomineeDetail.ShowDialog() == true)
+            if (list == null)
             {
-
-
+                return;
             }
+
+            var currentListShow = list.ToList();
+            if (currentListShow != null)
+                nomineeListView.ItemsSource = currentListShow;
+
+            if (currentListShow == null || currentListShow.Count == 0)
+            {
+                MessageText.Text = "Opps! Không tìm thấy bất kì vị trí ứng tuyển nào";
+            }
+
+
         }
+
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -86,6 +95,11 @@ namespace ApplicationManagement.GUI
 
             if (nomineeDetail.ShowDialog() == true)
             {
+
+                originalList.Clear();
+                originalList = _recruitmentBUS.getAllRecruitmentForApplication();
+                RefeshList(originalList);
+                StatusButton_Loaded(sender, e);
 
 
             }
@@ -192,6 +206,33 @@ namespace ApplicationManagement.GUI
             int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
             currentPage = totalPages;
             DisplayCurrentPageItems();
+        }
+
+        private void StatusButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button statusButton = sender as Button;
+            if (statusButton == null)
+                return;
+
+            // Find the data context (which is your PaymentItem)
+            RecruitmentDTO item = statusButton.DataContext as RecruitmentDTO;
+            if (item == null)
+                return;
+
+            int applied = browseProfileBUS.getApplicationFormIDWithCurrentUser(item.formID, Login.CurrentAccountID);
+
+            if (applied != -1)
+            {
+                
+                statusButton.Content = "Đã ứng tuyển";
+                statusButton.IsEnabled = false;
+                //statusButton.Background = new SolidColorBrush(Colors.Green);
+                statusButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6aa84f"));
+            }
+            else
+            {
+                statusButton.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

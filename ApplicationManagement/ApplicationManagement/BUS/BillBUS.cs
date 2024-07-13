@@ -47,6 +47,10 @@ namespace ApplicationManagement.BUS
             {
                 bill.DaNhan = -1;
             }
+            else if (valid == -2)
+            {
+                bill.DaNhan = -2;
+            }
 
         }
 

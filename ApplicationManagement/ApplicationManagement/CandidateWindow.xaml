@@ -75,6 +75,14 @@
                     </ToggleButton>
 
 
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="ResultButton_Click" x:Name="ResultButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ListBox" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Xem Kết Quả" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+
                     <ToggleButton Style="{StaticResource menuToggleButton}" Click="logOutButton_Click" x:Name="logOutButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Cog" Style="{StaticResource menuButtonIcon}"/>

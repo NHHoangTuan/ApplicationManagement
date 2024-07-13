@@ -47,7 +47,10 @@ namespace ApplicationManagement.GUI
 
             if (submit.ShowDialog() == true)
             {
-                Close();
+
+                Window_Loaded(sender, e);
+                DialogResult = true;
+                
             }
 
             // Sau khi dialog đóng, ẩn overlay

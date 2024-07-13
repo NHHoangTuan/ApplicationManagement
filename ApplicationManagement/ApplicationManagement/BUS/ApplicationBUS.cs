@@ -59,5 +59,10 @@ namespace ApplicationManagement.BUS
         {
             return applicationDAO.getAllApplicationByEnterprise(maThue);
         }
+
+        public BindingList<ApplicationDTO> getAllResultForCandidate(string userID)
+        {
+            return applicationDAO.getAllResultForCandidate(userID);
+        }
     }
 }
