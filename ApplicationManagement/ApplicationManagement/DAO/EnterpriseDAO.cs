@@ -1,5 +1,8 @@
 ﻿using ApplicationManagement.DTO;
+using ApplicationManagement.GUI;
+using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Reflection.PortableExecutable;
 
 namespace ApplicationManagement.DAO {
     internal class EnterpriseDAO : DatabaseHelper {
@@ -40,9 +43,55 @@ namespace ApplicationManagement.DAO {
             connection.Close();
         }
 
+
+
+        public BindingList<EnterpriseDTO> getAllEnterprise()
+        {
+            BindingList<EnterpriseDTO> list = new BindingList<EnterpriseDTO>();
+
+            var sql1 = "select TenCty, NguoiDaiDien, DiaChi, Email, DOANHNGHIEP.MaThue, LogoPath " +
+                "from PDK_THONGTIN join DOANHNGHIEP on PDK_THONGTIN.MaThue = DOANHNGHIEP.MaThue";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command1 = new SqlCommand(sql1, connection);
+
+            var reader1 = command1.ExecuteReader();
+
+            while (reader1.Read())
+            {
+                var TaxID = (string)reader1["MaThue"];
+                var EnterpriseName = (string)reader1["TenCty"];
+                var Leader = (string)reader1["NguoiDaiDien"];
+                var Address = (string)reader1["DiaChi"];
+                var Email = (string)reader1["Email"];
+                var LogoPath = (string)reader1["LogoPath"];
+
+                EnterpriseDTO newEnterprise = new EnterpriseDTO()
+                {
+                    TaxID = TaxID,
+                    EnterpriseName = EnterpriseName,
+                    Leader = Leader,
+                    Address = Address,
+                    Email = Email,
+                    LogoPath = LogoPath
+                };
+
+                list.Add(newEnterprise);
+
+
+            }
+
+            reader1.Close();
+            connection.Close();
+
+            return list;
+        }
+
+
         public EnterpriseDTO getEnterpriseByTaxID(string taxID)
         {
-            var sql1 = "select TenCty, NguoiDaiDien, DiaChi, Email from PDK_THONGTIN where MaThue = @taxID";
+            var sql1 = "select TenCty, NguoiDaiDien, DiaChi, Email, DOANHNGHIEP.MaThue, LogoPath " +
+                "from PDK_THONGTIN join DOANHNGHIEP on PDK_THONGTIN.MaThue = DOANHNGHIEP.MaThue where DOANHNGHIEP.MaThue = @taxID";
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
             var command1 = new SqlCommand(sql1, connection);
@@ -57,9 +106,29 @@ namespace ApplicationManagement.DAO {
                 enterprise.Leader = (string)reader1["NguoiDaiDien"];
                 enterprise.Address = (string)reader1["DiaChi"];
                 enterprise.Email = (string)reader1["Email"];
+                enterprise.LogoPath = (string)reader1["LogoPath"];
             }
 
             return enterprise;
         }
+
+
+        public void updateImage(string taxID, string key)
+        {
+            // update SQL
+            string sql = $"""
+                update DOANHNGHIEP 
+                set LogoPath = 'Assets/Images/Data/{key}.png'
+                where MaThue = {taxID}
+                """;
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sql, connection);
+
+            command.ExecuteNonQuery();
+        }
+
+
     }
 }

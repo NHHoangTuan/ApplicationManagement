@@ -13,6 +13,7 @@ namespace ApplicationManagement {
         ToggleButton[] buttons;
         JobPosting jobPosting;
         ApproveApplicationList approveApplicationList;
+        EnterpriseDashboard enterpriseDashboard;
 
         Payment payment;
 
@@ -21,14 +22,15 @@ namespace ApplicationManagement {
             jobPosting = new JobPosting();
             payment = new Payment();
             approveApplicationList = new ApproveApplicationList();
+            enterpriseDashboard = new EnterpriseDashboard();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             ToggleButton[] new_buttons = new ToggleButton[] { JobPostingButton, PaymentButton,
-                ApproveApplicationButton, logOutButton};
+                ApproveApplicationButton, logOutButton, DashboardButton};
             buttons = new_buttons;
 
-            JobPostingButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            DashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e) {
@@ -100,6 +102,17 @@ namespace ApplicationManagement {
             }
 
             b.IsChecked = true;
+        }
+
+        private void DashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(DashboardButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+
+            pageNavigation.NavigationService.Navigate(enterpriseDashboard);
         }
     }
 }

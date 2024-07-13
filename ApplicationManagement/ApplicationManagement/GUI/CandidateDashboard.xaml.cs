@@ -22,13 +22,13 @@ namespace ApplicationManagement.GUI {
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
 
-            listEnterprise = new BindingList<EnterpriseDTO>()
+            /*listEnterprise = new BindingList<EnterpriseDTO>()
             {
                 new EnterpriseDTO()
                 {
                     EnterpriseName = "Shopee",
                     Description = "Shopee là nền tảng thương mại điện tử ở Đông Nam Á và Đài Loan. Ra mắt năm 2015, nền tảng thương mại Shopee được xây dựng nhằm cung cấp cho người sử dụng những trải nghiệm dễ dàng, an toàn và nhanh chóng khi mua sắm trực tuyến thông qua hệ thống hỗ trợ thanh toán và vận hành vững mạnh.",
-                    Logo = "Assets/Images/Design/1.jpg",
+                    LogoPath = "Assets/Images/Design/1.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
                     TaxID = "0123456789"
                 },
@@ -36,7 +36,7 @@ namespace ApplicationManagement.GUI {
                 {
                     EnterpriseName = "Lazada",
                     Description = "Lazada là một trong những nền tảng thương mại điện tử hàng đầu tại Đông Nam Á. Được thành lập vào năm 2012, Lazada mang đến trải nghiệm mua sắm trực tuyến dễ dàng và an toàn với nhiều sản phẩm phong phú.",
-                    Logo = "Assets/Images/Design/2.jpg",
+                    LogoPath = "Assets/Images/Design/2.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
                     TaxID = "0123456789"
                 },
@@ -44,7 +44,7 @@ namespace ApplicationManagement.GUI {
                 {
                     EnterpriseName = "Tiki",
                     Description = "Tiki là nền tảng thương mại điện tử hàng đầu Việt Nam. Với dịch vụ giao hàng nhanh chóng và đa dạng các sản phẩm, Tiki cam kết mang lại sự hài lòng cho khách hàng trong mỗi giao dịch mua sắm.",
-                    Logo = "Assets/Images/Design/3.jpg",
+                    LogoPath = "Assets/Images/Design/3.jpg",
                     Background = "Assets/Images/Design/1_1.jpg",
                     TaxID = "0123456789"
                 },
@@ -52,7 +52,7 @@ namespace ApplicationManagement.GUI {
                 {
                     EnterpriseName = "Sendo",
                     Description = "Sendo là một trong những sàn thương mại điện tử lớn nhất Việt Nam, mang đến trải nghiệm mua sắm trực tuyến đa dạng với nhiều sản phẩm từ thời trang, điện tử, đến gia dụng.",
-                    Logo = "Assets/Images/Design/4.png",
+                    LogoPath = "Assets/Images/Design/4.png",
                     Background = "Assets/Images/Design/1_1.jpg",
                     TaxID = "0123456789"
                 },
@@ -60,11 +60,11 @@ namespace ApplicationManagement.GUI {
                 {
                     EnterpriseName = "Amazon",
                     Description = "Amazon là công ty thương mại điện tử hàng đầu thế giới, cung cấp hàng triệu sản phẩm và dịch vụ khác nhau. Amazon mang đến cho khách hàng trên toàn cầu trải nghiệm mua sắm tiện lợi và đáng tin cậy.",
-                    Logo = "Assets/Images/Design/5.png",
+                    LogoPath = "Assets/Images/Design/5.png",
                     Background = "Assets/Images/Design/1_1.jpg",
                     TaxID = "0123456789"
                 }
-            };
+            };*/
 
 
             listNominee = recruitmentBUS.getAllRecruitment();

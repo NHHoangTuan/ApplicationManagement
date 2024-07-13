@@ -5,9 +5,7 @@ namespace ApplicationManagement.DTO {
     public class EnterpriseDTO : INotifyPropertyChanged, ICloneable {
 
         public string EnterpriseName { get; set; }
-        public string Description { get; set; }
-        public string Logo { get; set; }
-        public string Background { get; set; }
+        public string LogoPath { get; set; }
         public string Address { get; set; }
         public string TaxID { get; set; }
         public string Leader { get; set; }
@@ -30,21 +28,13 @@ namespace ApplicationManagement.DTO {
                             result = "Tên không được trống!";
                         }
                         break;
-                    case nameof(Description):
-                        if (string.IsNullOrWhiteSpace(Description)) {
-                            result = "Mô tả không được trống!";
-                        }
-                        break;
-                    case nameof(Logo):
-                        if (string.IsNullOrWhiteSpace(Logo)) {
+                    
+                    case nameof(LogoPath):
+                        if (string.IsNullOrWhiteSpace(LogoPath)) {
                             result = "Logo không được trống!";
                         }
                         break;
-                    case nameof(Background):
-                        if (string.IsNullOrWhiteSpace(Background)) {
-                            result = "Nền không được trống!";
-                        }
-                        break;
+                   
                     case nameof(Address):
                         if (string.IsNullOrWhiteSpace(Address)) {
                             result = "Địa chỉ không được trống!";

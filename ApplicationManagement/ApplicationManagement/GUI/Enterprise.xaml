@@ -59,11 +59,11 @@
         
         Name="enterpriseListView"
         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-        
+                        
         HorizontalAlignment="Center"
-                        VerticalAlignment="Center" Padding="0"
+                        VerticalAlignment="Top" Padding="0"
         HorizontalContentAlignment="Center"
-        VerticalContentAlignment="Center"
+        VerticalContentAlignment="Top"
         BorderThickness="0"
         Margin="5 5 5 5"
         Background="Transparent"
@@ -71,17 +71,17 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid 
-Name="EnterpriseItem" HorizontalAlignment="Center" VerticalAlignment="Center"
-Width="360"
+Name="RecruitItem" HorizontalAlignment="Center" VerticalAlignment="Center"
+Width="1060"
 Margin="0 10 0 10"
-Height="290">
+Height="150">
 
                                     <Button Name="ItemButton"
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
-    Width="350"
-    Margin="0 10 0 10"
-    Height="280"
+    Width="1050"
+    Margin="0 2 0 2"
+    Height="140"
     BorderThickness="0.1"
     BorderBrush="Orange"
     Padding="8, 8,8,8"
@@ -90,59 +90,66 @@ Height="290">
                     
     >
 
-                                        <Grid Width="330" Height="250" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Grid Width="1030" Height="110" Name="contentInItem" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                             <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="10*"/>
                                                 <ColumnDefinition Width="*"/>
-
+                                                <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <StackPanel VerticalAlignment="Top" Margin="0 0 0 0" 
-               >
 
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1.2*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
 
-                                                <Image Width="70" Grid.Column="0"
+                                            <Image Width="90" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
 
 Cursor="Hand"                      
 Margin="0, 0, 0, 0"
 HorizontalAlignment="Center"
 RenderOptions.BitmapScalingMode="HighQuality"
-Source="{Binding Logo, Converter={StaticResource absoluteConverter}}"
+Source="{Binding LogoPath, Converter={StaticResource absoluteConverter}}"
 >
-                                                    <Image.Effect>
-                                                        <DropShadowEffect BlurRadius="35"
+                                                <Image.Effect>
+                                                    <DropShadowEffect BlurRadius="35"
    ShadowDepth="1"
    Opacity="0.2"
    Direction="-90"
    Color="#8B4000"/>
-                                                    </Image.Effect>
-                                                </Image>
+                                                </Image.Effect>
+                                            </Image>
 
 
 
-                                                <!-- binding -->
-                                                <TextBlock Name="EnterpriseName"
-                   Text="{Binding Name}" FontSize="24"
+                                            <!-- binding -->
+                                            <TextBlock Name="Vacancices" Grid.Row="0" Grid.Column="1"
+                   Text="{Binding EnterpriseName}" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Left"
                    TextWrapping="Wrap"
-                   Margin="0, 2, 0, 2"
+                   Margin="5, 0, 0, 0"
                    Foreground="#353935"
                    FontWeight="Bold"
                    />
 
-
-                                                <StackPanel Orientation="Horizontal" >
-
-
-                                                    <!-- binding -->
-                                                    <TextBlock Name="Description" 
-                                       TextTrimming="CharacterEllipsis" FontSize="16" Width ="{Binding ElementName=contentInItem, Path=ActualWidth}" TextWrapping="Wrap"
-Text="{Binding Description}"
-/>
-                                                </StackPanel>
+                                            <TextBlock Name="EnterpriseName" Grid.Row="1" Grid.Column="1" FontSize="16"
+                           VerticalAlignment="Center" HorizontalAlignment="Left"
+                           Margin="5 0 0 0">
+               <Run Text="Mã số thuế: " FontWeight="SemiBold"/>
+        <Run Text="{Binding TaxID}"/>
+                                            </TextBlock>
 
 
-                                            </StackPanel>
-
+                                            <Border Grid.Row="2" Grid.Column="1" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                                <TextBlock Name="Address"  FontSize="16"
+                   
+                   Margin="5 0 0 0">
+       <Run Text="📍" FontWeight="SemiBold"/>
+<Run Text="{Binding Address}"/>
+                                                </TextBlock>
+                                            </Border>
 
                                         </Grid>
 

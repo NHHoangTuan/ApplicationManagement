@@ -114,7 +114,7 @@ Cursor="Hand"
 Margin="0, 0, 0, 0"
                        HorizontalAlignment="Left"
 RenderOptions.BitmapScalingMode="HighQuality"
-Source="{Binding Enterprise.Logo, Converter={StaticResource absoluteConverter}}"
+Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverter}}"
 />
 
                 <TextBlock Margin="10" TextWrapping="Wrap" FontSize="26" Grid.ColumnSpan="1" Grid.Row="0" Grid.Column="1">

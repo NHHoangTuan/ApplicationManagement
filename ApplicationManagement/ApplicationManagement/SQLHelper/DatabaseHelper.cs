@@ -20,7 +20,7 @@ namespace ApplicationManagement.DAO
             string? server = AppConfig.GetValue(AppConfig.Server);
             string serverString = "Data Source=" + server;
             string connectionString = serverString + ";Initial Catalog=QLTuyenDung;Integrated Security=True";
-            //string connectionString = "Data Source=localhost;Initial Catalog=QLTuyenDung1;Integrated Security=True";
+            //string connectionString = "Data Source=localhost;Initial Catalog=QLTuyenDung;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString); // khởi tạo connect
             return connection;
         }
