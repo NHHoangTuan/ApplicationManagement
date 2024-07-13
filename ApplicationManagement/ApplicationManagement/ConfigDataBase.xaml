@@ -21,7 +21,8 @@
 
 
             <Image Source="/Assets/Images/Design/close.png" Grid.Column="1" 
-                   Grid.RowSpan="2" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"/>
+                   Grid.RowSpan="2" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
             
             <!--Hiển thị title-->
             <TextBlock

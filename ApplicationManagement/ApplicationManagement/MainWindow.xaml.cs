@@ -35,7 +35,7 @@ namespace ApplicationManagement {
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             ToggleButton[] new_buttons = new ToggleButton[] { enterpriseButton, recruitListButton, paymentListButton,
-                candidateButton, applicationListButton, tag3Button, logOutButton};
+                candidateButton, applicationListButton, logOutButton};
             buttons = new_buttons;
 
             enterpriseButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -83,15 +83,6 @@ namespace ApplicationManagement {
             pageNavigation.NavigationService.Navigate(candidate);
         }
 
-        private void tag3Button_Click(object sender, RoutedEventArgs e) {
-            changeButtonColor(tag3Button);
-            /*if (pageNavigation.NavigationService.Content != null)
-            {
-                pageNavigation.NavigationService.RemoveBackEntry();
-            }
-
-            pageNavigation.NavigationService.Navigate(tag3);*/
-        }
 
         private void logOutButton_Click(object sender, RoutedEventArgs e) {
             Login login = new Login();
