@@ -85,7 +85,7 @@
 
                         <ToggleButton Style="{DynamicResource menuToggleButton}" Click="paymentListButton_Click" x:Name="paymentListButton" >
                             <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="PlaylistCheck" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
+                                <Icon:PackIconMaterial Kind="Billboard" Style="{DynamicResource menuButtonIcon}" VerticalAlignment="Center"/>
                                 <TextBlock Text="Kiểm tra hóa đơn" Style="{DynamicResource menuButtonText}" MaxWidth="200"/>
                             </StackPanel>
                         </ToggleButton>
@@ -106,13 +106,7 @@
                             </StackPanel>
                         </ToggleButton>
 
-                        <ToggleButton Style="{StaticResource menuToggleButton}" Click="tag3Button_Click" x:Name="tag3Button">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="ChartBar" Style="{StaticResource menuButtonIcon}" VerticalAlignment="Center"/>
-                                <TextBlock Text="Lập danh sách doanh nghiệp tiềm năng" Style="{StaticResource menuButtonText}" 
-                                       MaxWidth="200"/>
-                            </StackPanel>
-                        </ToggleButton>
+                        
 
                         <ToggleButton Style="{StaticResource menuToggleButton}" Click="logOutButton_Click" x:Name="logOutButton" >
                             <StackPanel Orientation="Horizontal">
