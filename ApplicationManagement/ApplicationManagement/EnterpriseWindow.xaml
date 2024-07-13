@@ -61,6 +61,15 @@
 
                     <!--Menu Items-->
 
+
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="DashboardButton_Click" x:Name="DashboardButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Home" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Trang chủ" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="JobPostingButton_Click" x:Name="JobPostingButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ShapeOutline" Style="{DynamicResource menuButtonIcon}"/>

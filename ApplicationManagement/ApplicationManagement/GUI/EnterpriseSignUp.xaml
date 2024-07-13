@@ -330,6 +330,8 @@ Margin="20 10 10 10">
                                 </Grid>
                             </Border>
                         </StackPanel>
+                        
+
 
 
 
@@ -377,6 +379,54 @@ Margin="20 10 10 10">
                                 </Grid>
                             </Border>
                         </StackPanel>
+
+
+
+
+
+                        <!--Hiển thị nhập ảnh sản phẩm-->
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Margin="20,0,0,10" 
+   Text="Logo hoặc hình ảnh doanh nghiệp"
+   FontSize="14"
+   FontWeight="Medium"
+   Foreground="#353935"/>
+
+                            <StackPanel Orientation="Horizontal"
+    Margin="30, 0, 30,10">
+                                <Button 
+Name="AddImageButton"
+VerticalAlignment="Top"
+Margin="10,0,0,0"
+Height="35"
+Width="50"
+Click="AddImageButton_Click"
+Style="{StaticResource MyButtonStyle}">
+                                    <Icon:PackIconMaterial  
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Width="20"
+    Height="20"
+    RenderOptions.BitmapScalingMode="HighQuality"
+    Kind="Image"
+    Foreground="DarkRed"
+/>
+                                </Button>
+                                <Image 
+Name="AddedImage"
+VerticalAlignment="Top"
+Margin="30, 20, 0,0"
+Width="95"
+Height="95"
+Source="{Binding LogoPath, Converter={StaticResource absoluteConverter}}"
+HorizontalAlignment="Center">
+
+                                </Image>
+                            </StackPanel>
+                        </StackPanel>
+
+
+
 
 
 

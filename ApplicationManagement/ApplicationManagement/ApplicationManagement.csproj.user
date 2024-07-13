@@ -49,6 +49,9 @@
     <Compile Update="GUI\Enterprise.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\EnterpriseDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\EnterpriseDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -133,6 +136,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\Enterprise.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\EnterpriseDashboard.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\EnterpriseDetail.xaml">
