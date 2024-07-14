@@ -69,12 +69,11 @@ END
 go
 --Add
 CREATE PROCEDURE AddDoanhNghiep
-    @MaThue CHAR(10),
-	@LogoPath NVARCHAR(130)
+    @MaThue CHAR(10)
 AS
 BEGIN
-    INSERT INTO DOANHNGHIEP (MaThue, NgayDangKy, LogoPath)
-    VALUES (@MaThue, GETDATE(), @LogoPath);
+    INSERT INTO DOANHNGHIEP (MaThue, NgayDangKy)
+    VALUES (@MaThue, GETDATE());
 END
 go
 --Update

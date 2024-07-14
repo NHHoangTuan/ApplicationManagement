@@ -104,6 +104,64 @@ namespace ApplicationManagement.DAO
 
 
 
+
+
+        public BindingList<ApplicationDTO> getAllApplicationForCandidate(string candidateID)
+        {
+            var sqlquery = @"
+            SELECT 
+                *
+            FROM 
+                PDK_UNGTUYEN
+            JOIN 
+                HSUV on PDK_UNGTUYEN.CCCD = HSUV.CCCD
+            and PDK_UNGTUYEN.CCCD = @id";
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sqlquery, connection);
+            command.Parameters.AddWithValue("@id", candidateID);
+            command.ExecuteNonQuery();
+
+            var reader = command.ExecuteReader();
+
+            BindingList<ApplicationDTO> list = new BindingList<ApplicationDTO>();
+            EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
+            CandidateDAO candidateDAO = new CandidateDAO();
+            BrowseProfileDAO browseProfileDAO = new BrowseProfileDAO();
+
+            while (reader.Read())
+            {
+                var cccd = (string)reader["CCCD"];
+                var candidate = candidateDAO.getCandidateByID(cccd);
+                var position = (string)reader["ViTri"];
+                var note = (string)reader["GhiChu"];
+                var formID = (int)reader["MaPhieu"];
+                var validity = (string)reader["TinhHopLe"];
+                var enterprise = browseProfileDAO.getEnterpriseByApplicationFormID(formID);
+                var CVPath = reader["CVPath"] == DBNull.Value ? null : (string?)reader["CVPath"];
+
+
+                ApplicationDTO app = new ApplicationDTO()
+                {
+
+                    FormID = formID,
+                    Candidate = candidate,
+                    Position = position,
+                    Note = note,
+                    Validity = validity,
+                    Enterprise = enterprise,
+                    CVPath = CVPath,
+                };
+
+                list.Add(app);
+            }
+            reader.Close();
+            return list;
+        }
+
+
+
         public void updateApplicationStatus(ApplicationDTO application)
         {
             var query = "update PDK_UNGTUYEN set TinhHopLe = @validity where MaPhieu = @formID";

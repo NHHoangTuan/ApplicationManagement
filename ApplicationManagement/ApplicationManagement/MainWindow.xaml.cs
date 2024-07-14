@@ -1,4 +1,5 @@
 ﻿using ApplicationManagement.GUI;
+using ApplicationManagement.GUI.EmployeeGUI;
 using System;
 using System.Windows;
 using System.Windows.Controls;

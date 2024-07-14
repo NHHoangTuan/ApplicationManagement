@@ -32,6 +32,11 @@ namespace ApplicationManagement.BUS
             return applicationDAO.getAllApplication();
         }
 
+        public BindingList<ApplicationDTO> getAllApplicationForCandidate(string candidateID)
+        {
+            return applicationDAO.getAllApplicationForCandidate(candidateID);
+        }
+
         public void updateApplicationStatus(ApplicationDTO application)
         {
             applicationDAO.updateApplicationStatus(application);
@@ -42,11 +47,15 @@ namespace ApplicationManagement.BUS
             applicationDAO.deleteApplication(r);
         }
 
-        public void setValidity(ApplicationDTO application, bool isValidity)
+        public void setValidity(ApplicationDTO application, string Validity)
         {
-            if (isValidity)
+            if (Validity == "OK")
             {
                 application.Validity = "OK";
+            }
+            else if(Validity == "REJECT")
+            {
+                application.Validity = "REJECT";
             }
             else
             {

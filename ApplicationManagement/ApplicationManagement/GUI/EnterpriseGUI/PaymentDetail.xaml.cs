@@ -68,7 +68,7 @@ namespace ApplicationManagement.GUI
 
                     try
                     {
-                        recruitmentBUS.setValidity(selectedRecruit, true);
+                        recruitmentBUS.setValidity(selectedRecruit, "OK");
                     }
                     catch(Exception ex) { MessageBox.Show(ex.Message); }
 

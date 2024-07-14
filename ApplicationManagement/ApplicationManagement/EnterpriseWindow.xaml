@@ -77,6 +77,15 @@
                         </StackPanel>
                     </ToggleButton>
 
+
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="CreatedRecruitButton_Click" x:Name="CreatedRecruitButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ListBox" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Bài Tuyển Dụng Đã Tạo" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
+
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="PaymentButton_Click" x:Name="PaymentButton" >
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Reproduction" Style="{DynamicResource menuButtonIcon}"/>

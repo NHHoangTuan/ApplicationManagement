@@ -15,7 +15,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ApplicationManagement.GUI
+namespace ApplicationManagement.GUI.EmployeeGUI
 {
     /// <summary>
     /// Interaction logic for BillDetail.xaml

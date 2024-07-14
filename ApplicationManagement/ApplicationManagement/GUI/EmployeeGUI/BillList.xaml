@@ -1,10 +1,10 @@
-﻿<Page x:Class="ApplicationManagement.GUI.BillList"
+﻿<Page x:Class="ApplicationManagement.GUI.EmployeeGUI.BillList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ApplicationManagement.GUI"
+      xmlns:local="clr-namespace:ApplicationManagement.GUI.EmployeeGUI"
       xmlns:local1="clr-namespace:ApplicationManagement.Converter"
       xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
@@ -30,10 +30,10 @@
                     <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.50*"/>
+                    <RowDefinition Height="0.2*"/>
 
                     <RowDefinition Height="4*"/>
-                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="0.2*"/>
                 </Grid.RowDefinitions>
 
 
@@ -187,156 +187,7 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
                 </Border>
 
 
-                <!--Hiển thị thanh search-->
-                <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="18"
-          Grid.Column="1" Background="White" 
-         HorizontalAlignment="Left"
-         Height="35"
-         Width="430"
-         Margin="20, 0,0,0">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Icon:PackIconMaterial Width="20" Height="20" Kind="Magnify" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Grid Grid.Column="1"
-                Width="360"
-               Margin="0"
-               HorizontalAlignment="Left">
-                            <TextBox 
-                 BorderThickness="0"
-                 VerticalContentAlignment="Center"
-                 FontSize="13"
-                 Width="360"
-                 x:Name="SearchTermTextBox" TextChanged="SearchTermTextBox_TextChanged"
-                >
-                            </TextBox>
-                            <TextBlock IsHitTestVisible="False" Text="Search . . ." 
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        HorizontalAlignment="Left" Margin="5,0,0,0"
-                        Foreground="DarkGray">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-                    </Grid>
-                </Border>
-
-                <!--Hiển thị Filter (Sort by giá :))-->
-
-                <StackPanel Orientation="Horizontal"
-            Grid.Column="2" Grid.ColumnSpan="2"
-            HorizontalAlignment="Left"
-            Margin="30,0, 10, 0">
-
-
-                    <Border
-    Height="35"
-    Width="200"
-    Margin="10,0,0,0"
-    BorderThickness="0.5" BorderBrush="Orange" CornerRadius="18"
-     Background="WhiteSmoke" 
->
-                        <ComboBox 
-    Name="SortCombobox"
-    BorderThickness="0" BorderBrush="Transparent" Width="160"
-    VerticalContentAlignment="Center"
-                    SelectionChanged="SortCombobox_SelectionChanged"
-    >
-                            <ComboBox.ItemContainerStyle>
-                                <Style TargetType="ComboBoxItem">
-
-                                </Style>
-                            </ComboBox.ItemContainerStyle>
-                            <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort</ComboBoxItem>
-
-                            <ComboBoxItem>Sort by name (A-Z)</ComboBoxItem>
-                            <ComboBoxItem>Sort by name (Z-A)</ComboBoxItem>
-                            <ComboBoxItem >No Sort</ComboBoxItem>
-
-                        </ComboBox>
-                    </Border>
-
-
-
-                </StackPanel>
-
-
-                <!-- Hiển thị phân trang -->
-                <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="15" 
-Background="White" 
-HorizontalAlignment="Right"
-            Margin="0 0 20 0"
-Height="30"
-Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
-Width="180">
-
-                    <Grid Width="150">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="40"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Button
-    Name="FirstButton" Style="{StaticResource MyTransButton}"
-    Background="Transparent"
-    BorderThickness="0" Click="FirstButton_Click"
-    
-                >
-                            <Image Source="/Assets/Images/Design/first_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        </Button>
-                        <Button
-    Name="PrevButton" Style="{StaticResource MyTransButton}"
-    Grid.Column="1"
-    Background="Transparent" Click="PrevButton_Click"
-    BorderThickness="0"
-   >
-                            <Image Source="/Assets/Images/Design/prev_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        </Button>
-
-                        <TextBlock 
-    Name="pageInfoTextBlock"
-    Grid.Column="2"
-    Text = "1/3" 
-    FontSize="13"
-    VerticalAlignment="Center"
-    HorizontalAlignment="Center"
-    Foreground="#353935"
-    FontWeight="Medium"
-/>
-
-                        <Button
-    Name="NextButton" Style="{StaticResource MyTransButton}"
-    Grid.Column="3"
-    Background="Transparent"
-    BorderThickness="0" Click="NextButton_Click"
-   >
-                            <Image Source="/Assets/Images/Design/next_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        </Button>
-
-                        <Button 
-    Name="LastButton" Style="{StaticResource MyTransButton}"
-    Grid.Column="4"
-    Background="Transparent" Click="LastButton_Click"
-    BorderThickness="0"
-    >
-                            <Image Source="/Assets/Images/Design/last_icon.png" Width="15" Height="15" RenderOptions.BitmapScalingMode="HighQuality"/>
-                        </Button>
-                    </Grid>
-                </Border>
+                
 
 
 

@@ -34,6 +34,10 @@ namespace ApplicationManagement.GUI {
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì ứng viên nào";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e) {

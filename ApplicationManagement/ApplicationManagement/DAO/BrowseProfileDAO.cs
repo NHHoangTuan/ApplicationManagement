@@ -32,8 +32,11 @@ namespace ApplicationManagement.DAO
 
         public EnterpriseDTO getEnterpriseByApplicationFormID(int id)
         {
-            var sql1 = "select * from DUYETHOSO join PDK_QUANGCAO on DUYETHOSO.MaPhieuQC = PDK_QUANGCAO.MaPhieu " +
-                "join PDK_THONGTIN on PDK_QUANGCAO.MaThue = PDK_THONGTIN.MaThue and DUYETHOSO.MaPhieuUT = @applicationFormID";
+            var sql1 = "select DOANHNGHIEP.MaThue, TenCty, NguoiDaiDien, DiaChi, Email, LogoPath " +
+                "from DUYETHOSO join PDK_QUANGCAO on DUYETHOSO.MaPhieuQC = PDK_QUANGCAO.MaPhieu " +
+                "join PDK_THONGTIN on PDK_QUANGCAO.MaThue = PDK_THONGTIN.MaThue " +
+                "join DOANHNGHIEP on DOANHNGHIEP.MaThue = PDK_THONGTIN.MaThue " +
+                "and DUYETHOSO.MaPhieuUT = @applicationFormID";
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
             var command1 = new SqlCommand(sql1, connection);
@@ -48,6 +51,7 @@ namespace ApplicationManagement.DAO
                 enterprise.Leader = (string)reader1["NguoiDaiDien"];
                 enterprise.Address = (string)reader1["DiaChi"];
                 enterprise.Email = (string)reader1["Email"];
+                enterprise.LogoPath = (string)reader1["LogoPath"];
             }
 
             return enterprise;
@@ -87,6 +91,28 @@ namespace ApplicationManagement.DAO
         }
 
 
+
+        public BrowseProfileDTO getBrowseProfileByFormID(int maPhieuUT)
+        {
+            var sql1 = "select MaPD, MaPhieuUT, MaThue, TrangThai from PHEDUYET " +
+                "join PDK_UNGTUYEN on PHEDUYET.MaPhieuUT = PDK_UNGTUYEN.MaPhieu and MaPhieuUT = @maPhieuUT";
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command1 = new SqlCommand(sql1, connection);
+            command1.Parameters.AddWithValue("@maPhieuUT", maPhieuUT);
+            command1.ExecuteNonQuery();
+            var reader1 = command1.ExecuteReader();
+            var browseProfile = new BrowseProfileDTO();
+            while (reader1.Read())
+            {
+                browseProfile.maPheDuyet = (int)reader1["MaPD"];
+                browseProfile.maPhieuUT = (int)reader1["MaPhieuUT"];
+                browseProfile.maThue = (string)reader1["MaThue"];
+                browseProfile.trangthai = (int)reader1["TrangThai"];
+            }
+
+            return browseProfile;
+        }
 
 
     }

@@ -83,10 +83,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\x64\pdfium.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\x86\pdfium.dll" />
   </ItemGroup>
 
@@ -96,6 +92,10 @@
 
   <ItemGroup>
     <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\icudt.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\x64\pdfium.dll" />
   </ItemGroup>
 
 </Project>

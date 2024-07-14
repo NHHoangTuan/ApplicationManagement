@@ -10,34 +10,37 @@
     <Compile Update="CandidateWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\ApplicationDetail.xaml.cs">
+    <Compile Update="GUI\CandidateGUI\SubmittedApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\ApplicationList.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\ApplicationDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\ApproveApplicationDetail.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\ApplicationList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\ApproveApplicationList.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\ApproveApplicationDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\Bill.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\ApproveApplicationList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\BillDetail.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\Bill.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\BillList.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\BillDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\Candidate.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\BillList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\CandidateDashboard.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\Candidate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\CandidateDetail.xaml.cs">
+    <Compile Update="GUI\CandidateGUI\CandidateDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\EmployeeGUI\CandidateDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="GUI\CandidateSignUp.xaml.cs">
@@ -46,25 +49,28 @@
     <Compile Update="GUI\ChooseTypeSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\CVWindow.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\CreatedRecruitList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\Enterprise.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\CVWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\EnterpriseDashboard.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\Enterprise.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\EnterpriseDetail.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\EnterpriseDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\EmployeeGUI\EnterpriseDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="GUI\EnterpriseSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\ImageWindow.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\ImageWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\JobPosting.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\JobPosting.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="GUI\Login.xaml.cs">
@@ -73,28 +79,28 @@
     <Compile Update="EnterpriseWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\Nominee.xaml.cs">
+    <Compile Update="GUI\CandidateGUI\Nominee.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\NomineeDetail.xaml.cs">
+    <Compile Update="GUI\CandidateGUI\NomineeDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\Payment.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\Payment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\PaymentDetail.xaml.cs">
+    <Compile Update="GUI\EnterpriseGUI\PaymentDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\RecruitDetail.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\RecruitDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\RecruitList.xaml.cs">
+    <Compile Update="GUI\EmployeeGUI\RecruitList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\ResultApplication.xaml.cs">
+    <Compile Update="GUI\CandidateGUI\ResultApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="GUI\SubmitApplication.xaml.cs">
+    <Compile Update="GUI\CandidateGUI\SubmitApplication.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -105,34 +111,37 @@
     <Page Update="ConfigDataBase.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\ApplicationDetail.xaml">
+    <Page Update="GUI\CandidateGUI\SubmittedApplication.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\ApplicationList.xaml">
+    <Page Update="GUI\EmployeeGUI\ApplicationDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\ApproveApplicationDetail.xaml">
+    <Page Update="GUI\EmployeeGUI\ApplicationList.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\ApproveApplicationList.xaml">
+    <Page Update="GUI\EnterpriseGUI\ApproveApplicationDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\Bill.xaml">
+    <Page Update="GUI\EnterpriseGUI\ApproveApplicationList.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\BillDetail.xaml">
+    <Page Update="GUI\EnterpriseGUI\Bill.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\BillList.xaml">
+    <Page Update="GUI\EmployeeGUI\BillDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\Candidate.xaml">
+    <Page Update="GUI\EmployeeGUI\BillList.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\CandidateDashboard.xaml">
+    <Page Update="GUI\EmployeeGUI\Candidate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\CandidateDetail.xaml">
+    <Page Update="GUI\CandidateGUI\CandidateDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\EmployeeGUI\CandidateDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\CandidateSignUp.xaml">
@@ -141,52 +150,55 @@
     <Page Update="GUI\ChooseTypeSignUp.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\CVWindow.xaml">
+    <Page Update="GUI\EnterpriseGUI\CreatedRecruitList.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\Enterprise.xaml">
+    <Page Update="GUI\EnterpriseGUI\CVWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\EnterpriseDashboard.xaml">
+    <Page Update="GUI\EmployeeGUI\Enterprise.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\EnterpriseDetail.xaml">
+    <Page Update="GUI\EnterpriseGUI\EnterpriseDashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\EmployeeGUI\EnterpriseDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\EnterpriseSignUp.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\ImageWindow.xaml">
+    <Page Update="GUI\EmployeeGUI\ImageWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\JobPosting.xaml">
+    <Page Update="GUI\EnterpriseGUI\JobPosting.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\Login.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\Nominee.xaml">
+    <Page Update="GUI\CandidateGUI\Nominee.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\NomineeDetail.xaml">
+    <Page Update="GUI\CandidateGUI\NomineeDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\Payment.xaml">
+    <Page Update="GUI\EnterpriseGUI\Payment.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\PaymentDetail.xaml">
+    <Page Update="GUI\EnterpriseGUI\PaymentDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\RecruitDetail.xaml">
+    <Page Update="GUI\EmployeeGUI\RecruitDetail.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\RecruitList.xaml">
+    <Page Update="GUI\EmployeeGUI\RecruitList.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\ResultApplication.xaml">
+    <Page Update="GUI\CandidateGUI\ResultApplication.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="GUI\SubmitApplication.xaml">
+    <Page Update="GUI\CandidateGUI\SubmitApplication.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

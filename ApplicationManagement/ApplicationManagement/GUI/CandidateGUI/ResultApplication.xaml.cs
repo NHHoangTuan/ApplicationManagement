@@ -49,6 +49,10 @@ namespace ApplicationManagement.GUI
             {
                 MessageText.Text = "Opps! Có vẻ bạn cần thêm thời gian, hãy cố đợi nhé";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)

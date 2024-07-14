@@ -47,7 +47,7 @@ namespace ApplicationManagement.GUI
                 if (result == MessageBoxResult.Yes)
                 {
 
-                    recruitmentBUS.setValidity(selectedRecruit, true);
+                    recruitmentBUS.setValidity(selectedRecruit, "OK");
                     recruitmentBUS.updateRecruitStatus(selectedRecruit);
                     DialogResult = true;
 
@@ -62,12 +62,28 @@ namespace ApplicationManagement.GUI
 
             if (selectedRecruit != null)
             {
-                var result = MessageBox.Show($"Bạn có chắc muốn xóa hồ sơ {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
-                   "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show($"Bạn có chắc muốn từ chối hồ sơ {selectedRecruit.Vacancies} - {selectedRecruit.Enterprise.EnterpriseName}?",
+                   "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    recruitmentBUS.setValidity(selectedRecruit, true);
-                    recruitmentBUS.deleteRecruit(selectedRecruit);
+                    try
+                    {
+                        recruitmentBUS.setValidity(selectedRecruit, "REJECT");
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+                    try
+                    {
+                        recruitmentBUS.updateValidity(selectedRecruit.formID, "REJECT");
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+                    /*try
+                    {
+                        recruitmentBUS.deleteRecruit(selectedRecruit);
+                    }
+                    catch(Exception ex) { MessageBox.Show(ex.Message); }*/
+
                     DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);

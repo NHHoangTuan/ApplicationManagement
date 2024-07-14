@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ApplicationManagement.GUI
+namespace ApplicationManagement.GUI.EmployeeGUI
 {
     /// <summary>
     /// Interaction logic for ApplicationDetail.xaml
@@ -48,7 +48,7 @@ namespace ApplicationManagement.GUI
 
                     try
                     {
-                        applicationBUS.setValidity(selectedApplication, true);
+                        applicationBUS.setValidity(selectedApplication, "OK");
                     }
                     catch (Exception ex)
                     {
@@ -79,22 +79,28 @@ namespace ApplicationManagement.GUI
         {
             if (selectedApplication != null)
             {
-                var result = MessageBox.Show($"Bạn có chắc muốn xóa hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
-                   "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show($"Bạn có chắc muốn từ chối hồ sơ ứng tuyển {selectedApplication.Candidate.CandidateName}?",
+                   "Xác nhận", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
                     try
                     {
-                        applicationBUS.setValidity(selectedApplication, true);
+                        applicationBUS.setValidity(selectedApplication, "REJECT");
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
 
-                    try
+                    /*try
                     {
                         applicationBUS.deleteApplication(selectedApplication);
+                    }
+                    catch ( Exception ex) { MessageBox.Show(ex.Message ); }*/
+
+                    try
+                    {
+                        applicationBUS.updateApplicationStatus(selectedApplication);
                     }
                     catch ( Exception ex) { MessageBox.Show(ex.Message ); }
 

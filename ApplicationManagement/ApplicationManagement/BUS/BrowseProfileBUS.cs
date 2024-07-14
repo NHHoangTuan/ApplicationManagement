@@ -30,5 +30,10 @@ namespace ApplicationManagement.BUS
             return browseProfileDAO.getApplicationFormIDWithCurrentUser(maPhieuDT, cccd);
         }
 
+        public BrowseProfileDTO getBrowseProfileByFormID(int maPhieuUT)
+        {
+            return browseProfileDAO.getBrowseProfileByFormID(maPhieuUT);
+        }
+
     }
 }

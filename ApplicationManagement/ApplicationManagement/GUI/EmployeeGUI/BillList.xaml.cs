@@ -17,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ApplicationManagement.GUI
+namespace ApplicationManagement.GUI.EmployeeGUI
 {
     /// <summary>
     /// Interaction logic for BillList.xaml
@@ -63,9 +63,11 @@ namespace ApplicationManagement.GUI
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì hóa đơn nào cần duyệt";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
 
-            // Display the first page items
-            DisplayCurrentPageItems();
 
         }
 
@@ -92,61 +94,25 @@ namespace ApplicationManagement.GUI
 
                 BillListView.ItemsSource = currentListShow;
 
+                
+
+                if (currentListShow == null || currentListShow.Count == 0)
+                {
+                    MessageText.Text = "Opps! Không tìm thấy bất kì hóa đơn nào cần duyệt";
+                }
+                else
+                {
+                    MessageText.Text = "";
+                }
+
 
             }
             //HideOverlay();
             MainWindow.Instance.HideOverlay();
         }
 
-        private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void SortCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void FirstButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PrevButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LastButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UpdatePageInfo()
-        {
-            int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
-            pageInfoTextBlock.Text = $"{currentPage}/{totalPages}";
-
-        }
 
 
-        private void DisplayCurrentPageItems()
-        {
-            int startIndex = (currentPage - 1) * itemsPerPage;
-            int endIndex = Math.Min(startIndex + itemsPerPage - 1, listShow.Count - 1);
-
-            var currentPageItems = listShow.Skip(startIndex).Take(itemsPerPage).ToList();
-
-            BillListView.ItemsSource = currentPageItems;
-
-            UpdatePageInfo();
-        }
 
 
         /*public void ShowOverlay()

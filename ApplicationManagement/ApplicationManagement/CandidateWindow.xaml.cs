@@ -1,4 +1,5 @@
 ﻿using ApplicationManagement.GUI;
+using ApplicationManagement.GUI.CandidateGUI;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -14,6 +15,7 @@ namespace ApplicationManagement {
         Nominee nominee;
         CandidateDashboard candidateDashboard;
         ResultApplication resultApplication;
+        SubmittedApplication submittedApplication;
 
         public CandidateWindow() {
             InitializeComponent();
@@ -21,10 +23,12 @@ namespace ApplicationManagement {
             nominee = new Nominee();
             candidateDashboard = new CandidateDashboard();
             resultApplication = new ResultApplication();
+            submittedApplication = new SubmittedApplication();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, NomineeButton, logOutButton, ResultButton };
+            ToggleButton[] new_buttons = new ToggleButton[] { dashboardButton, NomineeButton, 
+                logOutButton, ResultButton, SubmittedButton };
             buttons = new_buttons;
 
             dashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -98,6 +102,17 @@ namespace ApplicationManagement {
             }
 
             pageNavigation.NavigationService.Navigate(resultApplication);
+        }
+
+        private void SubmittedButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(SubmittedButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+
+            pageNavigation.NavigationService.Navigate(submittedApplication);
         }
     }
 }

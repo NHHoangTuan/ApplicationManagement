@@ -49,6 +49,10 @@ namespace ApplicationManagement.GUI
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì hồ sơ ứng tuyển cần phê duyệt nào";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
         }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -65,6 +69,7 @@ namespace ApplicationManagement.GUI
 
                 RefeshList(originalList);
 
+              
 
             }
         }
@@ -85,6 +90,10 @@ namespace ApplicationManagement.GUI
             if (listShow == null || listShow.Count == 0)
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì hồ sơ ứng tuyển cần phê duyệt nào";
+            }
+            else
+            {
+                MessageText.Text = "";
             }
         }
 
