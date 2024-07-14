@@ -31,7 +31,7 @@ Cursor="Hand"
 Margin="0, 0, 0, 0"
 HorizontalAlignment="Center"
 RenderOptions.BitmapScalingMode="HighQuality"
-Source="..\Assets\Images\Design\user_icon.png"
+Source="\Assets\Images\Design\user_icon.png"
 />
 
         <TextBlock Text="{Binding Candidate.CandidateName}" Grid.Row="1" FontWeight="Bold" FontSize="25"

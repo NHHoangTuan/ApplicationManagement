@@ -55,6 +55,10 @@ namespace ApplicationManagement.GUI.CandidateGUI
             {
                 MessageText.Text = "Opps! Không tìm thấy gì";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
 
         }
 
@@ -89,6 +93,10 @@ namespace ApplicationManagement.GUI.CandidateGUI
             if (statusButton == null)
                 return;
 
+            // Tìm TextBlock bên trong Button
+            TextBlock statusTextBlock = statusButton.Content as TextBlock;
+            if (statusTextBlock == null) return;
+
             // Find the data context (which is your PaymentItem)
             ApplicationDTO item = statusButton.DataContext as ApplicationDTO;
             if (item == null)
@@ -99,29 +107,34 @@ namespace ApplicationManagement.GUI.CandidateGUI
 
             if (item.Validity == "OK" && browseProfile.trangthai == 1)
             {
-                statusButton.Content = "Đã được doanh nghiệp duyệt";
+                statusTextBlock.Text = "Đã được doanh nghiệp duyệt";
                 statusButton.IsEnabled = false;
                 statusButton.Background = new SolidColorBrush(Colors.Green);
                 //rejectButton.Visibility = Visibility.Hidden;
             }
             else if (item.Validity == "OK" && browseProfile.trangthai == 0)
             {
-                statusButton.Content = "⏱ Chờ doanh nghiệp duyệt";
+                statusTextBlock.Text = "⏱ Chờ doanh nghiệp duyệt";
                 statusButton.IsEnabled = false;
                 statusButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#4cc7cf"));
                 //rejectButton.Visibility = Visibility.Hidden;
             }
-            
-            
+            else if (item.Validity == "OK" && browseProfile.trangthai == -1)
+            {
+                statusTextBlock.Text = "Bị doanh nghiệp từ chối";
+                statusButton.IsEnabled = false;
+                statusButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a9a19b"));
+            }
+
             else if (item.Validity == "REJECT")
             {
-                statusButton.Content = "Bị từ chối và hủy bài ứng tuyển";
+                statusTextBlock.Text = "Bị nhân viên từ chối và hủy bài ứng tuyển";
                 statusButton.IsEnabled = false;
                 statusButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f2889e"));
             }
             else
             {
-                statusButton.Content = "Chờ duyệt";
+                statusTextBlock.Text = "Chờ duyệt";
                 statusButton.IsEnabled = false;
                 statusButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3d5875"));
             }

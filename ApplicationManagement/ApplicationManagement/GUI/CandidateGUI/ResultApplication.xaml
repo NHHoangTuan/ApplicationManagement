@@ -157,13 +157,14 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
                                             </Border>
 
 
-                                            <Border Grid.Row="3" Grid.Column="1" Background="#619eff" 
-                                                    VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Border Grid.Row="3" Grid.Column="1" Background="#619eff" Name="status"
+                                                    VerticalAlignment="Center" HorizontalAlignment="Left" Loaded="status_Loaded">
                                                 <TextBlock   FontSize="19" Foreground="White"
                    
                    Margin="5 0 0 0">
        <Run Text="👍 Đã được doanh nghiệp phê duyệt" FontWeight="SemiBold"/>
                                                 </TextBlock>
+                                                
                                             </Border>
 
 

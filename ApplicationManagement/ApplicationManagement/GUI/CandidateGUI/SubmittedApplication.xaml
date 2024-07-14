@@ -95,7 +95,7 @@ Height="250">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1.5*"/>
                                                 <ColumnDefinition Width="8*"/>
-                                                <ColumnDefinition Width="3.5*"/>
+                                                <ColumnDefinition Width="2.5*"/>
                                             </Grid.ColumnDefinitions>
 
 
@@ -125,7 +125,7 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
                                             </Image>
 
 
-                                            <TextBlock  Grid.Row="0" Grid.Column="1" FontSize="16"
+                                            <TextBlock  Grid.Row="0" Grid.Column="1" FontSize="19"
                    VerticalAlignment="Center" HorizontalAlignment="Left"
                    Margin="5 0 0 0">
        <Run Text="Mã phiếu: " FontWeight="SemiBold"/>
@@ -136,7 +136,7 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
 
                                             <!-- binding -->
                                             <TextBlock Name="Vacancices" Grid.Row="1" Grid.Column="1"
-                    FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Left"
+                    FontSize="19" VerticalAlignment="Center" HorizontalAlignment="Left"
                    TextWrapping="Wrap"
                    Margin="5, 0, 0, 0"
                    Foreground="#353935"
@@ -148,7 +148,7 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
 
 
 
-                                            <TextBlock  Grid.Row="2" Grid.Column="1" FontSize="16"
+                                            <TextBlock  Grid.Row="2" Grid.Column="1" FontSize="19"
                    VerticalAlignment="Center" HorizontalAlignment="Left"
                    Margin="5 0 0 0">
        <Run Text="Doanh nghiệp: " FontWeight="SemiBold"/>
@@ -156,7 +156,7 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
                                             </TextBlock>
 
 
-                                            <Border Grid.Row="2" Grid.Column="1" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                            <Border Grid.Row="3" Grid.Column="1" Background="#dddddd" VerticalAlignment="Center" HorizontalAlignment="Left">
                                                 <TextBlock Name="Address"  FontSize="19"
                    
                    Margin="5 0 0 0">
@@ -167,10 +167,14 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
 
 
 
-                                            <Button Content="" FontSize="16" Name="statusButton" Height="40" VerticalAlignment="Center"
-HorizontalAlignment="Left" Margin="0 0 10 0" HorizontalContentAlignment="Stretch" Padding="8 0 8 0"
-     BorderThickness="0" Style="{StaticResource PaymentButtonStyle}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3"
-                                            Loaded="statusButton_Loaded"/>
+                                            <Button FontSize="16" Name="statusButton" VerticalAlignment="Center"
+HorizontalAlignment="Left" Margin="0 0 10 0" HorizontalContentAlignment="Stretch" Padding="0" 
+     BorderThickness="0" Style="{StaticResource PaymentButtonStyle}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="3"
+                                            Loaded="statusButton_Loaded">
+                                                <TextBlock TextWrapping="Wrap" TextAlignment="Justify" 
+                                                           Margin="10" Name="statusTextBlock"/>
+                                            </Button>
+
 
 
 

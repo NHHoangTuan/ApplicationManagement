@@ -48,16 +48,28 @@ namespace ApplicationManagement.GUI
             else
             {
                 MessageBox.Show("Vui lòng chọn cả hai ngày.");
+                return;
             }
 
             recruitForm.Description = requireInfoTextBox.Text;
             if (specificDate.SelectedDate.HasValue)
             {
-                recruitForm.ExactlyDate = specificDate.SelectedDate.Value;
+                DateTime exactlyDate = specificDate.SelectedDate.Value;
+                DateTime startDate = dateStartPicker.SelectedDate.Value;
+                DateTime endDate = dateEndPicker.SelectedDate.Value;
+                recruitForm.ExactlyDate = exactlyDate;
+
+                // Check if ExactlyDate is between startDate and endDate
+                if (exactlyDate < startDate || exactlyDate > endDate)
+                {
+                    MessageBox.Show("Ngày chính xác phải nằm giữa ngày bắt đầu và ngày kết thúc.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn ngày chính xác.");
+                return;
             }
             recruitForm.Form = RecruitForm.Text;
             switch (recruitForm.Form)
