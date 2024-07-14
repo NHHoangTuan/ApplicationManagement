@@ -20,7 +20,7 @@
     <Border Background="#cfe2f3" CornerRadius="15">
         <Grid>
 
-            <Rectangle x:Name="Overlay" Fill="Black" Opacity="0" Visibility="Collapsed" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+            
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -35,6 +35,8 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="0.3*"/>
                 </Grid.RowDefinitions>
+
+
 
 
                 <!--Category list view-->
@@ -335,6 +337,9 @@ Width="180">
                         </Button>
                     </Grid>
                 </Border>
+
+
+
 
 
             </Grid>

@@ -8,129 +8,144 @@
         d:DesignHeight="450" d:DesignWidth="800"
         Title="BillDetail" Background="Transparent">
 
+    <Grid>
+        <Border Background="#cfe2f3" CornerRadius="10">
 
-    <Border Background="#cfe2f3" CornerRadius="10">
-        <Grid Margin="10">
+            <Grid >
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3.3*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="0.3*"/>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.3*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="0.2*"/>
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
 
-            <Image Source="/Assets/Images/Design/close.png" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                <Image Source="/Assets/Images/Design/close.png" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2"
        Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}"
                    RenderOptions.BitmapScalingMode="HighQuality"/>
-            
-
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
 
 
-                <StackPanel Margin="0 5 0 10">
-                    <TextBlock Text="Mã hóa đơn:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+                <StackPanel VerticalAlignment="Top" Margin="10"
+                        HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
 
-                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
-                        <TextBox Name="InvoiceCodeTextBox" Text="{Binding MaHoaDon}" FontSize="19" IsReadOnly="True" Margin="0,0,0,0" HorizontalAlignment="Center"
+
+                    <StackPanel Margin="0 5 0 10">
+                        <TextBlock Text="Mã hóa đơn:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+
+                        <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                            <TextBox Name="InvoiceCodeTextBox" Text="{Binding MaHoaDon}" FontSize="19" IsReadOnly="True" Margin="0,0,0,0" HorizontalAlignment="Center"
          Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
 
-                <StackPanel Margin="0 5 0 10">
-                    <TextBlock Text="Mã thuế:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <StackPanel Margin="0 5 0 10">
+                        <TextBlock Text="Mã thuế:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
 
-                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
-                        <TextBox Name="TaxCodeTextBox" Text="{Binding MaThue}" FontSize="19" IsReadOnly="True"  Margin="0 0 0 0" HorizontalAlignment="Center" 
+                        <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                            <TextBox Name="TaxCodeTextBox" Text="{Binding MaThue}" FontSize="19" IsReadOnly="True"  Margin="0 0 0 0" HorizontalAlignment="Center" 
                          Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
-                <StackPanel Margin="0 5 0 10">
-                    <TextBlock Text="Mã phiếu đăng tuyển:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <StackPanel Margin="0 5 0 10">
+                        <TextBlock Text="Mã phiếu đăng tuyển:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
 
-                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
-                        <TextBox Name="JobPostCodeTextBox" Text="{Binding MaPhieu}" FontSize="19" IsReadOnly="True" Margin="0" HorizontalAlignment="Center" 
+                        <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                            <TextBox Name="JobPostCodeTextBox" Text="{Binding MaPhieu}" FontSize="19" IsReadOnly="True" Margin="0" HorizontalAlignment="Center" 
                      Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
 
-                <StackPanel Margin="0 5 0 10">
-                    <TextBlock Text="Tổng tiền:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
+                    <StackPanel Margin="0 5 0 10">
+                        <TextBlock Text="Tổng tiền:" FontSize="22" FontWeight="Bold" Margin="0,10,0,0"/>
 
-                    <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
-                        <TextBox Name="TotalAmountTextBox" Text="{Binding SoTien, StringFormat={}{0} VNĐ}" FontSize="19" IsReadOnly="True"  Margin="0" HorizontalAlignment="Center" 
+                        <Border CornerRadius="5" Height="30" Width="350" Background="White" BorderThickness="1">
+                            <TextBox Name="TotalAmountTextBox" Text="{Binding SoTien, StringFormat={}{0} VNĐ}" FontSize="19" IsReadOnly="True"  Margin="0" HorizontalAlignment="Center" 
                      Height="25" Width="330" VerticalAlignment="Center" BorderThickness="0"/>
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
 
-                <Button 
+                    <Button 
 Content="Xác nhận đã thanh toán đủ" Width="280" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
                     Foreground="White" Background="#01a001" Margin="10" Click="Confirm_Click" />
 
-                <Button 
+                    <Button 
 Content="Từ chối, vì chưa thanh toán đủ!" Width="280" Height="40" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource RecruitButtonStyle}"
                     Foreground="White" Background="red" Margin="10" Click="Refused_Click" />
 
-            </StackPanel>
+                </StackPanel>
 
 
-            <Border CornerRadius="8" Background="AliceBlue" BorderThickness="1" Grid.Column="0" Grid.Row="1">
+                <Border Margin="10" CornerRadius="8" Background="AliceBlue" 
+                    BorderThickness="1" Grid.Column="0" Grid.Row="1">
 
-                <Grid>
+                    <Grid>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="0.3*"/>
-                        <RowDefinition Height="0.3*"/>
-                        <RowDefinition Height="2*"/>
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="0.3*"/>
+                            <RowDefinition Height="0.3*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
 
 
 
-                    <Image Name="CompanyLogo" Source="\Assets\Images\Design\abc_logo.png" 
+                        <Image Name="CompanyLogo" Source="\Assets\Images\Design\abc_logo.png" 
                            Height="177" Width="350" Margin="0,10,0,10" Grid.Row="0"/>
 
-                    <TextBlock Text="Số tài khoản công ty: 0998 8876 6654 234" FontWeight="Bold" 
+                        <TextBlock Text="Số tài khoản công ty: 0998 8876 6654 234" FontWeight="Bold" 
                                FontSize="18" Margin="10,10,0,0" HorizontalAlignment="Left"
                                Grid.Row="1"/>
 
-                    <TextBlock Text="Số hotline: 0123 445 668" FontWeight="Bold" Margin="10,10,0,0" 
+                        <TextBlock Text="Số hotline: 0123 445 668" FontWeight="Bold" Margin="10,10,0,0" 
                                FontSize="18" HorizontalAlignment="Left"
                                Grid.Row="2"/>
 
-                    <GroupBox Margin="10" FontSize="16" 
+                        <GroupBox Margin="10" FontSize="16" 
                               FontWeight="SemiBold" BorderThickness="1.5" BorderBrush="Gray"
                               Grid.Row="3">
-                        <StackPanel Margin="10">
+                            <StackPanel Margin="10">
 
-                            <TextBlock Text="Ảnh chuyển khoản của doanh nghiệp" 
+                                <TextBlock Text="Ảnh chuyển khoản của doanh nghiệp" 
                                        HorizontalAlignment="Center" Margin="0,0,0,10" 
                                        FontWeight="SemiBold" FontSize="15"/>
 
-                            <Button Content="Xem ảnh" Width="120" Height="30" HorizontalAlignment="Center" Style="{StaticResource RecruitButtonStyle}"
+                                <Button Content="Xem ảnh" Width="120" Height="30" HorizontalAlignment="Center" Style="{StaticResource RecruitButtonStyle}"
             Foreground="White" Background="#01a001" Margin="10" Click="ShowDetailBanking_Click" VerticalAlignment="Bottom" />
-                        </StackPanel>
-                    </GroupBox>
+                            </StackPanel>
+                        </GroupBox>
 
 
 
 
-                </Grid>
+
+                    </Grid>
 
 
-            </Border>
+                </Border>
 
 
 
-            
-        </Grid>
-    </Border>
+
+
+
+
+            </Grid>
+        </Border>
+
+        <Border CornerRadius="10">
+            <Border x:Name="Overlay" CornerRadius="10" Background="Black" Opacity="0" 
+                    Visibility="Collapsed" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        </Border>
+
+    </Grid>
+
 </Window>

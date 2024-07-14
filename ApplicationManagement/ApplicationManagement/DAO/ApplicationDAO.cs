@@ -81,6 +81,7 @@ namespace ApplicationManagement.DAO
                 var formID = (int)reader["MaPhieu"];
                 var validity = (string)reader["TinhHopLe"];
                 var enterprise = browseProfileDAO.getEnterpriseByApplicationFormID(formID);
+                var CVPath = reader["CVPath"] == DBNull.Value ? null : (string?)reader["CVPath"];
 
 
                 ApplicationDTO app = new ApplicationDTO()
@@ -91,7 +92,8 @@ namespace ApplicationManagement.DAO
                     Position = position,
                     Note = note,
                     Validity = validity,
-                    Enterprise = enterprise
+                    Enterprise = enterprise,
+                    CVPath = CVPath,
                 };
 
                 list.Add(app);
@@ -147,7 +149,7 @@ namespace ApplicationManagement.DAO
         {
             var sqlquery = @"
             	SELECT 
-    PDK_QUANGCAO.MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe
+    PDK_QUANGCAO.MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe, PDK_UNGTUYEN.CVPath
 FROM 
     PDK_UNGTUYEN
 JOIN 
@@ -179,6 +181,7 @@ JOIN
                 var formID = (int)reader["MaPhieu"];
                 var validity = (string)reader["TinhHopLe"];
                 var enterprise = browseProfileDAO.getEnterpriseByApplicationFormID(formID);
+                var CVPath = reader["CVPath"] == DBNull.Value ? null : (string?)reader["CVPath"];
 
 
                 ApplicationDTO app = new ApplicationDTO()
@@ -189,7 +192,8 @@ JOIN
                     Position = position,
                     Note = note,
                     Validity = validity,
-                    Enterprise = enterprise
+                    Enterprise = enterprise,
+                    CVPath = CVPath,
                 };
 
                 list.Add(app);
@@ -204,7 +208,7 @@ JOIN
         {
             var sqlquery = @"
             		            	SELECT 
-    PDK_QUANGCAO.MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe, TrangThai
+    PDK_QUANGCAO.MaThue, HSUV.CCCD, ViTri, GhiChu, PDK_UNGTUYEN.MaPhieu, TinhHopLe, TrangThai, PDK_UNGTUYEN.CVPath
 FROM 
     PDK_UNGTUYEN
 JOIN 
@@ -236,6 +240,7 @@ JOIN
                 var formID = (int)reader["MaPhieu"];
                 var validity = (string)reader["TinhHopLe"];
                 var enterprise = browseProfileDAO.getEnterpriseByApplicationFormID(formID);
+                var CVPath = reader["CVPath"] == DBNull.Value ? null : (string?)reader["CVPath"];
 
 
                 ApplicationDTO app = new ApplicationDTO()
@@ -246,13 +251,36 @@ JOIN
                     Position = position,
                     Note = note,
                     Validity = validity,
-                    Enterprise = enterprise
+                    Enterprise = enterprise,
+                    CVPath = CVPath,
                 };
 
                 list.Add(app);
             }
             reader.Close();
             return list;
+        }
+
+
+
+
+        public void updateCVPath(int maPhieu, string cvPath)
+        {
+            // update SQL
+            string sql = $"""
+                update PDK_UNGTUYEN 
+                set CVPath = @cvPath
+                where MaPhieu = @maPhieu
+                """;
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@maPhieu", maPhieu);
+            command.Parameters.AddWithValue("@cvPath", cvPath);
+
+            command.ExecuteNonQuery();
         }
 
 

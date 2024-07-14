@@ -142,6 +142,7 @@ namespace ApplicationManagement {
             Overlay.Visibility = Visibility.Visible;
             DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
             Overlay.BeginAnimation(OpacityProperty, fadeIn);
+
         }
 
         public void HideOverlay()
@@ -150,6 +151,8 @@ namespace ApplicationManagement {
             DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
             fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
             Overlay.BeginAnimation(OpacityProperty, fadeOut);
+
+
         }
     }
 }

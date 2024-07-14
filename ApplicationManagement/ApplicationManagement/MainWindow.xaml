@@ -17,7 +17,7 @@
     <Border  Padding="0" Background="#cfe2f3" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
 
         <Grid>
-            <Rectangle x:Name="Overlay" Fill="Black" Opacity="0" Visibility="Collapsed" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+
 
 
             <Grid Margin="20">
@@ -122,10 +122,16 @@
 
                 </Frame>
 
+                
+
 
 
 
             </Grid>
+
+            <Rectangle x:Name="Overlay" Fill="Black" Opacity="0" Visibility="Collapsed" 
+                           Grid.Column="0" Grid.RowSpan="2"/>
+
         </Grid>
     </Border>
 

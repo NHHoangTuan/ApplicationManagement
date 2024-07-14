@@ -17,5 +17,15 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/images/design/next_icon.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/images/design/prev_icon.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/images/design/user_icon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pdfium.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pdfium.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pdfium.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icudt.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pdfium.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pdfium.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("libpdfium.dylib")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("webview2loader.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("webview2loader.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("webview2loader.dll")]
 
 

@@ -30,6 +30,8 @@ namespace ApplicationManagement.GUI
         BillDTO selectedBill;
         BillBUS billBUS;
 
+        private string uploadedBillPath = "";
+
         public Bill(BillDTO bill)
         {
             InitializeComponent();
@@ -76,6 +78,16 @@ namespace ApplicationManagement.GUI
                        MessageBoxButton.OK);
                     }
 
+                    try
+                    {
+                        billBUS.updateBillPath(selectedBill.MaHoaDon, uploadedBillPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi",
+                       MessageBoxButton.OK);
+                    }
+
                     MessageBox.Show("Thanh toán thành công, chờ nhân viên duyệt", "Thông báo",
                    MessageBoxButton.OK);
                     DialogResult = true;
@@ -91,6 +103,39 @@ namespace ApplicationManagement.GUI
 
             }
 
+        }
+
+
+        private string SaveFileToCandidateFolder(string sourceFilePath, string enterpriseID)
+        {
+            try
+            {
+                // Define the destination directory with candidate ID
+                string candidateDirectory = System.IO.Path.Combine(@"D:\App\Bill_Uploaded", enterpriseID);
+
+                // Ensure the directory exists
+                if (!Directory.Exists(candidateDirectory))
+                {
+                    Directory.CreateDirectory(candidateDirectory);
+                }
+
+                // Get the file name
+                string fileName = System.IO.Path.GetFileName(sourceFilePath);
+
+                // Define the destination path
+                string destinationPath = System.IO.Path.Combine(candidateDirectory, fileName);
+
+                // Copy the file to the destination path
+                File.Copy(sourceFilePath, destinationPath, true);
+
+                // Return the destination path
+                return destinationPath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButton.OK);
+                return null;
+            }
         }
 
         private void Add_Bill_Click(object sender, RoutedEventArgs e)
@@ -120,23 +165,21 @@ namespace ApplicationManagement.GUI
                 try
                 {
 
-                    // Define the destination path
-                    string destinationDirectory = @"D:\App\Payment_Uploaded";
+                    string enterpriseID = Login.CurrentAccountID; // Lấy ID của doanh nghiep
 
-                    // Ensure the directory exists
-                    if (!Directory.Exists(destinationDirectory))
+                    // Save file to candidate's folder
+                    string destinationPath = SaveFileToCandidateFolder(fileInfo.FullName, enterpriseID);
+
+                    if (destinationPath != null)
                     {
-                        Directory.CreateDirectory(destinationDirectory);
+                        MessageBox.Show($"Upload file thành công", "Thông báo", MessageBoxButton.OK);
+
+                        nameFileUpload.Text = fileInfo.Name;
+                        uploadedBillPath = destinationPath; // Lưu đường dẫn file CV đã tải lên
                     }
 
-                    // Process the file (e.g., save it to a server or directory)
-                    string destinationPath = System.IO.Path.Combine(destinationDirectory, fileInfo.Name);
-                    //File.Copy(fileInfo.FullName, destinationPath, true);
-
-                    MessageBox.Show($"Upload file thành công", "Thông báo",
-                   MessageBoxButton.OK);
-
                     nameFileUpload.Text = fileInfo.Name;
+
                 }
                 catch (Exception ex)
                 {

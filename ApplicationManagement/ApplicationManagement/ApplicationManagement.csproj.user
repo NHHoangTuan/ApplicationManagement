@@ -46,6 +46,9 @@
     <Compile Update="GUI\ChooseTypeSignUp.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GUI\CVWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GUI\Enterprise.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -56,6 +59,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="GUI\EnterpriseSignUp.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GUI\ImageWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="GUI\JobPosting.xaml.cs">
@@ -135,6 +141,9 @@
     <Page Update="GUI\ChooseTypeSignUp.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="GUI\CVWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="GUI\Enterprise.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -145,6 +154,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\EnterpriseSignUp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GUI\ImageWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GUI\JobPosting.xaml">

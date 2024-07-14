@@ -64,5 +64,10 @@ namespace ApplicationManagement.BUS
         {
             return applicationDAO.getAllResultForCandidate(userID);
         }
+
+        public void updateCVPath(int maPhieu, string cvPath)
+        {
+            applicationDAO.updateCVPath(maPhieu, cvPath);
+        }
     }
 }

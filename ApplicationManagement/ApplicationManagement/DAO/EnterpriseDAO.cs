@@ -118,7 +118,7 @@ namespace ApplicationManagement.DAO {
             // update SQL
             string sql = $"""
                 update DOANHNGHIEP 
-                set LogoPath = 'Assets/Images/Data/{key}.png'
+                set LogoPath = 'D:\App\CV_Uploaded\{key}\.png'
                 where MaThue = {taxID}
                 """;
 

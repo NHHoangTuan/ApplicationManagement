@@ -44,6 +44,18 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "Microsoft.Web.WebView2": {
+              "target": "Package",
+              "version": "[1.0.2592.51, )"
+            },
+            "Pdfium.Net.SDK": {
+              "target": "Package",
+              "version": "[4.91.2704, )"
+            },
+            "Syncfusion.PdfViewer.WPF": {
+              "target": "Package",
+              "version": "[26.1.41, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[8.0.0, )"

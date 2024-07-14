@@ -76,5 +76,11 @@ namespace ApplicationManagement.BUS
             billDAO.DeleteBillByFormID(id);
 
         }
+
+
+        public void updateBillPath(int maHoaDon, string billPath)
+        {
+            billDAO.updateBillPath(maHoaDon, billPath);
+        }
     }
 }

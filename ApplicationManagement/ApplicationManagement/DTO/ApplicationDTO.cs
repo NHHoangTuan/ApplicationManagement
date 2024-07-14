@@ -17,6 +17,7 @@ namespace ApplicationManagement.DTO
         public string Validity { get; set; }
         public string Position { get; set; }
         public EnterpriseDTO Enterprise { get; set; }
+        public string? CVPath { get; set; }
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
