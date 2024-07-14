@@ -2,5 +2,8 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)system.text.json\6.0.9\buildTransitive\netcoreapp3.1\System.Text.Json.targets" Condition="Exists('$(NuGetPackageRoot)system.text.json\6.0.9\buildTransitive\netcoreapp3.1\System.Text.Json.targets')" />
+    <Import Project="$(NuGetPackageRoot)syncfusion.pdftoimageconverter.wpf\26.1.41\build\net6.0-windows7.0\Syncfusion.PdfToImageConverter.WPF.targets" Condition="Exists('$(NuGetPackageRoot)syncfusion.pdftoimageconverter.wpf\26.1.41\build\net6.0-windows7.0\Syncfusion.PdfToImageConverter.WPF.targets')" />
+    <Import Project="$(NuGetPackageRoot)pdfium.net.sdk\4.91.2704\build\Pdfium.Net.SDK.targets" Condition="Exists('$(NuGetPackageRoot)pdfium.net.sdk\4.91.2704\build\Pdfium.Net.SDK.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.web.webview2\1.0.2592.51\build\Microsoft.Web.WebView2.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.web.webview2\1.0.2592.51\build\Microsoft.Web.WebView2.targets')" />
   </ImportGroup>
 </Project>

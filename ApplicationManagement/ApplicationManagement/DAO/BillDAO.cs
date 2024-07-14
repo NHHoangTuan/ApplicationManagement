@@ -35,7 +35,7 @@ namespace ApplicationManagement.DAO
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
 
-            string query = "SELECT MaHoaDon, MaThue, MaPhieu, SoTien, DaNhan FROM HOADON";
+            string query = "SELECT MaHoaDon, MaThue, MaPhieu, SoTien, DaNhan, BillPath FROM HOADON";
 
             EnterpriseDAO enterpriseDAO = new EnterpriseDAO();
 
@@ -46,6 +46,7 @@ namespace ApplicationManagement.DAO
                 {
 
                     string maThue = (string)reader["MaThue"];
+                    var BillPath = reader["BillPath"] == DBNull.Value ? null : (string?)reader["BillPath"];
 
                     BillDTO bill = new BillDTO
                     {
@@ -54,8 +55,9 @@ namespace ApplicationManagement.DAO
                         MaPhieu = Convert.ToInt32(reader["MaPhieu"]),
                         SoTien = Convert.ToInt32(reader["SoTien"]),
                         DaNhan = Convert.ToInt32(reader["DaNhan"]),
-                        Enterprise = enterpriseDAO.getEnterpriseByTaxID(maThue)
-                        
+                        Enterprise = enterpriseDAO.getEnterpriseByTaxID(maThue),            
+                        BillPath = BillPath
+
                     };
                     bills.Add(bill);
                 }
@@ -151,7 +153,7 @@ namespace ApplicationManagement.DAO
 
         public BillDTO getBillByFormID(int recruitFormID)
         {
-            var sql1 = "select MaHoaDon, MaThue, SoTien, DaNhan from HOADON where MaPhieu = @formID";
+            var sql1 = "select MaHoaDon, MaThue, SoTien, DaNhan, BillPath from HOADON where MaPhieu = @formID";
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();
             var command1 = new SqlCommand(sql1, connection);
@@ -166,9 +168,31 @@ namespace ApplicationManagement.DAO
                 bill.SoTien = (int)reader1["SoTien"];
                 bill.DaNhan = (int)reader1["DaNhan"];
                 bill.MaPhieu = recruitFormID;
+                var BillPath = reader1["BillPath"] == DBNull.Value ? null : (string?)reader1["BillPath"];
+                bill.BillPath = BillPath;
             }
 
             return bill;
+        }
+
+
+        public void updateBillPath(int maHoaDon, string billPath)
+        {
+            // update SQL
+            string sql = $"""
+                update HOADON 
+                set BillPath = @billPath
+                where MaHoaDon = @maHoaDon
+                """;
+
+            SqlConnection connection = SqlConnectionData.Connect();
+            connection.Open();
+            var command = new SqlCommand(sql, connection);
+
+            command.Parameters.AddWithValue("@maHoaDon", maHoaDon);
+            command.Parameters.AddWithValue("@billPath", billPath);
+
+            command.ExecuteNonQuery();
         }
 
     }

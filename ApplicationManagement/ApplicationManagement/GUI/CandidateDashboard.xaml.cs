@@ -13,11 +13,13 @@ namespace ApplicationManagement.GUI {
         BindingList<RecruitmentDTO> listNominee = null;
         BindingList<EnterpriseDTO> listEnterprise = null;
         RecruitmentBUS recruitmentBUS;
+        EnterpriseBUS enterpriseBUS;
 
 
         public CandidateDashboard() {
             InitializeComponent();
             recruitmentBUS = new RecruitmentBUS();
+            enterpriseBUS = new EnterpriseBUS();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
@@ -66,7 +68,7 @@ namespace ApplicationManagement.GUI {
                 }
             };*/
 
-
+            listEnterprise = enterpriseBUS.getAllEnterprise();
             listNominee = recruitmentBUS.getAllRecruitment();
             /*listNominee = new BindingList<RecruitmentDTO> { new RecruitmentDTO
             {
@@ -154,10 +156,16 @@ namespace ApplicationManagement.GUI {
                 }
             }
             };*/
-
-
-            var TotalNomineeNumber = listNominee.Count;
-            var TotalEnterpriseNumber = listEnterprise.Count;
+            var TotalNomineeNumber = 0;
+            if (listNominee != null)
+            {
+                TotalNomineeNumber = listNominee.Count;
+            }
+            var TotalEnterpriseNumber = 0;
+            if (listEnterprise != null)
+            {
+                TotalEnterpriseNumber = listEnterprise.Count;
+            }
             Data data = new Data(TotalNomineeNumber, TotalEnterpriseNumber);
             this.DataContext = data;
 

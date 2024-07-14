@@ -53,6 +53,9 @@
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2592.51" />
+    <PackageReference Include="Pdfium.Net.SDK" Version="4.91.2704" />
+    <PackageReference Include="Syncfusion.PdfViewer.WPF" Version="26.1.41" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
@@ -77,6 +80,22 @@
     <None Update="Assets\Images\Design\5.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\x64\pdfium.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\x86\pdfium.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\libpdfium.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Hoang Tuan\.nuget\packages\pdfium.net.sdk\4.91.2704\build\..\content\icudt.dll" />
   </ItemGroup>
 
 </Project>

@@ -80,7 +80,7 @@ namespace ApplicationManagement.GUI
             
 
             MainWindow.Instance.ShowOverlay();
-            ShowOverlay();
+            //ShowOverlay();
 
 
             if (billDetail.ShowDialog() == true)
@@ -94,7 +94,7 @@ namespace ApplicationManagement.GUI
 
 
             }
-            HideOverlay();
+            //HideOverlay();
             MainWindow.Instance.HideOverlay();
         }
 
@@ -149,7 +149,7 @@ namespace ApplicationManagement.GUI
         }
 
 
-        public void ShowOverlay()
+        /*public void ShowOverlay()
         {
             // Hiển thị và làm mờ overlay
             Overlay.Visibility = Visibility.Visible;
@@ -163,6 +163,6 @@ namespace ApplicationManagement.GUI
             DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
             fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
             Overlay.BeginAnimation(OpacityProperty, fadeOut);
-        }
+        }*/
     }
 }

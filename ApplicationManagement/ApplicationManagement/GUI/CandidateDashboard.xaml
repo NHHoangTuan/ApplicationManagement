@@ -99,7 +99,7 @@
                                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
         
         HorizontalAlignment="Center"
-                        VerticalAlignment="Center" Padding="0"
+                        VerticalAlignment="Top" Padding="0"
         HorizontalContentAlignment="Center"
         VerticalContentAlignment="Top"
         BorderThickness="0"
@@ -189,14 +189,6 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
                                                 </Border>
 
 
-
-                                                <Button x:Name="RecruitmentButton" Content="Ứng tuyển" Click="RecruitmentButton_Click"
-                            Background="#5A9" BorderBrush="Transparent"
-                            Grid.Row="1" Grid.Column="2" Style="{StaticResource RecruitButtonStyle}"/>
-
-
-
-
                                             </Grid>
 
 
@@ -242,8 +234,8 @@ Source="{Binding Enterprise.LogoPath, Converter={StaticResource absoluteConverte
                                 <DataTemplate>
                                     <Border Style="{StaticResource whiteBorder}" Background="#eeeeee" Margin="0 10 0 10">
                                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Width="250">
-                                            <Image Source="{Binding Logo, Converter={StaticResource absoluteConverter}}" Width="90" Height="90"/>
-                                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center"/>
+                                            <Image Source="{Binding LogoPath, Converter={StaticResource absoluteConverter}}" Width="90" Height="90"/>
+                                            <TextBlock Text="{Binding EnterpriseName}" FontWeight="Bold" FontSize="15" HorizontalAlignment="Center"/>
                                         </StackPanel>
                                     </Border>
                                 </DataTemplate>

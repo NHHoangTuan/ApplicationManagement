@@ -104,6 +104,9 @@ Source="..\Assets\Images\Design\user_icon.png"
                     </StackPanel>
 
 
+
+
+
                     <Button Content="Xem CV" FontSize="17" Name="viewButton" Width="110" Height="40" VerticalAlignment="Center"
  HorizontalAlignment="Center"
      Click="viewButton_Click" BorderThickness="0" Style="{StaticResource acceptButtonStyle}" />
@@ -142,6 +145,8 @@ Source="..\Assets\Images\Design\user_icon.png"
 
         </Grid>
 
+
+        <Rectangle x:Name="Overlay" Fill="Black" Opacity="0" Visibility="Collapsed" Grid.ColumnSpan="4" Grid.RowSpan="8"/>
 
     </Grid>
 

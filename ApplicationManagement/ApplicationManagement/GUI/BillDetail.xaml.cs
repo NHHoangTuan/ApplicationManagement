@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -66,8 +67,24 @@ namespace ApplicationManagement.GUI
 
         private void ShowDetailBanking_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("/ Bill chuyển khoản /!");
-            this.Close();
+
+            // Hiển thị và làm mờ overlay
+            Overlay.Visibility = Visibility.Visible;
+            DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
+            Overlay.BeginAnimation(OpacityProperty, fadeIn);
+
+            if (selectedBill.BillPath == null) { return; }
+            // Đường dẫn tới ảnh cần hiển thị
+            string imagePath = selectedBill.BillPath;
+
+            ImageWindow imageWindow = new ImageWindow();
+            imageWindow.SetImageSource(imagePath);
+            imageWindow.ShowDialog();
+
+            // Sau khi dialog đóng, ẩn overlay
+            DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
+            fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
+            Overlay.BeginAnimation(OpacityProperty, fadeOut);
         }
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)

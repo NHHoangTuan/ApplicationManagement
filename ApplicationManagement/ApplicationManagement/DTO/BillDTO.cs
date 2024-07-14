@@ -15,6 +15,7 @@ namespace ApplicationManagement.DTO
         public int SoTien { get; set; }
         public int DaNhan { get; set; }
         public EnterpriseDTO? Enterprise { get; set; }
+        public string? BillPath { get; set; }
 
 
         public BillDTO() { 
@@ -25,6 +26,7 @@ namespace ApplicationManagement.DTO
             SoTien = -1;
             DaNhan = -1;
             Enterprise = null;
+            BillPath = null;
             
         }
 

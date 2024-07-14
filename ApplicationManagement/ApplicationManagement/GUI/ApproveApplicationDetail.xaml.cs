@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -25,7 +26,7 @@ namespace ApplicationManagement.GUI
         ApplicationDTO selectedApplication;
         ApplicationBUS applicationBUS;
         ApproveBUS approveBUS;
-
+        private string cvFilePath = "";
 
         public ApproveApplicationDetail(ApplicationDTO a)
         {
@@ -38,9 +39,33 @@ namespace ApplicationManagement.GUI
             approveBUS = new ApproveBUS();
         }
 
+        
+
         private void viewButton_Click(object sender, RoutedEventArgs e)
         {
 
+
+
+            if (selectedApplication.CVPath == null) {
+
+                MessageBox.Show("Không tìm thấy CV");
+                return; }
+
+            // Hiển thị và làm mờ overlay
+            Overlay.Visibility = Visibility.Visible;
+            DoubleAnimation fadeIn = new DoubleAnimation(0, 0.5, TimeSpan.FromSeconds(0.3));
+            Overlay.BeginAnimation(OpacityProperty, fadeIn);
+
+            cvFilePath = selectedApplication.CVPath;
+
+            CVWindow cvWindow = new CVWindow();
+            cvWindow.LoadPdf(cvFilePath);
+            cvWindow.ShowDialog();
+
+            // Sau khi dialog đóng, ẩn overlay
+            DoubleAnimation fadeOut = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.3));
+            fadeOut.Completed += (s, e) => Overlay.Visibility = Visibility.Collapsed;
+            Overlay.BeginAnimation(OpacityProperty, fadeOut);
         }
 
         private void acceptButton_Click(object sender, RoutedEventArgs e)

@@ -31,7 +31,9 @@ namespace ApplicationManagement.GUI
         ApplicationBUS applicationBUS;
         RecruitmentBUS recruitmentBUS;
         BrowseProfileBUS browseProfileBUS;
-        
+
+        private string uploadedCVPath = "";
+
 
         public SubmitApplication(RecruitmentDTO r)
         {
@@ -51,12 +53,45 @@ namespace ApplicationManagement.GUI
             Close();
         }
 
+        private string SaveFileToCandidateFolder(string sourceFilePath, string candidateID)
+        {
+            try
+            {
+                // Define the destination directory with candidate ID
+                string candidateDirectory = System.IO.Path.Combine(@"D:\App\CV_Uploaded", candidateID);
+
+                // Ensure the directory exists
+                if (!Directory.Exists(candidateDirectory))
+                {
+                    Directory.CreateDirectory(candidateDirectory);
+                }
+
+                // Get the file name
+                string fileName = System.IO.Path.GetFileName(sourceFilePath);
+
+                // Define the destination path
+                string destinationPath = System.IO.Path.Combine(candidateDirectory, fileName);
+
+                // Copy the file to the destination path
+                File.Copy(sourceFilePath, destinationPath, true);
+
+                // Return the destination path
+                return destinationPath;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButton.OK);
+                return null;
+            }
+        }
+
+
 
         private void upCV_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "Documents (*.doc;*.docx;*.pdf)|*.doc;*.docx;*.pdf",
+                Filter = "Documents (*.pdf)|*.pdf",
                 Multiselect = false
             };
 
@@ -75,21 +110,18 @@ namespace ApplicationManagement.GUI
                 try
                 {
 
-                    // Define the destination path
-                    string destinationDirectory = @"D:\App\CV_Uploaded";
+                    string candidateID = Login.CurrentAccountID; // Lấy ID của ứng viên
 
-                    // Ensure the directory exists
-                    if (!Directory.Exists(destinationDirectory))
+                    // Save file to candidate's folder
+                    string destinationPath = SaveFileToCandidateFolder(fileInfo.FullName, candidateID);
+
+                    if (destinationPath != null)
                     {
-                        Directory.CreateDirectory(destinationDirectory);
+                        MessageBox.Show($"Upload file thành công", "Thông báo", MessageBoxButton.OK);
+
+                        nameFileUpload.Text = fileInfo.Name;
+                        uploadedCVPath = destinationPath; // Lưu đường dẫn file CV đã tải lên
                     }
-
-                    // Process the file (e.g., save it to a server or directory)
-                    string destinationPath = System.IO.Path.Combine(destinationDirectory, fileInfo.Name);
-                    //File.Copy(fileInfo.FullName, destinationPath, true);
-
-                    MessageBox.Show($"Upload file thành công", "Thông báo",
-                   MessageBoxButton.OK);
 
                     nameFileUpload.Text = fileInfo.Name;
 
@@ -111,6 +143,7 @@ namespace ApplicationManagement.GUI
                 Candidate = candidateBUS.getCandidateByID(Login.CurrentAccountID),
                 Position = recruitmentDTO.Vacancies,
                 Validity = "NOT OK",
+                CVPath= uploadedCVPath,
 
             };
 
@@ -152,7 +185,18 @@ namespace ApplicationManagement.GUI
                        MessageBoxButton.OK);
                     }
 
-                    
+
+                    try
+                    {
+                        applicationBUS.updateCVPath(applicationID, newApplication.CVPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Lỗi",
+                       MessageBoxButton.OK);
+                    }
+
+
                     MessageBox.Show("Nộp hồ sơ ứng tuyển thành công", "Thông báo",
                    MessageBoxButton.OK);
                     DialogResult = true;
