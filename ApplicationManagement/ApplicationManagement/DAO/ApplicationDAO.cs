@@ -273,7 +273,7 @@ JOIN
     HSUV on PDK_UNGTUYEN.CCCD = HSUV.CCCD join DUYETHOSO on DUYETHOSO.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
 	join PDK_QUANGCAO on PDK_QUANGCAO.MaPhieu = DUYETHOSO.MaPhieuQC
     join PHEDUYET on PHEDUYET.MaPhieuUT = PDK_UNGTUYEN.MaPhieu
-	and TinhHopLe = 'OK'  and TrangThai = 1 and HSUV.CCCD = @userID";
+	and TinhHopLe = 'OK' AND (TrangThai = -1 OR TrangThai = 1) and HSUV.CCCD = @userID";
 
             SqlConnection connection = SqlConnectionData.Connect();
             connection.Open();

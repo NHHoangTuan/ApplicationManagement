@@ -113,7 +113,7 @@
                               Grid.Row="3">
                         <StackPanel Margin="10">
 
-                            <TextBlock Text="Hỗ trợ định dạng .docx, pdf kích thước dưới 10MB"
+                            <TextBlock Text="Hỗ trợ định dạng .jpg, .png kích thước dưới 10MB"
                FontSize="14" Foreground="Gray" Margin="0,0,0,10"/>
 
                             <TextBlock Text="" Name="nameFileUpload"

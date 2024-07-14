@@ -83,6 +83,8 @@ namespace ApplicationManagement.GUI
                     }
                     catch (Exception ex) { MessageBox.Show(ex.Message); }
 
+                    
+
                     DialogResult = true;
 
                     //updateDataSource(_currentPage, _currentCurrency, _currentStartPrice, _currentEndPrice, _currentList);

@@ -27,11 +27,13 @@ namespace ApplicationManagement.GUI
         BindingList<ApplicationDTO>? originalList = null; // Store the original list
         BindingList<ApplicationDTO>? listShow = null;
         ApplicationBUS _applicationBUS;
+        BrowseProfileBUS browseProfileBUS;
 
         public ResultApplication()
         {
             InitializeComponent();
             _applicationBUS = new ApplicationBUS();
+            browseProfileBUS = new BrowseProfileBUS();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -57,6 +59,38 @@ namespace ApplicationManagement.GUI
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
+        }
+
+
+        private void status_Loaded(object sender, RoutedEventArgs e)
+        {
+            Border statusBorder = sender as Border;
+            if (statusBorder == null) return;
+
+            TextBlock statusTextBlock = statusBorder.Child as TextBlock;
+            if (statusTextBlock == null) return;
+
+
+            // Find the data context (which is your PaymentItem)
+            ApplicationDTO item = statusBorder.DataContext as ApplicationDTO;
+            if (item == null)
+                return;
+
+            // Apply the logic based on the value of item.IsPaid
+            var browseProfile = browseProfileBUS.getBrowseProfileByFormID(item.FormID);
+
+            if (browseProfile.trangthai == 1)
+            {
+                statusTextBlock.Text = "👍 Đã được doanh nghiệp phê duyệt";
+                statusBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#619eff"));  
+            }
+            
+            else
+            {
+                statusTextBlock.Text = "👎 Bị doanh nghiệp từ chối";
+                statusBorder.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#ff445d"));
+            }
 
         }
     }
