@@ -1,4 +1,4 @@
-﻿<Page x:Class="ApplicationManagement.GUI.ApproveApplicationList"
+﻿<Page x:Class="ApplicationManagement.GUI.EmployeeGUI.ApplicationList"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
       xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="730" d:DesignWidth="990"
-      Title="ApproveApplicationList" Loaded="Page_Loaded">
+      Title="ApplicationList" Loaded="Page_Loaded">
 
     <Page.Resources>
         <local1:RelativeToAbsoluteConverter x:Key="absoluteConverter"/>
@@ -17,7 +17,7 @@
         <local1:DecimalToCurrencyConverter x:Key="currencyConverter"/>
     </Page.Resources>
 
-    <Border Background="#fce5cd" CornerRadius="15">
+    <Border Background="#cfe2f3" CornerRadius="15">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*"/>
@@ -26,10 +26,10 @@
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.50*"/>
+                <RowDefinition Height="0.2*"/>
 
                 <RowDefinition Height="4*"/>
-                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.2*"/>
             </Grid.RowDefinitions>
 
 
@@ -45,7 +45,7 @@
             VerticalAlignment="Center"
             x:Name="MessageText" 
             Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"
-            d:Text="Opps! Không tìm thấy bất kì hồ sơ ứng tuyển cần phê duyệt nào"/>
+            d:Text="Opps! Không tìm thấy bất kì đơn ứng tuyển cần duyệt nào"/>
 
 
             <!--Hien thi danh sach san pham-->
@@ -146,7 +146,7 @@ Source="/Assets/Images/Data/user_icon.png"
                    VerticalAlignment="Center" HorizontalAlignment="Left"
                    Margin="5 0 0 0">
        <Run Text="Tình trạng: " FontWeight="SemiBold"/>
-                                                <Run Text="Đã được nhân viên duyệt, chờ doanh nghiệp phê duyệt"/>
+                                                <Run Text="chưa duyệt"/>
                                             </TextBlock>
 
 
@@ -181,155 +181,7 @@ Source="/Assets/Images/Data/user_icon.png"
             </Border>
 
 
-            <!--Hiển thị thanh search-->
-            <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="18"
-          Grid.Column="1" Background="White" 
-         HorizontalAlignment="Left"
-         Height="35"
-         Width="430"
-         Margin="20, 0,0,0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Icon:PackIconMaterial Width="20" Height="20" Kind="Magnify" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Grid Grid.Column="1"
-                Width="360"
-               Margin="0"
-               HorizontalAlignment="Left">
-                        <TextBox 
-                 BorderThickness="0"
-                 VerticalContentAlignment="Center"
-                 FontSize="13"
-                 Width="360"
-                 x:Name="SearchTermTextBox" TextChanged="SearchTermTextBox_TextChanged"
-                >
-                        </TextBox>
-                        <TextBlock IsHitTestVisible="False" Text="Search . . ." 
-                        VerticalAlignment="Center"
-                        FontSize="13"
-                        HorizontalAlignment="Left" Margin="5,0,0,0"
-                        Foreground="DarkGray">
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
-                    </Grid>
-                </Grid>
-            </Border>
-
-            <!--Hiển thị Filter (Sort by giá :))-->
-
-            <StackPanel Orientation="Horizontal"
-            Grid.Column="2" Grid.ColumnSpan="2"
-            HorizontalAlignment="Left"
-            Margin="30,0, 10, 0">
-
-
-                <Border
-    Height="35"
-    Width="200"
-    Margin="10,0,0,0"
-    BorderThickness="0.5" BorderBrush="Orange" CornerRadius="18"
-     Background="WhiteSmoke" 
->
-                    <ComboBox 
-    Name="SortCombobox"
-    BorderThickness="0" BorderBrush="Transparent" Width="160"
-    VerticalContentAlignment="Center"
-                    SelectionChanged="SortCombobox_SelectionChanged"
-    >
-                        <ComboBox.ItemContainerStyle>
-                            <Style TargetType="ComboBoxItem">
-
-                            </Style>
-                        </ComboBox.ItemContainerStyle>
-                        <ComboBoxItem IsHitTestVisible="False" IsEnabled="False" IsSelected="True" >Sort</ComboBoxItem>
-                        <ComboBoxItem>Sort by name (A-Z)</ComboBoxItem>
-                        <ComboBoxItem>Sort by name (Z-A)</ComboBoxItem>
-
-                        <ComboBoxItem >No Sort</ComboBoxItem>
-                    </ComboBox>
-                </Border>
-
-
-
-            </StackPanel>
-
-
-            <!-- Hiển thị phân trang -->
-            <Border BorderThickness="0.5" BorderBrush="Orange" CornerRadius="15" 
-Background="White" 
-HorizontalAlignment="Right"
-            Margin="0 0 20 0"
-Height="30"
-Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
-Width="180">
-
-                <Grid Width="150">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button
-    Name="FirstButton" Style="{StaticResource MyTransButton}"
-    Background="Transparent"
-    BorderThickness="0" Click="FirstButton_Click"
-    
-                >
-                        <Image Source="/Assets/Images/Design/first_icon.png" Width="15" Height="15"/>
-                    </Button>
-                    <Button
-    Name="PrevButton" Style="{StaticResource MyTransButton}"
-    Grid.Column="1"
-    Background="Transparent" Click="PrevButton_Click"
-    BorderThickness="0"
-   >
-                        <Image Source="/Assets/Images/Design/prev_icon.png" Width="15" Height="15"/>
-                    </Button>
-
-                    <TextBlock 
-    Name="pageInfoTextBlock"
-    Grid.Column="2"
-    Text = "1/1" 
-    FontSize="13"
-    VerticalAlignment="Center"
-    HorizontalAlignment="Center"
-    Foreground="#353935"
-    FontWeight="Medium"
-/>
-
-                    <Button
-    Name="NextButton" Style="{StaticResource MyTransButton}"
-    Grid.Column="3"
-    Background="Transparent"
-    BorderThickness="0" Click="NextButton_Click"
-   >
-                        <Image Source="/Assets/Images/Design/next_icon.png" Width="15" Height="15"/>
-                    </Button>
-
-                    <Button 
-    Name="LastButton" Style="{StaticResource MyTransButton}"
-    Grid.Column="4"
-    Background="Transparent" Click="LastButton_Click"
-    BorderThickness="0"
-    >
-                        <Image Source="/Assets/Images/Design/last_icon.png" Width="15" Height="15"/>
-                    </Button>
-                </Grid>
-            </Border>
+            
 
 
         </Grid>

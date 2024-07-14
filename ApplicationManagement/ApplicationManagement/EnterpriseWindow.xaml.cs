@@ -1,4 +1,5 @@
 ﻿using ApplicationManagement.GUI;
+using ApplicationManagement.GUI.EnterpriseGUI;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -14,6 +15,7 @@ namespace ApplicationManagement {
         JobPosting jobPosting;
         ApproveApplicationList approveApplicationList;
         EnterpriseDashboard enterpriseDashboard;
+        CreatedRecruitList createdRecruitList;
 
         Payment payment;
 
@@ -23,11 +25,12 @@ namespace ApplicationManagement {
             payment = new Payment();
             approveApplicationList = new ApproveApplicationList();
             enterpriseDashboard = new EnterpriseDashboard();
+            createdRecruitList = new CreatedRecruitList();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             ToggleButton[] new_buttons = new ToggleButton[] { JobPostingButton, PaymentButton,
-                ApproveApplicationButton, logOutButton, DashboardButton};
+                ApproveApplicationButton, logOutButton, DashboardButton, CreatedRecruitButton};
             buttons = new_buttons;
 
             DashboardButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
@@ -113,6 +116,17 @@ namespace ApplicationManagement {
             }
 
             pageNavigation.NavigationService.Navigate(enterpriseDashboard);
+        }
+
+        private void CreatedRecruitButton_Click(object sender, RoutedEventArgs e)
+        {
+            changeButtonColor(CreatedRecruitButton);
+            if (pageNavigation.NavigationService.Content != null)
+            {
+                pageNavigation.NavigationService.RemoveBackEntry();
+            }
+
+            pageNavigation.NavigationService.Navigate(createdRecruitList);
         }
     }
 }

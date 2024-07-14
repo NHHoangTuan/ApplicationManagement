@@ -50,5 +50,7 @@ namespace ApplicationManagement.BUS
         {
             return enterpriseDAO.getAllEnterprise();
         }
+
+
     }
 }

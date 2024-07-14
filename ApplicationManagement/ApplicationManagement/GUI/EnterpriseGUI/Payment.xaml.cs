@@ -80,37 +80,17 @@ namespace ApplicationManagement.GUI
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì đơn cần thanh toán nào";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
 
 
-
-            // Display the first page items
-            DisplayCurrentPageItems();
 
         }
 
-        private void UpdatePageInfo()
-        {
-            int totalPages = (int)Math.Ceiling((double)listShow.Count / itemsPerPage);
-            pageInfoTextBlock.Text = $"{currentPage}/{totalPages}";
 
-        }
 
-        private void DisplayCurrentPageItems()
-        {
-            int startIndex = (currentPage - 1) * itemsPerPage;
-            int endIndex = Math.Min(startIndex + itemsPerPage - 1, listShow.Count - 1);
-
-            var currentPageItems = listShow.Skip(startIndex).Take(itemsPerPage).ToList();
-
-            PaymentListView.ItemsSource = currentPageItems;
-
-            UpdatePageInfo();
-        }
-
-        private void Payment_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -146,8 +126,12 @@ namespace ApplicationManagement.GUI
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì đơn cần thanh toán nào";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
 
-          
+
         }
 
         private void PrevButton_Click(object sender, RoutedEventArgs e)

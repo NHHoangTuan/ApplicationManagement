@@ -31,11 +31,15 @@ namespace ApplicationManagement.BUS
             _recruitFormDAO.updateRecruitStatus(recruitment);
         }
 
-        public void setValidity(RecruitmentDTO recruitment, bool isValidity)
+        public void setValidity(RecruitmentDTO recruitment, string Validity)
         {
-            if (isValidity)
+            if (Validity == "OK")
             {
                 recruitment.Validity = "OK";
+            }
+            else if(Validity == "REJECT")
+            {
+                recruitment.Validity = "REJECT";
             }
             else
             {
@@ -69,6 +73,17 @@ namespace ApplicationManagement.BUS
         public BindingList<RecruitmentDTO> getAllRecruitmentForApplication()
         {
             return _recruitFormDAO.getAllRecruitmentForApplication();
+        }
+
+
+        public void updateValidity(int maPhieuTD, string validity)
+        {
+            _recruitFormDAO.updateValidity(maPhieuTD, validity);
+        }
+
+        public BindingList<RecruitmentDTO> getAllRecruitmentForEnterprise(string enterpriseID)
+        {
+            return _recruitFormDAO.getAllRecruitmentForEnterprise(enterpriseID);
         }
     }
 }

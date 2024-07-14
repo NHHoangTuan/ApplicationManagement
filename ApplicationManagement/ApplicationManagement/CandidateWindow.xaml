@@ -74,6 +74,13 @@
                         </StackPanel>
                     </ToggleButton>
 
+                    <ToggleButton Style="{DynamicResource menuToggleButton}" Click="SubmittedButton_Click" x:Name="SubmittedButton" >
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Ubisoft" Style="{DynamicResource menuButtonIcon}"/>
+                            <TextBlock Text="Đã nộp hồ sơ" Style="{DynamicResource menuButtonText}"/>
+                        </StackPanel>
+                    </ToggleButton>
+
 
                     <ToggleButton Style="{DynamicResource menuToggleButton}" Click="ResultButton_Click" x:Name="ResultButton" >
                         <StackPanel Orientation="Horizontal">

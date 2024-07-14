@@ -60,8 +60,12 @@ namespace ApplicationManagement.GUI
             {
                 MessageText.Text = "Opps! Không tìm thấy bất kì bài tuyển dụng cần duyệt nào";
             }
+            else
+            {
+                MessageText.Text = "";
+            }
 
-            
+
 
             // Display the first page items
             //DisplayCurrentPageItems();
@@ -83,61 +87,21 @@ namespace ApplicationManagement.GUI
                 var currentListShow = originalList.Where(a => a.Validity == "NOT OK").ToList();
 
                 recruitListView.ItemsSource = currentListShow;
-             
+
+                if (currentListShow == null || currentListShow.Count == 0)
+                {
+                    MessageText.Text = "Opps! Không tìm thấy bất kì bài tuyển dụng cần duyệt nào";
+                }
+                else
+                {
+                    MessageText.Text = "";
+                }
+
 
             }
         }
 
-        private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
-        }
-
-        private void SortCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void FirstButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void PrevButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void NextButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LastButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-        private void UpdatePageInfo()
-        {
-            int totalPages = (int)Math.Ceiling((double)list.Count / itemsPerPage);
-            pageInfoTextBlock.Text = $"{currentPage}/{totalPages}";
-
-        }
-
-
-        private void DisplayCurrentPageItems()
-        {
-            int startIndex = (currentPage - 1) * itemsPerPage;
-            int endIndex = Math.Min(startIndex + itemsPerPage - 1, list.Count - 1);
-
-            var currentPageItems = list.Skip(startIndex).Take(itemsPerPage).ToList();
-
-            recruitListView.ItemsSource = currentPageItems;
-
-            UpdatePageInfo();
-        }
 
       
     }
